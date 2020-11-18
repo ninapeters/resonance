@@ -593,29 +593,6 @@
       },
       {
         "external_urls": {
-          "spotify": "https://open.spotify.com/artist/5eAWCfyUhZtHHtBdNk56l1"
-        },
-        "followers": {
-          "href": null,
-          "total": 6651212
-        },
-        "genres": ["alternative metal", "nu metal", "rap metal"],
-        "href": "https://api.spotify.com/v1/artists/5eAWCfyUhZtHHtBdNk56l1",
-        "id": "5eAWCfyUhZtHHtBdNk56l1",
-        "images": [
-          {
-            "height": 640,
-            "url": "https://i.scdn.co/image/a89dc04c6faef6658c7a8d02f444775c9024cbb2",
-            "width": 640
-          }
-        ],
-        "name": "System Of A Down",
-        "popularity": 83,
-        "type": "artist",
-        "uri": "spotify:artist:5eAWCfyUhZtHHtBdNk56l1"
-      },
-      {
-        "external_urls": {
           "spotify": "https://open.spotify.com/artist/49bzE5vRBRIota4qeHtQM8"
         },
         "followers": {

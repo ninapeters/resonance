@@ -1,8 +1,19 @@
-import styled from 'styled-components'
-//import PropTypes from 'prop-types'
+//import styled from 'styled-components'
+import data from '../data/artistList.json'
 
+//import PropTypes from 'prop-types'
 //ArtistList.propTypes = {}
 
 export default function ArtistList() {
-  return <h2>Artist List</h2>
+  const artists = data.artists.items
+
+  return (
+    <div>
+      {artists.map(({ id, name }) => (
+        <div>
+          <span key={id}>{name}</span>
+        </div>
+      ))}
+    </div>
+  )
 }
