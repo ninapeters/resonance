@@ -40,7 +40,6 @@ function ArtistList() {
 }
 const ListStyled = styled.ul`
   display: grid;
-  font-family: sans-serif;
   gap: 8px;
   list-style: none;
   margin: 0;
