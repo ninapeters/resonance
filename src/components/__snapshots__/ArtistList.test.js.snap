@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistList renders correctly 1`] = `
+<div>
+  <ul
+    class="ArtistList__ListStyled-sc-3jabtd-0 deMAEU"
+  >
+    <li
+      class="ArtistList__ListItemStyled-sc-3jabtd-1 gkVczE"
+    >
+      <span>
+        Dance Gavin Dance
+      </span>
+      We Own The Night
+    </li>
+  </ul>
+</div>
+`;
