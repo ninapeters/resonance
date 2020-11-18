@@ -1,34 +1,17 @@
 import styled from 'styled-components/macro'
-//import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
-import getTrackData from '../services/getTrackData'
+import PropTypes from 'prop-types'
 
 export default ArtistList
 
-/* ArtistList.propTypes = {
-  artist: PropTypes.string.isRequired,
-  songTitle: PropTypes.string.isRequired,
-} */
+ArtistList.propTypes = {
+  artists: PropTypes.array,
+}
 
-function ArtistList() {
-  const [trackData, setTrackData] = useState([])
-
-  useEffect(() => {
-    getTrackData().then((tracks) => setTrackData(tracks.items))
-  }, [])
-
-  const artistDataList = trackData.map((item) => {
-    return {
-      artist: item.artists[0].name,
-      songTitle: item.name,
-      id: item.id,
-    }
-  })
-
+function ArtistList({ artists }) {
   return (
     <div>
       <ListStyled>
-        {artistDataList.map(({ artist, songTitle, id }) => (
+        {artists?.map(({ artist, songTitle, id }) => (
           <ListItemStyled key={id}>
             <span>{artist}</span>
             {songTitle}
@@ -56,7 +39,7 @@ const ListItemStyled = styled.li`
 
   background-color: #e6eded;
   color: #2e3332;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 600;
   padding: 20px;
 `
