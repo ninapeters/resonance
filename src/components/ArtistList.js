@@ -37,8 +37,8 @@ const ListItemStyled = styled.li`
     text-transform: uppercase;
   }
 
-  background-color: #e6eded;
-  color: #2e3332;
+  background-color: var(--primary);
+  color: var(--font);
   font-size: 1em;
   font-weight: 600;
   padding: 20px;

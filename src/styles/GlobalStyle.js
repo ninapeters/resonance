@@ -10,4 +10,9 @@ body {
     margin: 0;
     font-size: 112.5%;
 }
+
+:root {
+    --primary: #e6eded;
+    --font: #2e3332;
+}
 `
