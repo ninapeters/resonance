@@ -1,9 +1,11 @@
+import ArtistList from './components/ArtistList'
+
+export default App
+
 function App() {
   return (
     <div>
-      <h1>Capstone Project</h1>
+      <ArtistList />
     </div>
   )
 }
-
-export default App

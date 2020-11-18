@@ -5,7 +5,10 @@ import getTrackData from '../services/getTrackData'
 
 export default ArtistList
 
-//ArtistList.propTypes = {}
+/* ArtistList.propTypes = {
+  artist: PropTypes.string.isRequired,
+  songTitle: PropTypes.string.isRequired,
+} */
 
 function ArtistList() {
   const [trackData, setTrackData] = useState([])
@@ -35,18 +38,19 @@ function ArtistList() {
     </div>
   )
 }
-
 const ListStyled = styled.ul`
   display: grid;
   font-family: sans-serif;
   gap: 8px;
   list-style: none;
+  margin: 0;
   padding: 0;
 `
 const ListItemStyled = styled.li`
   span {
     display: block;
     font-size: 75%;
+    font-weight: 300;
     padding-bottom: 6px;
     text-transform: uppercase;
   }
