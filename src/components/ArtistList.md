@@ -9,3 +9,20 @@
   ]}
 />
 ```
+
+```js
+<ArtistList
+  artists={[
+    {
+      artist: 'Unprocessed',
+      songTitle: 'Real',
+      id: '8cas87lw9104öü1',
+    },
+    {
+      artist: 'Polyphia',
+      songTitle: 'G.O.A.T.',
+      id: 'p40187lx9104ve6',
+    },
+  ]}
+/>
+```

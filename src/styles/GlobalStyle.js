@@ -12,7 +12,7 @@ body {
 }
 
 :root {
-    --primary: #e6eded;
-    --font: #2e3332;
+    --primary-light: #e6eded;
+    --primary-dark: #2e3332;
 }
 `

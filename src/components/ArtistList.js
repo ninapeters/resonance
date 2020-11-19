@@ -4,21 +4,19 @@ import PropTypes from 'prop-types'
 export default ArtistList
 
 ArtistList.propTypes = {
-  artists: PropTypes.array,
+  artists: PropTypes.array.isRequired,
 }
 
 function ArtistList({ artists }) {
   return (
-    <div>
-      <ListStyled>
-        {artists?.map(({ artist, songTitle, id }) => (
-          <ListItemStyled key={id}>
-            <span>{artist}</span>
-            {songTitle}
-          </ListItemStyled>
-        ))}
-      </ListStyled>
-    </div>
+    <ListStyled>
+      {artists?.map(({ artist, songTitle, id }) => (
+        <ListItemStyled key={id}>
+          <span>{artist}</span>
+          {songTitle}
+        </ListItemStyled>
+      ))}
+    </ListStyled>
   )
 }
 const ListStyled = styled.ul`
@@ -37,8 +35,8 @@ const ListItemStyled = styled.li`
     text-transform: uppercase;
   }
 
-  background-color: var(--primary);
-  color: var(--font);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
   font-size: 1em;
   font-weight: 600;
   padding: 20px;
