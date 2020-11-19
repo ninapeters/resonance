@@ -7,8 +7,8 @@ export default createGlobalStyle`
 
 body {
     font-family: sans-serif;
-    margin: 0;
     font-size: 112.5%;
+    margin: 0;
 }
 
 :root {
