@@ -7,16 +7,23 @@ export default App
 
 function App() {
   const [artistData, setArtistData] = useState([])
+  const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
-    getTrackData().then((tracks) =>
-      setArtistData(normalizeArtists(tracks.items))
-    )
+    getTrackData()
+      .then((tracks) => setArtistData(normalizeArtists(tracks.items)))
+      .catch((error) => {
+        setHasError(true)
+      })
   }, [])
 
   return (
     <div>
-      <ArtistList artists={artistData} />
+      {hasError ? (
+        <strong>Sorry, there was an error.</strong>
+      ) : (
+        <ArtistList artists={artistData} />
+      )}
     </div>
   )
 }
