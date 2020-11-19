@@ -1,29 +1,20 @@
-import ArtistList from './components/ArtistList'
 import { useState, useEffect } from 'react'
-import getTrackData from './services/getTrackData'
+import data from './data/spotifyTrackData.json'
 import normalizeArtists from './services/normalizeArtists'
+import ArtistList from './components/ArtistList'
 
 export default App
 
 function App() {
   const [artistData, setArtistData] = useState([])
-  const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
-    getTrackData()
-      .then((tracks) => setArtistData(normalizeArtists(tracks.items)))
-      .catch((error) => {
-        setHasError(true)
-      })
+    setArtistData(normalizeArtists(data.tracks.items))
   }, [])
 
   return (
     <div>
-      {hasError ? (
-        <strong>Sorry, there was an error.</strong>
-      ) : (
-        <ArtistList artists={artistData} />
-      )}
+      <ArtistList artists={artistData} />
     </div>
   )
 }
