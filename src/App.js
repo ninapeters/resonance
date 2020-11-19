@@ -1,9 +1,20 @@
+import { useState, useEffect } from 'react'
+import data from './data/spotifyTrackData.json'
+import normalizeArtists from './services/normalizeArtists'
+import ArtistList from './components/ArtistList'
+
+export default App
+
 function App() {
+  const [artistData, setArtistData] = useState([])
+
+  useEffect(() => {
+    setArtistData(normalizeArtists(data.tracks.items))
+  }, [])
+
   return (
     <div>
-      <h1>Capstone Project</h1>
+      <ArtistList artists={artistData} />
     </div>
   )
 }
-
-export default App
