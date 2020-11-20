@@ -9,7 +9,12 @@ AudioButton.propTypes = {
   songUrl: PropTypes.string.isRequired,
 }
 
-export default function AudioButton({ songUrl }) {
+export default function AudioButton({
+  songUrl,
+  id,
+  setCurrentSong,
+  currentSong,
+}) {
   const song = new Howl({
     src: [`${songUrl}`],
     format: ['mp3'],
@@ -26,13 +31,14 @@ export default function AudioButton({ songUrl }) {
   }, [])
 
   useEffect(() => {
-    if (isSongPlaying) {
+    if (currentSong === id && isSongPlaying) {
       songRef.current.play()
       songRef.current.fade(0, 0.2, 500)
     } else {
+      setIsSongPlaying(false)
       songRef.current.pause()
     }
-  }, [isSongPlaying])
+  }, [currentSong, isSongPlaying])
 
   return (
     <Button onClick={handleAudio}>
@@ -41,6 +47,7 @@ export default function AudioButton({ songUrl }) {
   )
 
   function handleAudio() {
+    setCurrentSong(id)
     setIsSongPlaying(!isSongPlaying)
   }
 }
