@@ -2,13 +2,11 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../AudioButton/AudioButton'
 
-export default ArtistList
-
 ArtistList.propTypes = {
   artists: PropTypes.array.isRequired,
 }
 
-function ArtistList({ artists }) {
+export default function ArtistList({ artists }) {
   return (
     <ListStyled>
       {artists?.map(({ artist, songTitle, songSnippet, id }) => (

@@ -1,8 +1,13 @@
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 import { useState, useEffect, useRef } from 'react'
 import { Howl } from 'howler'
 import { ReactComponent as PlayIcon } from '../../assets/play.svg'
 import { ReactComponent as PauseIcon } from '../../assets/pause.svg'
+
+AudioButton.propTypes = {
+  songUrl: PropTypes.string.isRequired,
+}
 
 export default function AudioButton({ songUrl }) {
   const song = new Howl({
@@ -23,6 +28,7 @@ export default function AudioButton({ songUrl }) {
   useEffect(() => {
     if (isSongPlaying) {
       songRef.current.play()
+      songRef.current.fade(0, 0.2, 500)
     } else {
       songRef.current.pause()
     }
