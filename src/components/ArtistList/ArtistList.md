@@ -1,3 +1,5 @@
+List of two artists
+
 ```js
 <ArtistList
   artists={[

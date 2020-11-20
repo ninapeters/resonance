@@ -13,8 +13,8 @@ function ArtistList({ artists }) {
     <ListStyled>
       {artists?.map(({ artist, songTitle, songSnippet, id }) => (
         <ListItemStyled key={id}>
-          <span>{artist}</span>
-          {songTitle}
+          <Artist>{artist}</Artist>
+          <Song>{songTitle}</Song>
           <ButtonWrapper>
             <AudioButton songUrl={songSnippet} />
           </ButtonWrapper>
@@ -32,21 +32,27 @@ const ListStyled = styled.ul`
   padding: 0;
 `
 const ListItemStyled = styled.li`
-  span {
-    display: block;
-    font-size: 75%;
-    font-weight: 300;
-    padding-bottom: 6px;
-    text-transform: uppercase;
-  }
-
+  display: grid;
+  grid-template-columns: 80% auto;
+  grid-template-rows: repeat(2, 50%);
   background-color: var(--primary-light);
+  padding: 20px;
+`
+const Artist = styled.span`
+  display: block;
+  font-size: 75%;
+  font-weight: 300;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+`
+const Song = styled.span`
   color: var(--primary-dark);
   font-size: 1em;
   font-weight: 600;
-  padding: 20px;
+  grid-column-start: 1;
 `
 const ButtonWrapper = styled.div`
-  display: grid;
-  justify-content: flex-end;
+  grid-row: 1/3;
+  grid-column-start: 2;
+  justify-self: end;
 `
