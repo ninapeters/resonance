@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import AudioButton from '../AudioButton/AudioButton'
 
 export default ArtistList
 
@@ -10,15 +11,19 @@ ArtistList.propTypes = {
 function ArtistList({ artists }) {
   return (
     <ListStyled>
-      {artists?.map(({ artist, songTitle, id }) => (
+      {artists?.map(({ artist, songTitle, songSnippet, id }) => (
         <ListItemStyled key={id}>
           <span>{artist}</span>
           {songTitle}
+          <ButtonWrapper>
+            <AudioButton songUrl={songSnippet} />
+          </ButtonWrapper>
         </ListItemStyled>
       ))}
     </ListStyled>
   )
 }
+
 const ListStyled = styled.ul`
   display: grid;
   gap: 8px;
@@ -40,4 +45,8 @@ const ListItemStyled = styled.li`
   font-size: 1em;
   font-weight: 600;
   padding: 20px;
+`
+const ButtonWrapper = styled.div`
+  display: grid;
+  justify-content: flex-end;
 `
