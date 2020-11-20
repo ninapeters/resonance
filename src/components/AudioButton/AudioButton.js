@@ -1,11 +1,15 @@
 import styled from 'styled-components/macro'
-//import PropTypes from 'prop-types'
-import { useState, useEffect, useRef } from 'react'
-import { Howl } from 'howler'
+import PropTypes from 'prop-types'
 import { ReactComponent as PlayIcon } from '../../assets/play.svg'
 import { ReactComponent as PauseIcon } from '../../assets/pause.svg'
+import useAudio from './useAudio'
 
-//AudioButton.propTypes = {}
+AudioButton.propTypes = {
+  songUrl: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  currentSong: PropTypes.string.isRequired,
+  setCurrentSong: PropTypes.func.isRequired,
+}
 
 export default function AudioButton({
   songUrl,
@@ -13,33 +17,11 @@ export default function AudioButton({
   currentSong,
   setCurrentSong,
 }) {
-  const song = new Howl({
-    src: [`${songUrl}`],
-    format: ['mp3'],
-    preload: true,
-    autoplay: false,
-    volume: 0.2,
-    onend: function () {
-      setIsSongPlaying(false)
-    },
+  const { isSongPlaying, setIsSongPlaying } = useAudio({
+    songUrl,
+    id,
+    currentSong,
   })
-
-  const [isSongPlaying, setIsSongPlaying] = useState(false)
-  let songRef = useRef(null)
-
-  useEffect(() => {
-    songRef.current = song
-  }, [])
-
-  useEffect(() => {
-    if (currentSong === id && isSongPlaying) {
-      songRef.current.play()
-      songRef.current.fade(0, 0.2, 500)
-    } else {
-      setIsSongPlaying(false)
-      songRef.current.pause()
-    }
-  }, [currentSong, isSongPlaying])
 
   return (
     <Button onClick={handleAudio}>
