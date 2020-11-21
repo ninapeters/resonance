@@ -13,7 +13,9 @@ exports[`AudioButton renders correctly 1`] = `
 <button
   class="c0"
 >
-  <svg>
+  <svg
+    title="play"
+  >
     play.svg
   </svg>
 </button>

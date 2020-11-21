@@ -1,7 +1,5 @@
 import AudioButton from './AudioButton'
-
 import { render } from '@testing-library/react'
-import user from '@testing-library/user-event'
 
 describe('AudioButton', () => {
   it('renders correctly', () => {
@@ -17,7 +15,7 @@ describe('AudioButton', () => {
   })
 
   it('shows play button per default', () => {
-    const { isSongPlaying, getByText } = render(
+    const { isSongPlaying, getByTitle } = render(
       <AudioButton
         songUrl={'https://www.testurl.com'}
         id={'nj8se0eqez237'}
@@ -25,27 +23,7 @@ describe('AudioButton', () => {
         setCurrentSong={() => {}}
       />
     )
-    expect(getByText(/play/)).toBeInTheDocument()
     expect(isSongPlaying).toBeFalsy()
+    expect(getByTitle('play')).toBeInTheDocument()
   })
-
-  /*   it('changes the state isSongPlaying by calling handleAudio', () => {
-    const handleAudioMock = jest.fn()
-    const { getByTitle, getByRole } = render(
-      <AudioButton
-        songUrl={'https://www.testurl.com'}
-        id={'nj8se0eqez237'}
-        currentSong={'nj8se0eqez237'}
-        setCurrentSong={() => {}}
-        onClick={handleAudioMock}
-      />
-    )
-    expect(getByTitle(/pause/)).toBeInTheDocument()
-
-    const button = getByRole('button')
-    expect(button).toBeInTheDocument()
-
-    user.click(button)
-    expect(handleAudioMock).toHaveBeenCalled()
-  }) */
 })

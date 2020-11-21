@@ -69,7 +69,9 @@ exports[`ArtistList renders correctly 1`] = `
       <button
         class="c5"
       >
-        <svg>
+        <svg
+          title="play"
+        >
           play.svg
         </svg>
       </button>
