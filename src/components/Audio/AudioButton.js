@@ -17,7 +17,7 @@ export default function AudioButton({
   currentSong,
   setCurrentSong,
 }) {
-  const { isSongPlaying, setIsSongPlaying } = useAudio({
+  const { isSongPlaying, toggleAudioState } = useAudio({
     songUrl,
     id,
     currentSong,
@@ -31,7 +31,7 @@ export default function AudioButton({
 
   function handleAudio() {
     setCurrentSong(id)
-    setIsSongPlaying(!isSongPlaying)
+    toggleAudioState()
   }
 }
 

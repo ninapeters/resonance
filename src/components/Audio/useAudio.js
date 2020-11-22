@@ -30,5 +30,9 @@ export default function useAudio({ songUrl, id, currentSong }) {
     }
   }, [currentSong, isSongPlaying])
 
-  return { isSongPlaying, setIsSongPlaying }
+  function toggleAudioState() {
+    setIsSongPlaying(!isSongPlaying)
+  }
+
+  return { isSongPlaying, toggleAudioState }
 }
