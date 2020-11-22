@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import AudioButton from '../AudioButton/AudioButton'
+import AudioButton from '../Audio/AudioButton'
 import { useState } from 'react'
 
 ArtistList.propTypes = {

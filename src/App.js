@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import data from './data/spotifyTrackData.json'
 import normalizeArtists from './services/normalizeArtists'
-import ArtistList from './components/ArtistList/ArtistList'
+import ArtistList from './components/Artists/ArtistList'
 
 export default App
 
