@@ -8,21 +8,21 @@ ArtistList.propTypes = {
 }
 
 export default function ArtistList({ artists }) {
-  const { toggleCurrentSong, isSongPlaying, currentSong } = useAudio({
+  const { toggleCurrentSongId, isSongPlaying, currentSongId } = useAudio({
     artists,
   })
 
   return (
     <ListStyled>
-      {artists?.map(({ artist, songTitle, songSnippet, id }) => (
+      {artists?.map(({ artist, songTitle, id }) => (
         <ListItemStyled key={id}>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
           <ButtonWrapper>
             <AudioButton
-              handleClick={() => toggleCurrentSong(id)}
-              isSongPlaying={isSongPlaying && currentSong === id}
-              currentSong={currentSong}
+              handleClick={() => toggleCurrentSongId(id)}
+              isSongPlaying={isSongPlaying && currentSongId === id}
+              currentSongId={currentSongId}
             />
           </ButtonWrapper>
         </ListItemStyled>

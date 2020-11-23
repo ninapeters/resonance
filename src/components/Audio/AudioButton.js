@@ -4,15 +4,13 @@ import { ReactComponent as PlayIcon } from '../../assets/play.svg'
 import { ReactComponent as PauseIcon } from '../../assets/pause.svg'
 
 AudioButton.propTypes = {
-  songUrl: PropTypes.string,
-  id: PropTypes.string,
-  currentSong: PropTypes.string,
-  setCurrentSong: PropTypes.func,
+  handleClick: PropTypes.func,
+  isSongPlaying: PropTypes.bool,
 }
 
 export default function AudioButton({ handleClick, isSongPlaying }) {
   return (
-    <Button onClick={() => handleClick()}>
+    <Button onClick={handleClick}>
       {isSongPlaying ? <PauseIcon title="pause" /> : <PlayIcon title="play" />}
     </Button>
   )
