@@ -2,7 +2,6 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { ReactComponent as PlayIcon } from '../../assets/play.svg'
 import { ReactComponent as PauseIcon } from '../../assets/pause.svg'
-import useAudio from './useAudio'
 
 AudioButton.propTypes = {
   songUrl: PropTypes.string,
@@ -11,28 +10,12 @@ AudioButton.propTypes = {
   setCurrentSong: PropTypes.func,
 }
 
-export default function AudioButton({
-  songUrl,
-  id,
-  currentSong,
-  setCurrentSong,
-}) {
-  const { isSongPlaying, toggleAudioState } = useAudio({
-    songUrl,
-    id,
-    currentSong,
-  })
-
+export default function AudioButton({ handleClick, isSongPlaying }) {
   return (
-    <Button onClick={handleAudio}>
+    <Button onClick={() => handleClick()}>
       {isSongPlaying ? <PauseIcon title="pause" /> : <PlayIcon title="play" />}
     </Button>
   )
-
-  function handleAudio() {
-    setCurrentSong(id)
-    toggleAudioState()
-  }
 }
 
 const Button = styled.button`

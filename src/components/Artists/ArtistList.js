@@ -1,14 +1,16 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Audio/AudioButton'
-import { useState } from 'react'
+import useAudio from '../Audio/useAudio'
 
 ArtistList.propTypes = {
   artists: PropTypes.array.isRequired,
 }
 
 export default function ArtistList({ artists }) {
-  const [currentSong, setCurrentSong] = useState()
+  const { toggleCurrentSong, isSongPlaying, currentSong } = useAudio({
+    artists,
+  })
 
   return (
     <ListStyled>
@@ -18,10 +20,9 @@ export default function ArtistList({ artists }) {
           <Song>{songTitle}</Song>
           <ButtonWrapper>
             <AudioButton
-              songUrl={songSnippet}
-              id={id}
+              handleClick={() => toggleCurrentSong(id)}
+              isSongPlaying={isSongPlaying && currentSong === id}
               currentSong={currentSong}
-              setCurrentSong={setCurrentSong}
             />
           </ButtonWrapper>
         </ListItemStyled>
