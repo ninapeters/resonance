@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import data from './data/spotifyTrackData.json'
 import normalizeArtists from './services/normalizeArtists'
 import ArtistList from './components/Artists/ArtistList'
@@ -14,7 +15,15 @@ function App() {
 
   return (
     <div>
+      <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
       <ArtistList artists={artistData} />
     </div>
   )
 }
+
+const UnmuteMessage = styled.p`
+  padding: 4px;
+  color: var(--primary-dark-transparent);
+  text-align: center;
+  font-size: 0.7em;
+`
