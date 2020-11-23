@@ -8,5 +8,6 @@ Audio Button
   id={'nj8se0eqez237'}
   currentSong={'nj8se0eqez237'}
   setCurrentSong={() => {}}
+  handleAudio={() => {}}
 />
 ```
