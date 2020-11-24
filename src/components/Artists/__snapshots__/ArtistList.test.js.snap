@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtistList renders correctly 1`] = `
+.c5 {
+  background-color: transparent;
+  border: var(--primary-dark) 2px solid;
+  fill: var(--primary-dark);
+  height: 46px;
+  padding: 10px;
+  width: 46px;
+}
+
+.c0 {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c1 {
+  display: grid;
+  grid-template-columns: 80% auto;
+  grid-template-rows: repeat(2,50%);
+  background-color: var(--primary-light);
+  padding: 20px;
+}
+
+.c2 {
+  display: block;
+  font-size: 75%;
+  font-weight: 300;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.c3 {
+  color: var(--primary-dark);
+  font-size: 1em;
+  font-weight: 600;
+  grid-column-start: 1;
+}
+
+.c4 {
+  grid-row: 1/3;
+  grid-column-start: 2;
+  justify-self: end;
+}
+
+<ul
+  class="c0"
+>
+  <li
+    class="c1"
+  >
+    <span
+      class="c2"
+    >
+      Dance Gavin Dance
+    </span>
+    <span
+      class="c3"
+    >
+      We Own The Night
+    </span>
+    <div
+      class="c4"
+    >
+      <button
+        class="c5"
+      >
+        <svg
+          title="play"
+        >
+          play.svg
+        </svg>
+      </button>
+    </div>
+  </li>
+</ul>
+`;
