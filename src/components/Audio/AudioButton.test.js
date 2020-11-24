@@ -1,5 +1,5 @@
 import AudioButton from './AudioButton'
-import { render } from '@testing-library/react'
+import { render, rerender } from '@testing-library/react'
 import user from '@testing-library/user-event'
 
 describe('AudioButton', () => {
@@ -33,5 +33,16 @@ describe('AudioButton', () => {
     user.click(button)
 
     expect(handleClickMock).toHaveBeenCalled()
+  })
+
+  it('changes the button appearance by rerender', () => {
+    const { getByTitle, queryByTitle, rerender } = render(
+      <AudioButton onClick={() => {}} isSongPlaying={false} />
+    )
+    expect(getByTitle('play')).toBeInTheDocument()
+
+    rerender(<AudioButton onClick={() => {}} isSongPlaying={true} />)
+    expect(queryByTitle('play')).not.toBeInTheDocument()
+    expect(getByTitle('pause')).toBeInTheDocument()
   })
 })
