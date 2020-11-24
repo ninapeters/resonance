@@ -8,7 +8,7 @@ const Button = styled.button`
   font-size: 0.8em;
   width: 100%;
 
-  &.active {
+  &:disabled {
     border: var(--primary-light) 2px solid;
     color: var(--primary-light);
   }

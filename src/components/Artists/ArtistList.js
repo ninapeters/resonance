@@ -1,7 +1,8 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import AudioButton from '../Audio/AudioButton'
+import { useState } from 'react'
 import useAudio from '../Audio/useAudio'
+import AudioButton from '../Audio/AudioButton'
 import Button from '../Button'
 
 ArtistList.propTypes = {
@@ -13,23 +14,56 @@ export default function ArtistList({ artists }) {
     artists,
   })
 
-  return (
-    <ListStyled>
-      {artists?.map(({ artist, songTitle, id }) => (
-        <ListItemStyled key={id}>
-          <Artist>{artist}</Artist>
-          <Song>{songTitle}</Song>
-          <AudioButtonWrapper>
-            <AudioButton
-              handleClick={() => toggleCurrentSongId(id)}
-              isSongPlaying={isSongPlaying && currentSongId === id}
-              currentSongId={currentSongId}
-            />
-          </AudioButtonWrapper>
-        </ListItemStyled>
-      ))}
-    </ListStyled>
+  const [savedSongs, setSavedSongs] = useState([])
+
+  const isDisabled = savedSongs.some(
+    (savedSong) => savedSong.id === artists.find((artist) => artist.id)
   )
+
+  return (
+    <>
+      <ListStyled>
+        {artists?.map(({ artist, songTitle, id }) => (
+          <ListItemStyled key={id}>
+            <Artist>{artist}</Artist>
+            <Song>{songTitle}</Song>
+            <AudioButtonWrapper>
+              <AudioButton
+                handleClick={() => toggleCurrentSongId(id)}
+                isSongPlaying={isSongPlaying && currentSongId === id}
+                currentSongId={currentSongId}
+              />
+            </AudioButtonWrapper>
+            <ButtonWrapper>
+              <Button onClick={() => saveSong(id)} disabled={isDisabled}>
+                Save this song
+              </Button>
+            </ButtonWrapper>
+          </ListItemStyled>
+        ))}
+      </ListStyled>
+      <ListStyled>
+        {savedSongs.length > 0 && <h3>Saved songs:</h3>}
+        {savedSongs.map(({ artist, songTitle, id }) => (
+          <SavedSongsListItem key={id}>
+            <Artist>{artist}</Artist>
+            <Song>{songTitle}</Song>
+            <AudioButtonWrapper>
+              <AudioButton
+                handleClick={() => toggleCurrentSongId(id)}
+                isSongPlaying={isSongPlaying && currentSongId === id}
+                currentSongId={currentSongId}
+              />
+            </AudioButtonWrapper>
+          </SavedSongsListItem>
+        ))}
+      </ListStyled>
+    </>
+  )
+
+  function saveSong(id) {
+    setSavedSongs([artists.find((artist) => artist.id === id), ...savedSongs])
+  }
 }
 
 const ListStyled = styled.ul`
@@ -42,7 +76,7 @@ const ListStyled = styled.ul`
 const ListItemStyled = styled.li`
   display: grid;
   grid-template-columns: 80% auto;
-  grid-template-rows: repeat(2, 50%);
+  grid-template-rows: 1fr 1fr 2fr;
   background-color: var(--primary-light);
   padding: 20px;
 `
@@ -63,4 +97,15 @@ const AudioButtonWrapper = styled.div`
   grid-row: 1/3;
   grid-column-start: 2;
   justify-self: end;
+`
+const ButtonWrapper = styled.div`
+  grid-column: 1/3;
+  align-self: end;
+`
+const SavedSongsListItem = styled.li`
+  display: grid;
+  grid-template-columns: 80% auto;
+  grid-template-rows: 1fr 1fr;
+  background-color: var(--primary-light);
+  padding: 20px;
 `
