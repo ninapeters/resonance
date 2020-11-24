@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Audio/AudioButton'
 import useAudio from '../Audio/useAudio'
+import Button from '../Button'
 
 ArtistList.propTypes = {
   artists: PropTypes.array.isRequired,
@@ -18,13 +19,13 @@ export default function ArtistList({ artists }) {
         <ListItemStyled key={id}>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
-          <ButtonWrapper>
+          <AudioButtonWrapper>
             <AudioButton
               handleClick={() => toggleCurrentSongId(id)}
               isSongPlaying={isSongPlaying && currentSongId === id}
               currentSongId={currentSongId}
             />
-          </ButtonWrapper>
+          </AudioButtonWrapper>
         </ListItemStyled>
       ))}
     </ListStyled>
@@ -58,7 +59,7 @@ const Song = styled.span`
   font-weight: 600;
   grid-column-start: 1;
 `
-const ButtonWrapper = styled.div`
+const AudioButtonWrapper = styled.div`
   grid-row: 1/3;
   grid-column-start: 2;
   justify-self: end;
