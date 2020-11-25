@@ -16,10 +16,6 @@ export default function ArtistList({ artists }) {
 
   const [savedSongs, setSavedSongs] = useState([])
 
-  const isDisabled = savedSongs.some(
-    (savedSong) => savedSong.id === artists.find((artist) => artist.id)
-  )
-
   return (
     <>
       <ListStyled>
@@ -35,7 +31,11 @@ export default function ArtistList({ artists }) {
               />
             </AudioButtonWrapper>
             <ButtonWrapper>
-              <Button onClick={() => saveSong(id)} disabled={isDisabled}>
+              <Button
+                id={id}
+                onClick={() => saveSong(id)}
+                disabled={savedSongs.some((song) => song.id === id)}
+              >
                 Save this song
               </Button>
             </ButtonWrapper>

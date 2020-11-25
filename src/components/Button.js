@@ -9,8 +9,7 @@ const Button = styled.button`
   width: 100%;
 
   &:disabled {
-    border: var(--primary-light) 2px solid;
-    color: var(--primary-light);
+    opacity: 50%;
   }
 `
 export default Button
