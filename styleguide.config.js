@@ -4,7 +4,7 @@ module.exports = {
   ignore: [
     '**/App.js',
     '**/*.test.js',
-    '**/**/**/useAudio.js',
+    '**/**/**/use**.js',
     '**/styles/GlobalStyle.js',
   ],
   defaultExample: false,

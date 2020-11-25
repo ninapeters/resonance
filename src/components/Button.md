@@ -5,5 +5,5 @@ Regular Button
 ```
 
 ```js
-<Button className="active">Remove this song</Button>
+<Button disabled>Save this song</Button>
 ```

@@ -1,24 +1,21 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Audio/AudioButton'
-import Button from '../Button'
 
-ArtistList.propTypes = {
-  artists: PropTypes.array.isRequired,
+SavedSong.propTypes = {
+  savedSongs: PropTypes.array.isRequired,
 }
 
-export default function ArtistList({
-  artists,
+export default function SavedSong({
+  savedSongs,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
-  saveSong,
-  savedSongs,
 }) {
   return (
     <ListStyled>
-      {artists?.map(({ artist, songTitle, id }) => (
-        <ListItemStyled key={id}>
+      {savedSongs?.map(({ artist, songTitle, id }) => (
+        <SavedSongsListItem key={id}>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
           <AudioButtonWrapper>
@@ -28,16 +25,7 @@ export default function ArtistList({
               currentSongId={currentSongId}
             />
           </AudioButtonWrapper>
-          <ButtonWrapper>
-            <Button
-              id={id}
-              onClick={() => saveSong(id)}
-              disabled={savedSongs?.some((song) => song.id === id)}
-            >
-              Save this song
-            </Button>
-          </ButtonWrapper>
-        </ListItemStyled>
+        </SavedSongsListItem>
       ))}
     </ListStyled>
   )
@@ -50,10 +38,10 @@ const ListStyled = styled.ul`
   margin: 0;
   padding: 0;
 `
-const ListItemStyled = styled.li`
+const SavedSongsListItem = styled.li`
   display: grid;
   grid-template-columns: 80% auto;
-  grid-template-rows: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
   background-color: var(--primary-light);
   padding: 20px;
 `
@@ -74,8 +62,4 @@ const AudioButtonWrapper = styled.div`
   grid-row: 1/3;
   grid-column-start: 2;
   justify-self: end;
-`
-const ButtonWrapper = styled.div`
-  grid-column: 1/3;
-  align-self: end;
 `
