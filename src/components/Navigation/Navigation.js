@@ -1,4 +1,10 @@
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+Navigation.propTypes = {
+  handleClick: PropTypes.func,
+  children: PropTypes.string.isRequired,
+}
 
 export default function Navigation({ handleClick, children }) {
   return <NavButton onClick={handleClick}>{children}</NavButton>

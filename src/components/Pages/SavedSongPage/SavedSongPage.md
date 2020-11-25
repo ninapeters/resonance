@@ -1,7 +1,7 @@
 One list item:
 
 ```js
-<SavedSong
+<SavedSongPage
   savedSongs={[
     {
       artist: 'Unprocessed',
@@ -11,7 +11,7 @@ One list item:
     },
   ]}
   toggleCurrentSongId={() => {}}
-  isSongPlaying="false"
+  isSongPlaying={false}
   currentSongId="a"
 />
 ```

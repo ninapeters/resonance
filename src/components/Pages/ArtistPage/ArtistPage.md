@@ -11,7 +11,7 @@ One list item:
     },
   ]}
   toggleCurrentSongId={() => {}}
-  isSongPlaying="false"
+  isSongPlaying={false}
   currentSongId="a"
   saveSong={() => {}}
   savedSongs={[]}
