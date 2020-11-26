@@ -1,14 +1,8 @@
-import AudioButton from './AudioButton'
 import { render } from '@testing-library/react'
 import user from '@testing-library/user-event'
+import AudioButton from './AudioButton'
 
 describe('AudioButton', () => {
-  beforeEach(() => {
-    window.HTMLMediaElement.prototype.play = jest.fn()
-    window.HTMLMediaElement.prototype.pause = jest.fn()
-    window.HTMLMediaElement.prototype.load = jest.fn()
-  })
-
   it('renders correctly', () => {
     const { container } = render(
       <AudioButton onClick={() => {}} isSongPlaying={false} />
@@ -24,7 +18,7 @@ describe('AudioButton', () => {
     expect(getByTitle('play')).toBeInTheDocument()
   })
 
-  it('calls handleClick correctly', () => {
+  it('calls handleClick with the correct id', () => {
     const handleClickMock = jest.fn()
     const { getByRole } = render(
       <AudioButton

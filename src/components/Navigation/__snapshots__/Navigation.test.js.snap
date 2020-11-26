@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation renders correctly 1`] = `
+.c0 {
+  background-color: transparent;
+  border: var(--primary-dark) 2px solid;
+  color: var(--primary-dark);
+  font-size: 0.8em;
+  padding: 6px;
+}
+
+<button
+  class="c0"
+>
+  all songs
+</button>
+`;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import data from '../data/spotifyTrackData.json'
 import normalizeArtists from '../services/normalizeArtists'
 import { useState, useEffect } from 'react'
@@ -18,7 +18,7 @@ function App() {
   const { toggleCurrentSongId, isSongPlaying, currentSongId } = useAudio({
     artistData,
   })
-  const { savedSongs, saveSong } = useArtist({ artistData })
+  const { SavedSongsList, saveSong } = useArtist({ artistData })
   const [showSavedSongPage, setShowSavedSongPage] = useState(false)
 
   return (
@@ -32,14 +32,14 @@ function App() {
             isSongPlaying={isSongPlaying}
             currentSongId={currentSongId}
             saveSong={saveSong}
-            savedSongs={savedSongs}
+            SavedSongsList={SavedSongsList}
           />
         ) : (
           ''
         )}
         {showSavedSongPage ? (
           <SavedSongPage
-            savedSongs={savedSongs}
+            SavedSongsList={SavedSongsList}
             toggleCurrentSongId={toggleCurrentSongId}
             isSongPlaying={isSongPlaying}
             currentSongId={currentSongId}
@@ -74,8 +74,8 @@ const Footer = styled.footer`
   place-self: center;
 `
 const UnmuteMessage = styled.p`
-  padding: 4px;
   color: var(--primary-dark-transparent);
-  text-align: center;
   font-size: 0.7em;
+  padding: 4px;
+  text-align: center;
 `

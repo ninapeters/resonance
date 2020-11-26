@@ -14,8 +14,8 @@ exports[`ArtistPage renders correctly 1`] = `
   background-color: transparent;
   border: var(--primary-dark) 2px solid;
   color: var(--primary-dark);
-  padding: 6px;
   font-size: 0.8em;
+  padding: 6px;
   width: 100%;
 }
 
@@ -32,10 +32,10 @@ exports[`ArtistPage renders correctly 1`] = `
 }
 
 .c1 {
+  background-color: var(--primary-light);
   display: grid;
   grid-template-columns: 80% auto;
   grid-template-rows: 1fr 1fr 2fr;
-  background-color: var(--primary-light);
   padding: 20px;
 }
 
@@ -55,16 +55,16 @@ exports[`ArtistPage renders correctly 1`] = `
 }
 
 .c4 {
-  grid-row: 1/3;
   grid-column-start: 2;
+  grid-row: 1/3;
   justify-self: end;
 }
 
 .c6 {
-  grid-column: 1/3;
   -webkit-align-self: end;
   -ms-flex-item-align: end;
   align-self: end;
+  grid-column: 1/3;
 }
 
 <ul

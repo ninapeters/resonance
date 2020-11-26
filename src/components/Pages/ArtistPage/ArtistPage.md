@@ -1,7 +1,7 @@
 One list item:
 
 ```js
-<ArtistList
+<ArtistPage
   artists={[
     {
       artist: 'Unprocessed',
@@ -14,6 +14,6 @@ One list item:
   isSongPlaying={false}
   currentSongId="a"
   saveSong={() => {}}
-  savedSongs={[]}
+  SavedSongsList={[]}
 />
 ```

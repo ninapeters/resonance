@@ -3,22 +3,22 @@ import PropTypes from 'prop-types'
 import AudioButton from '../../Buttons/AudioButton'
 
 SavedSongPage.propTypes = {
-  savedSongs: PropTypes.array.isRequired,
+  SavedSongsList: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
-  currentSongId: PropTypes.string,
+  currentSongId: PropTypes.string.isRequired,
 }
 
 export default function SavedSongPage({
-  savedSongs,
+  SavedSongsList,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
 }) {
   return (
     <ListStyled>
-      {savedSongs?.map(({ artist, songTitle, id }) => (
-        <SavedSongsListItem key={id}>
+      {SavedSongsList?.map(({ artist, songTitle, id }) => (
+        <SavedSongsListListItem key={id}>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
           <AudioButtonWrapper>
@@ -28,7 +28,7 @@ export default function SavedSongPage({
               currentSongId={currentSongId}
             />
           </AudioButtonWrapper>
-        </SavedSongsListItem>
+        </SavedSongsListListItem>
       ))}
     </ListStyled>
   )
@@ -41,11 +41,11 @@ const ListStyled = styled.ul`
   margin: 0;
   padding: 0;
 `
-const SavedSongsListItem = styled.li`
+const SavedSongsListListItem = styled.li`
+  background-color: var(--primary-light);
   display: grid;
   grid-template-columns: 80% auto;
   grid-template-rows: 1fr 1fr;
-  background-color: var(--primary-light);
   padding: 20px;
 `
 const Artist = styled.span`
@@ -62,7 +62,7 @@ const Song = styled.span`
   grid-column-start: 1;
 `
 const AudioButtonWrapper = styled.div`
-  grid-row: 1/3;
   grid-column-start: 2;
+  grid-row: 1/3;
   justify-self: end;
 `

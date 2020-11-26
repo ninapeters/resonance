@@ -3,22 +3,22 @@ import PropTypes from 'prop-types'
 import AudioButton from '../../Buttons/AudioButton'
 import Button from '../../Buttons/Button'
 
-ArtistList.propTypes = {
+ArtistPage.propTypes = {
   artists: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
-  currentSongId: PropTypes.string,
+  currentSongId: PropTypes.string.isRequired,
   saveSong: PropTypes.func.isRequired,
-  savedSongs: PropTypes.array,
+  SavedSongsList: PropTypes.array.isRequired,
 }
 
-export default function ArtistList({
+export default function ArtistPage({
   artists,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
   saveSong,
-  savedSongs,
+  SavedSongsList,
 }) {
   return (
     <ListStyled>
@@ -37,7 +37,7 @@ export default function ArtistList({
             <Button
               id={id}
               handleClick={() => saveSong(id)}
-              disabled={savedSongs?.some((song) => song.id === id)}
+              disabled={SavedSongsList?.some((song) => song.id === id)}
             >
               Save this song
             </Button>
@@ -56,10 +56,10 @@ const ListStyled = styled.ul`
   padding: 0;
 `
 const ListItemStyled = styled.li`
+  background-color: var(--primary-light);
   display: grid;
   grid-template-columns: 80% auto;
   grid-template-rows: 1fr 1fr 2fr;
-  background-color: var(--primary-light);
   padding: 20px;
 `
 const Artist = styled.span`
@@ -76,11 +76,11 @@ const Song = styled.span`
   grid-column-start: 1;
 `
 const AudioButtonWrapper = styled.div`
-  grid-row: 1/3;
   grid-column-start: 2;
+  grid-row: 1/3;
   justify-self: end;
 `
 const ButtonWrapper = styled.div`
-  grid-column: 1/3;
   align-self: end;
+  grid-column: 1/3;
 `

@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
 export default function useArtist({ artistData }) {
-  const [savedSongs, setSavedSongs] = useState([])
+  const [SavedSongsList, setSavedSongsList] = useState([])
 
-  return { savedSongs, saveSong }
+  return { SavedSongsList, saveSong }
 
   function saveSong(id) {
-    setSavedSongs([
+    setSavedSongsList([
       artistData.find((artist) => artist.id === id),
-      ...savedSongs,
+      ...SavedSongsList,
     ])
   }
 }

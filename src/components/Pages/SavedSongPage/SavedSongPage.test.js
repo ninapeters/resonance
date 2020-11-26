@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react'
-import SavedSongPage from './SavedSongPage'
 import user from '@testing-library/user-event'
+import SavedSongPage from './SavedSongPage'
 
 describe('SavedSongPage', () => {
   it('renders correctly', () => {
     const { container } = render(
       <SavedSongPage
-        savedSongs={[
+        SavedSongsList={[
           {
             artist: 'Unprocessed',
             songTitle: 'Real',
@@ -21,11 +21,11 @@ describe('SavedSongPage', () => {
     )
     expect(container.firstChild).toMatchSnapshot()
   })
-  it('sets the current id to currentSongId', () => {
+  it('calls toggleCurrentSongId correctly', () => {
     const toggleCurrentSongIdMock = jest.fn()
     const { getByRole } = render(
       <SavedSongPage
-        savedSongs={[
+        SavedSongsList={[
           {
             artist: 'Unprocessed',
             songTitle: 'Real',
@@ -45,7 +45,7 @@ describe('SavedSongPage', () => {
   it('toggles the isSongPlaying state correctly', () => {
     const { getByTitle, queryByTitle, rerender } = render(
       <SavedSongPage
-        savedSongs={[
+        SavedSongsList={[
           {
             artist: 'Unprocessed',
             songTitle: 'Real',
@@ -62,7 +62,7 @@ describe('SavedSongPage', () => {
 
     rerender(
       <SavedSongPage
-        savedSongs={[
+        SavedSongsList={[
           {
             artist: 'Unprocessed',
             songTitle: 'Real',

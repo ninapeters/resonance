@@ -1,10 +1,13 @@
 import { render } from '@testing-library/react'
-import Navigation from './Navigation'
 import user from '@testing-library/user-event'
+import Navigation from './Navigation'
 
 describe('Navigation', () => {
   it('renders correctly', () => {
-    render(<Navigation onClick={() => {}}>all songs</Navigation>)
+    const { container } = render(
+      <Navigation onClick={() => {}}>all songs</Navigation>
+    )
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('calls onClick correctly', () => {

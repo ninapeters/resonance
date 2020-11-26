@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
-import Button from './Button'
 import user from '@testing-library/user-event'
+import Button from './Button'
 
 describe('Button', () => {
   it('renders correctly', () => {
@@ -18,7 +18,7 @@ describe('Button', () => {
     )
     expect(container.firstChild).toMatchSnapshot()
   })
-  it('calls handleClick correctly', () => {
+  it('calls handleClick with the correct id', () => {
     const handleClickMock = jest.fn()
     const { getByRole } = render(
       <Button disabled={false} handleClick={() => handleClickMock('a')}>

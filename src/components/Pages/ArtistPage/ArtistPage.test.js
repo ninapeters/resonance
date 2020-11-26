@@ -1,13 +1,8 @@
-import ArtistPage from './ArtistPage'
 import { render } from '@testing-library/react'
 import user from '@testing-library/user-event'
+import ArtistPage from './ArtistPage'
 
 describe('ArtistPage', () => {
-  beforeEach(() => {
-    window.HTMLMediaElement.prototype.play = jest.fn()
-    window.HTMLMediaElement.prototype.pause = jest.fn()
-    window.HTMLMediaElement.prototype.load = jest.fn()
-  })
   it('renders correctly', () => {
     const { container } = render(
       <ArtistPage
@@ -23,12 +18,12 @@ describe('ArtistPage', () => {
         isSongPlaying={false}
         currentSongId="a"
         saveSong={() => {}}
-        savedSongs={[]}
+        SavedSongsList={[]}
       />
     )
     expect(container.firstChild).toMatchSnapshot()
   })
-  it('sets the current id to currentSongId', () => {
+  it('calls toggleCurrentSongId correctly', () => {
     const toggleCurrentSongIdMock = jest.fn()
     const { getByTestId } = render(
       <ArtistPage
@@ -44,7 +39,7 @@ describe('ArtistPage', () => {
         isSongPlaying={false}
         currentSongId="a"
         saveSong={() => {}}
-        savedSongs={[]}
+        SavedSongsList={[]}
       />
     )
     const button = getByTestId('audio-button')
@@ -66,7 +61,7 @@ describe('ArtistPage', () => {
         isSongPlaying={false}
         currentSongId="a"
         saveSong={() => {}}
-        savedSongs={[]}
+        SavedSongsList={[]}
       />
     )
     expect(getByTitle('play')).toBeInTheDocument()
@@ -85,13 +80,13 @@ describe('ArtistPage', () => {
         isSongPlaying={true}
         currentSongId="a"
         saveSong={() => {}}
-        savedSongs={[]}
+        SavedSongsList={[]}
       />
     )
     expect(queryByTitle('play')).not.toBeInTheDocument()
     expect(getByTitle('pause')).toBeInTheDocument()
   })
-  it('calls the saveSong function correctly', () => {
+  it('calls saveSong correctly', () => {
     const saveSongMock = jest.fn()
     const { getByTestId } = render(
       <ArtistPage
@@ -107,59 +102,11 @@ describe('ArtistPage', () => {
         isSongPlaying={false}
         currentSongId="a"
         saveSong={saveSongMock}
-        savedSongs={[]}
+        SavedSongsList={[]}
       />
     )
     const button = getByTestId('button')
     user.click(button)
     expect(saveSongMock).toHaveBeenCalled()
-  })
-  it('renders a new array for savedSongs by calling saveSong function', () => {
-    const saveSongMock = jest.fn()
-    const { getByTestId, rerender } = render(
-      <ArtistPage
-        artists={[
-          {
-            artist: 'Unprocessed',
-            songTitle: 'Real',
-            songSnippet: 'https://test/',
-            id: 'a',
-          },
-        ]}
-        toggleCurrentSongId={() => {}}
-        isSongPlaying={false}
-        currentSongId="a"
-        saveSong={saveSongMock}
-        savedSongs={[]}
-      />
-    )
-    const button = getByTestId('button')
-    user.click(button)
-    expect(saveSongMock).toHaveBeenCalled()
-
-    rerender(
-      <ArtistPage
-        artists={[
-          {
-            artist: 'Unprocessed',
-            songTitle: 'Real',
-            songSnippet: 'https://test/',
-            id: 'a',
-          },
-        ]}
-        toggleCurrentSongId={() => {}}
-        isSongPlaying={false}
-        currentSongId="a"
-        saveSong={saveSongMock}
-        savedSongs={[
-          {
-            artist: 'Unprocessed',
-            songTitle: 'Real',
-            songSnippet: 'https://test/',
-            id: 'a',
-          },
-        ]}
-      />
-    )
   })
 })

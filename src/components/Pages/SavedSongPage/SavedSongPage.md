@@ -2,7 +2,7 @@ One saved song item:
 
 ```js
 <SavedSongPage
-  savedSongs={[
+  SavedSongsList={[
     {
       artist: 'Unprocessed',
       songTitle: 'Real',

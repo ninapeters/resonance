@@ -5,8 +5,8 @@ exports[`Button renders correctly 1`] = `
   background-color: transparent;
   border: var(--primary-dark) 2px solid;
   color: var(--primary-dark);
-  padding: 6px;
   font-size: 0.8em;
+  padding: 6px;
   width: 100%;
 }
 
@@ -24,7 +24,7 @@ exports[`Button renders correctly 1`] = `
 
 exports[`Button renders correctly 2`] = `
 <button
-  class="Button__ButtonStyled-o1fnpc-0 bMbFer"
+  class="Button__ButtonStyled-o1fnpc-0 eSgmRv"
   data-testid="button"
   disabled=""
 >

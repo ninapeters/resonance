@@ -23,8 +23,8 @@ const ButtonStyled = styled.button`
   background-color: transparent;
   border: var(--primary-dark) 2px solid;
   color: var(--primary-dark);
-  padding: 6px;
   font-size: 0.8em;
+  padding: 6px;
   width: 100%;
 
   &:disabled {
