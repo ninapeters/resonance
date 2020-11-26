@@ -1,12 +1,12 @@
 import styled from 'styled-components/macro'
-import data from '../data/spotifyTrackData.json'
-import normalizeArtists from '../services/normalizeArtists'
+import data from './data/spotifyTrackData.json'
+import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
-import ArtistPage from './Pages/ArtistPage/ArtistPage'
-import SavedSongPage from './Pages/SavedSongPage/SavedSongPage'
-import Navigation from './Navigation/Navigation'
+import ArtistPage from './components/Pages/ArtistPage/ArtistPage'
+import SavedSongPage from './components/Pages/SavedSongPage/SavedSongPage'
+import Navigation from './components/Navigation/Navigation'
 
 export default App
 
@@ -18,7 +18,7 @@ function App() {
   const { toggleCurrentSongId, isSongPlaying, currentSongId } = useAudio({
     artistData,
   })
-  const { SavedSongsList, saveSong } = useArtist({ artistData })
+  const { savedSongsList, saveSong } = useArtist({ artistData })
   const [showSavedSongPage, setShowSavedSongPage] = useState(false)
 
   return (
@@ -32,14 +32,14 @@ function App() {
             isSongPlaying={isSongPlaying}
             currentSongId={currentSongId}
             saveSong={saveSong}
-            SavedSongsList={SavedSongsList}
+            savedSongsList={savedSongsList}
           />
         ) : (
           ''
         )}
         {showSavedSongPage ? (
           <SavedSongPage
-            SavedSongsList={SavedSongsList}
+            savedSongsList={savedSongsList}
             toggleCurrentSongId={toggleCurrentSongId}
             isSongPlaying={isSongPlaying}
             currentSongId={currentSongId}

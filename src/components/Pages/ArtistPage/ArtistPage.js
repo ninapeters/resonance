@@ -9,7 +9,7 @@ ArtistPage.propTypes = {
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string.isRequired,
   saveSong: PropTypes.func.isRequired,
-  SavedSongsList: PropTypes.array.isRequired,
+  savedSongsList: PropTypes.array.isRequired,
 }
 
 export default function ArtistPage({
@@ -18,7 +18,7 @@ export default function ArtistPage({
   isSongPlaying,
   currentSongId,
   saveSong,
-  SavedSongsList,
+  savedSongsList,
 }) {
   return (
     <ListStyled>
@@ -37,7 +37,7 @@ export default function ArtistPage({
             <Button
               id={id}
               handleClick={() => saveSong(id)}
-              disabled={SavedSongsList?.some((song) => song.id === id)}
+              disabled={savedSongsList?.some((song) => song.id === id)}
             >
               Save this song
             </Button>

@@ -3,21 +3,21 @@ import PropTypes from 'prop-types'
 import AudioButton from '../../Buttons/AudioButton'
 
 SavedSongPage.propTypes = {
-  SavedSongsList: PropTypes.array.isRequired,
+  savedSongsList: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string.isRequired,
 }
 
 export default function SavedSongPage({
-  SavedSongsList,
+  savedSongsList,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
 }) {
   return (
     <ListStyled>
-      {SavedSongsList?.map(({ artist, songTitle, id }) => (
+      {savedSongsList?.map(({ artist, songTitle, id }) => (
         <SavedSongsListListItem key={id}>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
