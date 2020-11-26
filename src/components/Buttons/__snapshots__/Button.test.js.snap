@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+.c0 {
+  background-color: transparent;
+  border: var(--primary-dark) 2px solid;
+  color: var(--primary-dark);
+  font-size: 0.8em;
+  padding: 6px;
+  width: 100%;
+}
+
+.c0:disabled {
+  opacity: 50%;
+}
+
+<button
+  class="c0"
+  data-testid="button"
+>
+  Save this song
+</button>
+`;
+
+exports[`Button renders correctly 2`] = `
+<button
+  class="Button__ButtonStyled-o1fnpc-0 eSgmRv"
+  data-testid="button"
+  disabled=""
+>
+  Save this song
+</button>
+`;

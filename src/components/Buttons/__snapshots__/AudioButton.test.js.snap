@@ -12,6 +12,7 @@ exports[`AudioButton renders correctly 1`] = `
 
 <button
   class="c0"
+  data-testid="audio-button"
 >
   <svg
     title="play"
