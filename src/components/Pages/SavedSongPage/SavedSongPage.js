@@ -2,14 +2,14 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../../Buttons/AudioButton'
 
-SavedSong.propTypes = {
+SavedSongPage.propTypes = {
   savedSongs: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string,
 }
 
-export default function SavedSong({
+export default function SavedSongPage({
   savedSongs,
   toggleCurrentSongId,
   isSongPlaying,

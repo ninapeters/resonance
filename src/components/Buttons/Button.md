@@ -1,9 +1,13 @@
 Regular Button
 
 ```js
-<Button>Save this song</Button>
+<Button disabled={false} handleClick={() => {}}>
+  Save this song
+</Button>
 ```
 
 ```js
-<Button disabled>Save this song</Button>
+<Button disabled={true} handleClick={() => {}}>
+  Save this song
+</Button>
 ```

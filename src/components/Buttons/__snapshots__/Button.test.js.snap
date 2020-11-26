@@ -16,6 +16,7 @@ exports[`Button renders correctly 1`] = `
 
 <button
   class="c0"
+  data-testid="button"
 >
   Save this song
 </button>
@@ -23,7 +24,8 @@ exports[`Button renders correctly 1`] = `
 
 exports[`Button renders correctly 2`] = `
 <button
-  class="Button-o1fnpc-0 gdWuvq"
+  class="Button__ButtonStyled-o1fnpc-0 bMbFer"
+  data-testid="button"
   disabled=""
 >
   Save this song

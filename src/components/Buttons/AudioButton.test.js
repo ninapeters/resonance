@@ -1,5 +1,5 @@
 import AudioButton from './AudioButton'
-import { render, rerender } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import user from '@testing-library/user-event'
 
 describe('AudioButton', () => {
@@ -27,12 +27,15 @@ describe('AudioButton', () => {
   it('calls handleClick correctly', () => {
     const handleClickMock = jest.fn()
     const { getByRole } = render(
-      <AudioButton handleClick={handleClickMock} isSongPlaying={false} />
+      <AudioButton
+        handleClick={() => handleClickMock('a')}
+        isSongPlaying={false}
+      />
     )
     const button = getByRole('button')
     user.click(button)
 
-    expect(handleClickMock).toHaveBeenCalled()
+    expect(handleClickMock).toHaveBeenCalledWith('a')
   })
 
   it('changes the button appearance by rerender', () => {

@@ -10,7 +10,7 @@ AudioButton.propTypes = {
 
 export default function AudioButton({ handleClick, isSongPlaying }) {
   return (
-    <Button onClick={handleClick}>
+    <Button onClick={handleClick} data-testid="audio-button">
       {isSongPlaying ? <PauseIcon title="pause" /> : <PlayIcon title="play" />}
     </Button>
   )

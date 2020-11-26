@@ -36,7 +36,7 @@ export default function ArtistList({
           <ButtonWrapper>
             <Button
               id={id}
-              onClick={() => saveSong(id)}
+              handleClick={() => saveSong(id)}
               disabled={savedSongs?.some((song) => song.id === id)}
             >
               Save this song

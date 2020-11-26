@@ -68,6 +68,7 @@ exports[`SavedSongPage renders correctly 1`] = `
     >
       <button
         class="c5"
+        data-testid="audio-button"
       >
         <svg
           title="play"

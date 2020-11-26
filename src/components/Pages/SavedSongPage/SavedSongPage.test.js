@@ -78,23 +78,4 @@ describe('SavedSongPage', () => {
     expect(queryByTitle('play')).not.toBeInTheDocument()
     expect(getByTitle('pause')).toBeInTheDocument()
   })
-  xit('matches the savedSongs id with the currentSongId', () => {
-    const toggleCurrentSongIdMock = jest.fn()
-    const { container } = render(
-      <SavedSongPage
-        savedSongs={[
-          {
-            artist: 'Unprocessed',
-            songTitle: 'Real',
-            songSnippet: 'https://test/',
-            id: 'a',
-          },
-        ]}
-        toggleCurrentSongId={toggleCurrentSongIdMock}
-        isSongPlaying={false}
-        currentSongId="a"
-      />
-    )
-    expect(valueOf('currentSongId')).toEqual('a')
-  })
 })

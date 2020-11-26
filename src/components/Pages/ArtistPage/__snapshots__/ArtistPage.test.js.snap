@@ -88,6 +88,7 @@ exports[`ArtistPage renders correctly 1`] = `
     >
       <button
         class="c5"
+        data-testid="audio-button"
       >
         <svg
           title="play"
@@ -101,7 +102,7 @@ exports[`ArtistPage renders correctly 1`] = `
     >
       <button
         class="c7"
-        id="a"
+        data-testid="button"
       >
         Save this song
       </button>
