@@ -48,7 +48,7 @@ function App() {
           ''
         )}
       </Main>
-      <Footer>
+      <Footer className="footer-fixed">
         <Navigation
           handleClick={() => setShowSavedSongPage(!showSavedSongPage)}
         >
@@ -62,6 +62,12 @@ const AppWrapper = styled.div`
   display: grid;
   grid-template-rows: 6% auto 8%;
   height: 100vh;
+
+  &.footer-fixed {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+  }
 `
 const Main = styled.main`
   overflow-y: auto;
