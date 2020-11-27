@@ -6,7 +6,7 @@ describe('SavedSongPage', () => {
   it('renders correctly', () => {
     const { container } = render(
       <SavedSongPage
-        SavedSongsList={[
+        savedSongsList={[
           {
             artist: 'Unprocessed',
             songTitle: 'Real',
@@ -25,7 +25,7 @@ describe('SavedSongPage', () => {
     const toggleCurrentSongIdMock = jest.fn()
     const { getByRole } = render(
       <SavedSongPage
-        SavedSongsList={[
+        savedSongsList={[
           {
             artist: 'Unprocessed',
             songTitle: 'Real',
@@ -45,7 +45,7 @@ describe('SavedSongPage', () => {
   it('toggles the isSongPlaying state correctly', () => {
     const { getByTitle, queryByTitle, rerender } = render(
       <SavedSongPage
-        SavedSongsList={[
+        savedSongsList={[
           {
             artist: 'Unprocessed',
             songTitle: 'Real',
@@ -62,7 +62,7 @@ describe('SavedSongPage', () => {
 
     rerender(
       <SavedSongPage
-        SavedSongsList={[
+        savedSongsList={[
           {
             artist: 'Unprocessed',
             songTitle: 'Real',
