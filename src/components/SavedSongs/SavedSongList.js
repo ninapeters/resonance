@@ -1,29 +1,24 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import AudioButton from '../../Buttons/AudioButton'
-import Button from '../../Buttons/Button'
+import AudioButton from '../Buttons/AudioButton'
 
-ArtistPage.propTypes = {
-  artists: PropTypes.array.isRequired,
+SavedSongList.propTypes = {
+  savedSongs: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string.isRequired,
-  saveSong: PropTypes.func.isRequired,
-  savedSongsList: PropTypes.array.isRequired,
 }
 
-export default function ArtistPage({
-  artists,
+export default function SavedSongList({
+  savedSongs,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
-  saveSong,
-  savedSongsList,
 }) {
   return (
     <ListStyled>
-      {artists?.map(({ artist, songTitle, id }) => (
-        <ListItemStyled key={id}>
+      {savedSongs?.map(({ artist, songTitle, id }) => (
+        <ListItem key={id}>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
           <AudioButtonWrapper>
@@ -33,16 +28,7 @@ export default function ArtistPage({
               currentSongId={currentSongId}
             />
           </AudioButtonWrapper>
-          <ButtonWrapper>
-            <Button
-              id={id}
-              handleClick={() => saveSong(id)}
-              disabled={savedSongsList?.some((song) => song.id === id)}
-            >
-              Save this song
-            </Button>
-          </ButtonWrapper>
-        </ListItemStyled>
+        </ListItem>
       ))}
     </ListStyled>
   )
@@ -55,11 +41,11 @@ const ListStyled = styled.ul`
   margin: 0;
   padding: 0;
 `
-const ListItemStyled = styled.li`
+const ListItem = styled.li`
   background-color: var(--primary-light);
   display: grid;
   grid-template-columns: 80% auto;
-  grid-template-rows: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
   padding: 20px;
 `
 const Artist = styled.span`
@@ -79,8 +65,4 @@ const AudioButtonWrapper = styled.div`
   grid-column-start: 2;
   grid-row: 1/3;
   justify-self: end;
-`
-const ButtonWrapper = styled.div`
-  align-self: end;
-  grid-column: 1/3;
 `

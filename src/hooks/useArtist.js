@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react'
 import { loadFromLocal, saveToLocal } from '../lib/localStorage'
 
 export default function useArtist({ artistData }) {
-  const [savedSongsList, setSavedSongsList] = useState(
-    loadFromLocal('SavedSongsList') ?? []
+  const [savedSongs, setSavedSongs] = useState(
+    loadFromLocal('savedSongs') ?? []
   )
 
   useEffect(() => {
-    saveToLocal('SavedSongsList', savedSongsList)
-  }, [savedSongsList])
+    saveToLocal('savedSongs', savedSongs)
+  }, [savedSongs])
 
-  return { savedSongsList, saveSong }
+  return { savedSongs, saveSong }
 
   function saveSong(id) {
-    setSavedSongsList([
+    setSavedSongs([
       artistData.find((artist) => artist.id === id),
-      ...savedSongsList,
+      ...savedSongs,
     ])
   }
 }

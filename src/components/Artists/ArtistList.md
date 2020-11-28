@@ -1,8 +1,8 @@
-One saved song item:
+One list item:
 
 ```js
-<SavedSongPage
-  savedSongsList={[
+<ArtistList
+  artists={[
     {
       artist: 'Unprocessed',
       songTitle: 'Real',
@@ -13,5 +13,7 @@ One saved song item:
   toggleCurrentSongId={() => {}}
   isSongPlaying={false}
   currentSongId="a"
+  saveSong={() => {}}
+  SavedSongs={[]}
 />
 ```

@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import user from '@testing-library/user-event'
-import ArtistPage from './ArtistPage'
+import ArtistList from './ArtistList'
 
-describe('ArtistPage', () => {
+describe('ArtistList', () => {
   it('renders correctly', () => {
     const { container } = render(
-      <ArtistPage
+      <ArtistList
         artists={[
           {
             artist: 'Unprocessed',
@@ -26,7 +26,7 @@ describe('ArtistPage', () => {
   it('calls toggleCurrentSongId correctly', () => {
     const toggleCurrentSongIdMock = jest.fn()
     const { getByTestId } = render(
-      <ArtistPage
+      <ArtistList
         artists={[
           {
             artist: 'Unprocessed',
@@ -48,7 +48,7 @@ describe('ArtistPage', () => {
   })
   it('toggles the isSongPlaying state correctly', () => {
     const { getByTitle, queryByTitle, rerender } = render(
-      <ArtistPage
+      <ArtistList
         artists={[
           {
             artist: 'Unprocessed',
@@ -67,7 +67,7 @@ describe('ArtistPage', () => {
     expect(getByTitle('play')).toBeInTheDocument()
 
     rerender(
-      <ArtistPage
+      <ArtistList
         artists={[
           {
             artist: 'Unprocessed',
@@ -89,7 +89,7 @@ describe('ArtistPage', () => {
   it('calls saveSong correctly', () => {
     const saveSongMock = jest.fn()
     const { getByTestId } = render(
-      <ArtistPage
+      <ArtistList
         artists={[
           {
             artist: 'Unprocessed',

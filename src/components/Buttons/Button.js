@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 Button.propTypes = {
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   handleClick: PropTypes.func,
   children: PropTypes.string.isRequired,
 }
