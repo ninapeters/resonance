@@ -1,13 +1,13 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
-Button.propTypes = {
+PrimaryButton.propTypes = {
   disabled: PropTypes.bool,
   handleClick: PropTypes.func,
   children: PropTypes.string.isRequired,
 }
 
-export default function Button({ disabled, handleClick, children }) {
+export default function PrimaryButton({ disabled, handleClick, children }) {
   return (
     <ButtonStyled
       disabled={disabled}

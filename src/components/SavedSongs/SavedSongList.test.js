@@ -23,7 +23,7 @@ describe('SavedSongList', () => {
   })
   it('calls toggleCurrentSongId correctly', () => {
     const toggleCurrentSongIdMock = jest.fn()
-    const { getByRole } = render(
+    const { getByTestId } = render(
       <SavedSongList
         savedSongs={[
           {
@@ -38,7 +38,7 @@ describe('SavedSongList', () => {
         currentSongId="a"
       />
     )
-    const button = getByRole('button')
+    const button = getByTestId('audio-button')
     user.click(button)
     expect(toggleCurrentSongIdMock).toHaveBeenCalled()
   })

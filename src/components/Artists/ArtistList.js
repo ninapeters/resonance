@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Buttons/AudioButton'
-import Button from '../Buttons/Button'
+import PrimaryButton from '../Buttons/PrimaryButton'
 
 ArtistList.propTypes = {
   artists: PropTypes.array.isRequired,
@@ -34,13 +34,13 @@ export default function ArtistList({
             />
           </AudioButtonWrapper>
           <ButtonWrapper>
-            <Button
+            <PrimaryButton
               id={id}
               handleClick={() => saveSong(id)}
               disabled={savedSongs?.some((song) => song.id === id)}
             >
               Save this song
-            </Button>
+            </PrimaryButton>
           </ButtonWrapper>
         </ListItemStyled>
       ))}

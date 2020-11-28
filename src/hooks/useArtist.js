@@ -10,12 +10,15 @@ export default function useArtist({ artistData }) {
     saveToLocal('savedSongs', savedSongs)
   }, [savedSongs])
 
-  return { savedSongs, saveSong }
+  return { savedSongs, saveSong, deleteSavedSong }
 
   function saveSong(id) {
     setSavedSongs([
       artistData.find((artist) => artist.id === id),
       ...savedSongs,
     ])
+  }
+  function deleteSavedSong(idToBeDeleted) {
+    setSavedSongs(savedSongs.filter((songs) => songs.id !== idToBeDeleted))
   }
 }

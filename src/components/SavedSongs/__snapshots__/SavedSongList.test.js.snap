@@ -1,13 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SavedSongList renders correctly 1`] = `
-.c5 {
+.c8 {
   background-color: transparent;
   border: var(--primary-dark) 2px solid;
   fill: var(--primary-dark);
   height: 46px;
   padding: 10px;
   width: 46px;
+}
+
+.c3 {
+  background-color: transparent;
+  border: var(--primary-dark) 2px solid;
+  color: var(--primary-dark);
+  font-size: 0.8em;
+  padding: 6px;
+  width: 100%;
+}
+
+.c3:disabled {
+  opacity: 50%;
 }
 
 .c0 {
@@ -21,28 +34,44 @@ exports[`SavedSongList renders correctly 1`] = `
 .c1 {
   background-color: var(--primary-light);
   display: grid;
-  grid-template-columns: 80% auto;
+  -webkit-column-gap: 14px;
+  column-gap: 14px;
+  grid-template-columns: 10% auto 20%;
   grid-template-rows: 1fr 1fr;
   padding: 20px;
 }
 
 .c2 {
+  grid-row: 1/3;
+  grid-column-start: 1;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.c4 {
+  fill: var(--primary-dark);
+}
+
+.c5 {
   display: block;
   font-size: 75%;
   font-weight: 300;
   padding-bottom: 6px;
   text-transform: uppercase;
+  grid-column-start: 2;
 }
 
-.c3 {
+.c6 {
   color: var(--primary-dark);
   font-size: 1em;
   font-weight: 600;
-  grid-column-start: 1;
+  grid-column-start: 2;
 }
 
-.c4 {
-  grid-column-start: 2;
+.c7 {
+  grid-column-start: 3;
   grid-row: 1/3;
   justify-self: end;
 }
@@ -53,21 +82,35 @@ exports[`SavedSongList renders correctly 1`] = `
   <li
     class="c1"
   >
-    <span
+    <div
       class="c2"
+    >
+      <button
+        class="c3"
+        data-testid="button"
+      >
+        <svg
+          class="c4"
+        >
+          x.svg
+        </svg>
+      </button>
+    </div>
+    <span
+      class="c5"
     >
       Unprocessed
     </span>
     <span
-      class="c3"
+      class="c6"
     >
       Real
     </span>
     <div
-      class="c4"
+      class="c7"
     >
       <button
-        class="c5"
+        class="c8"
         data-testid="audio-button"
       >
         <svg
