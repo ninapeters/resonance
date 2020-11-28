@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SavedSongList renders correctly 1`] = `
-.c8 {
+.c7 {
   background-color: transparent;
   border: var(--primary-dark) 2px solid;
   fill: var(--primary-dark);
@@ -11,16 +11,13 @@ exports[`SavedSongList renders correctly 1`] = `
 }
 
 .c3 {
-  background-color: transparent;
-  border: var(--primary-dark) 2px solid;
-  color: var(--primary-dark);
+  background-color: var(--primary-dark);
+  border: none;
+  fill: var(--white);
   font-size: 0.8em;
-  padding: 6px;
-  width: 100%;
-}
-
-.c3:disabled {
-  opacity: 50%;
+  padding: 10px;
+  height: 100%;
+  width: 36px;
 }
 
 .c0 {
@@ -36,7 +33,7 @@ exports[`SavedSongList renders correctly 1`] = `
   display: grid;
   -webkit-column-gap: 14px;
   column-gap: 14px;
-  grid-template-columns: 10% auto 20%;
+  grid-template-columns: 36px auto 46px;
   grid-template-rows: 1fr 1fr;
   padding: 20px;
 }
@@ -44,17 +41,9 @@ exports[`SavedSongList renders correctly 1`] = `
 .c2 {
   grid-row: 1/3;
   grid-column-start: 1;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  align-items: stretch;
 }
 
 .c4 {
-  fill: var(--primary-dark);
-}
-
-.c5 {
   display: block;
   font-size: 75%;
   font-weight: 300;
@@ -63,14 +52,14 @@ exports[`SavedSongList renders correctly 1`] = `
   grid-column-start: 2;
 }
 
-.c6 {
+.c5 {
   color: var(--primary-dark);
   font-size: 1em;
   font-weight: 600;
   grid-column-start: 2;
 }
 
-.c7 {
+.c6 {
   grid-column-start: 3;
   grid-row: 1/3;
   justify-self: end;
@@ -89,28 +78,26 @@ exports[`SavedSongList renders correctly 1`] = `
         class="c3"
         data-testid="button"
       >
-        <svg
-          class="c4"
-        >
+        <svg>
           x.svg
         </svg>
       </button>
     </div>
     <span
-      class="c5"
+      class="c4"
     >
       Unprocessed
     </span>
     <span
-      class="c6"
+      class="c5"
     >
       Real
     </span>
     <div
-      class="c7"
+      class="c6"
     >
       <button
-        class="c8"
+        class="c7"
         data-testid="audio-button"
       >
         <svg

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders correctly 1`] = `
+exports[`PrimaryButton renders correctly 1`] = `
 .c0 {
   background-color: transparent;
   border: var(--primary-dark) 2px solid;
@@ -22,9 +22,9 @@ exports[`Button renders correctly 1`] = `
 </button>
 `;
 
-exports[`Button renders correctly 2`] = `
+exports[`PrimaryButton renders correctly 2`] = `
 <button
-  class="Button__ButtonStyled-o1fnpc-0 eSgmRv"
+  class="PrimaryButton__ButtonStyled-sc-1jodd37-0 lQVev"
   data-testid="button"
   disabled=""
 >
