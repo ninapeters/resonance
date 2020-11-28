@@ -1,12 +1,12 @@
 import styled from 'styled-components/macro'
-import data from '../data/spotifyTrackData.json'
-import normalizeArtists from '../services/normalizeArtists'
+import data from './data/spotifyTrackData.json'
+import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
-import ArtistPage from './Pages/ArtistPage/ArtistPage'
-import SavedSongPage from './Pages/SavedSongPage/SavedSongPage'
-import Navigation from './Navigation/Navigation'
+import ArtistList from './components/Artists/ArtistList'
+import SavedSongList from './components/SavedSongs/SavedSongList'
+import Navigation from './components/Navigation/Navigation'
 
 export default App
 
@@ -18,28 +18,28 @@ function App() {
   const { toggleCurrentSongId, isSongPlaying, currentSongId } = useAudio({
     artistData,
   })
-  const { SavedSongsList, saveSong } = useArtist({ artistData })
-  const [showSavedSongPage, setShowSavedSongPage] = useState(false)
+  const { savedSongs, saveSong } = useArtist({ artistData })
+  const [showSavedSongList, setShowSavedSongList] = useState(false)
 
   return (
     <AppWrapper>
       <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
       <Main>
-        {showSavedSongPage === false ? (
-          <ArtistPage
+        {showSavedSongList === false ? (
+          <ArtistList
             artists={artistData}
             toggleCurrentSongId={toggleCurrentSongId}
             isSongPlaying={isSongPlaying}
             currentSongId={currentSongId}
             saveSong={saveSong}
-            SavedSongsList={SavedSongsList}
+            savedSongs={savedSongs}
           />
         ) : (
           ''
         )}
-        {showSavedSongPage ? (
-          <SavedSongPage
-            SavedSongsList={SavedSongsList}
+        {showSavedSongList ? (
+          <SavedSongList
+            savedSongs={savedSongs}
             toggleCurrentSongId={toggleCurrentSongId}
             isSongPlaying={isSongPlaying}
             currentSongId={currentSongId}
@@ -50,9 +50,9 @@ function App() {
       </Main>
       <Footer className="footer-fixed">
         <Navigation
-          handleClick={() => setShowSavedSongPage(!showSavedSongPage)}
+          handleClick={() => setShowSavedSongList(!showSavedSongList)}
         >
-          {showSavedSongPage ? 'all songs' : 'saved songs'}
+          {showSavedSongList ? 'all songs' : 'saved songs'}
         </Navigation>
       </Footer>
     </AppWrapper>

@@ -1,24 +1,29 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import AudioButton from '../../Buttons/AudioButton'
+import AudioButton from '../Buttons/AudioButton'
+import Button from '../Buttons/Button'
 
-SavedSongPage.propTypes = {
-  SavedSongsList: PropTypes.array.isRequired,
+ArtistList.propTypes = {
+  artists: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string.isRequired,
+  saveSong: PropTypes.func.isRequired,
+  savedSongs: PropTypes.array,
 }
 
-export default function SavedSongPage({
-  SavedSongsList,
+export default function ArtistList({
+  artists,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
+  saveSong,
+  savedSongs,
 }) {
   return (
     <ListStyled>
-      {SavedSongsList?.map(({ artist, songTitle, id }) => (
-        <SavedSongsListListItem key={id}>
+      {artists?.map(({ artist, songTitle, id }) => (
+        <ListItemStyled key={id}>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
           <AudioButtonWrapper>
@@ -28,7 +33,16 @@ export default function SavedSongPage({
               currentSongId={currentSongId}
             />
           </AudioButtonWrapper>
-        </SavedSongsListListItem>
+          <ButtonWrapper>
+            <Button
+              id={id}
+              handleClick={() => saveSong(id)}
+              disabled={savedSongs?.some((song) => song.id === id)}
+            >
+              Save this song
+            </Button>
+          </ButtonWrapper>
+        </ListItemStyled>
       ))}
     </ListStyled>
   )
@@ -41,11 +55,11 @@ const ListStyled = styled.ul`
   margin: 0;
   padding: 0;
 `
-const SavedSongsListListItem = styled.li`
+const ListItemStyled = styled.li`
   background-color: var(--primary-light);
   display: grid;
   grid-template-columns: 80% auto;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr;
   padding: 20px;
 `
 const Artist = styled.span`
@@ -65,4 +79,8 @@ const AudioButtonWrapper = styled.div`
   grid-column-start: 2;
   grid-row: 1/3;
   justify-self: end;
+`
+const ButtonWrapper = styled.div`
+  align-self: end;
+  grid-column: 1/3;
 `
