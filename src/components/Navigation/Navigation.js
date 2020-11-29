@@ -2,12 +2,12 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 Navigation.propTypes = {
-  handleClick: PropTypes.func,
+  onClick: PropTypes.func,
   children: PropTypes.string.isRequired,
 }
 
-export default function Navigation({ handleClick, children }) {
-  return <NavButton onClick={handleClick}>{children}</NavButton>
+export default function Navigation({ onClick, children }) {
+  return <NavButton onClick={onClick}>{children}</NavButton>
 }
 
 const NavButton = styled.button`

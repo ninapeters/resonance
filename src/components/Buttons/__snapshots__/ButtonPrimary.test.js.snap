@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PrimaryButton renders correctly 1`] = `
+exports[`ButtonPrimary renders correctly 1`] = `
 .c0 {
   background-color: transparent;
   border: var(--primary-dark) 2px solid;
@@ -16,16 +16,14 @@ exports[`PrimaryButton renders correctly 1`] = `
 
 <button
   class="c0"
-  data-testid="button"
 >
   Save this song
 </button>
 `;
 
-exports[`PrimaryButton renders correctly 2`] = `
+exports[`ButtonPrimary renders correctly 2`] = `
 <button
-  class="PrimaryButton__ButtonStyled-sc-1jodd37-0 lQVev"
-  data-testid="button"
+  class="ButtonPrimary__ButtonStyled-sc-1mu6zlu-0 xEHRn"
   disabled=""
 >
   Save this song

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SecondaryButton renders correctly 1`] = `
+exports[`ButtonSecondary renders correctly 1`] = `
 .c0 {
   background-color: var(--primary-dark);
   border: none;
@@ -13,7 +13,6 @@ exports[`SecondaryButton renders correctly 1`] = `
 
 <button
   class="c0"
-  data-testid="button"
 >
   <svg>
     x.svg

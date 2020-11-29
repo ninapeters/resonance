@@ -1,14 +1,14 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Buttons/AudioButton'
-import SecondaryButton from '../Buttons/SecondaryButton'
+import ButtonSecondary from '../Buttons/ButtonSecondary'
 import { ReactComponent as DeleteIcon } from '../../assets/x.svg'
 
 SavedSongList.propTypes = {
   savedSongs: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
-  currentSongId: PropTypes.string.isRequired,
+  currentSongId: PropTypes.string,
 }
 
 export default function SavedSongList({
@@ -23,15 +23,19 @@ export default function SavedSongList({
       {savedSongs?.map(({ artist, songTitle, id }) => (
         <ListItem key={id}>
           <DeleteButtonWrapper>
-            <SecondaryButton id={id} handleClick={() => deleteSavedSong(id)}>
+            <ButtonSecondary
+              id={id}
+              onClick={() => deleteSavedSong(id)}
+              data-testid="delete-button"
+            >
               <DeleteIcon />
-            </SecondaryButton>
+            </ButtonSecondary>
           </DeleteButtonWrapper>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
           <AudioButtonWrapper>
             <AudioButton
-              handleClick={() => toggleCurrentSongId(id)}
+              onClick={() => toggleCurrentSongId(id)}
               isSongPlaying={isSongPlaying && currentSongId === id}
               currentSongId={currentSongId}
             />

@@ -50,9 +50,7 @@ function App() {
         )}
       </Main>
       <Footer className="footer-fixed">
-        <Navigation
-          handleClick={() => setShowSavedSongList(!showSavedSongList)}
-        >
+        <Navigation onClick={() => setShowSavedSongList(!showSavedSongList)}>
           {showSavedSongList ? 'all songs' : 'saved songs'}
         </Navigation>
       </Footer>

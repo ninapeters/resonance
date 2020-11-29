@@ -11,15 +11,15 @@ describe('Navigation', () => {
   })
 
   it('calls onClick correctly', () => {
-    const handleClickMock = jest.fn()
+    const onClickMock = jest.fn()
     const { getByRole } = render(
-      <Navigation handleClick={handleClickMock} isSongPlaying={false}>
+      <Navigation onClick={onClickMock} isSongPlaying={false}>
         all songs
       </Navigation>
     )
     const button = getByRole('button')
     user.click(button)
 
-    expect(handleClickMock).toHaveBeenCalled()
+    expect(onClickMock).toHaveBeenCalled()
   })
 })

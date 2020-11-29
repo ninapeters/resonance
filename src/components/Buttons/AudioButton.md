@@ -1,11 +1,11 @@
 Audio Button: Play
 
 ```js
-<AudioButton handleClick={() => {}} isSongPlaying={false} />
+<AudioButton onClick={() => {}} isSongPlaying={false} />
 ```
 
 Audio Button: Pause
 
 ```js
-<AudioButton handleClick={() => {}} isSongPlaying={true} />
+<AudioButton onClick={() => {}} isSongPlaying={true} />
 ```
