@@ -43,7 +43,7 @@ export default function useAudio({ artistData }) {
 
   function stopPlayingSong() {
     songRef.current.stop()
-    setIsSongPlaying(!isSongPlaying)
+    setIsSongPlaying(false)
   }
 
   return {
