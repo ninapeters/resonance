@@ -17,5 +17,6 @@ body {
     --primary-light: #e6eded;
     --primary-dark: #2e3332;
     --primary-dark-transparent: #2e3332BF;
+    --white: #fff;
 }
 `

@@ -1,13 +1,13 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Buttons/AudioButton'
-import Button from '../Buttons/Button'
+import ButtonPrimary from '../Buttons/ButtonPrimary'
 
 ArtistList.propTypes = {
   artists: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
-  currentSongId: PropTypes.string.isRequired,
+  currentSongId: PropTypes.string,
   saveSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array,
 }
@@ -28,19 +28,20 @@ export default function ArtistList({
           <Song>{songTitle}</Song>
           <AudioButtonWrapper>
             <AudioButton
-              handleClick={() => toggleCurrentSongId(id)}
+              onClick={() => toggleCurrentSongId(id)}
               isSongPlaying={isSongPlaying && currentSongId === id}
               currentSongId={currentSongId}
             />
           </AudioButtonWrapper>
           <ButtonWrapper>
-            <Button
+            <ButtonPrimary
               id={id}
-              handleClick={() => saveSong(id)}
+              onClick={() => saveSong(id)}
               disabled={savedSongs?.some((song) => song.id === id)}
+              data-testid="save-button"
             >
               Save this song
-            </Button>
+            </ButtonPrimary>
           </ButtonWrapper>
         </ListItemStyled>
       ))}

@@ -19,17 +19,14 @@ describe('AudioButton', () => {
   })
 
   it('calls handleClick with the correct id', () => {
-    const handleClickMock = jest.fn()
-    const { getByRole } = render(
-      <AudioButton
-        handleClick={() => handleClickMock('a')}
-        isSongPlaying={false}
-      />
+    const onClickMock = jest.fn()
+    const { getByTestId } = render(
+      <AudioButton onClick={() => onClickMock('a')} isSongPlaying={false} />
     )
-    const button = getByRole('button')
+    const button = getByTestId('audio-button')
     user.click(button)
 
-    expect(handleClickMock).toHaveBeenCalledWith('a')
+    expect(onClickMock).toHaveBeenCalledWith('a')
   })
 
   it('changes the button appearance by rerender', () => {

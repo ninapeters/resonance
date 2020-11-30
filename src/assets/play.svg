@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 600 600" style="enable-background:new 0 0 600 600;" xml:space="preserve">
-<path d="M591.11,313.47L26.68,597.9C14.82,603.87,0,596.4,0,584.45V15.6C0,3.65,14.82-3.82,26.68,2.15l564.43,284.43
-	C602.96,292.56,602.96,307.49,591.11,313.47z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg enable-background="new 0 0 600 600" version="1.1" viewBox="0 0 600 600" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+<path d="m524.3 223.2c42.3 24.9 56.4 79.4 31.5 121.8-7.7 13-18.5 23.8-31.5 31.5l-358.4 211.2c-42.3 24.9-96.8 10.8-121.8-31.5-8.1-13.7-12.3-29.3-12.3-45.1v-422.5c0-49.1 39.8-88.9 88.9-88.9 15.9 0 31.5 4.2 45.2 12.3l358.4 211.2z"/>
 </svg>

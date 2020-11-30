@@ -4,13 +4,13 @@ import { ReactComponent as PlayIcon } from '../../assets/play.svg'
 import { ReactComponent as PauseIcon } from '../../assets/pause.svg'
 
 AudioButton.propTypes = {
-  handleClick: PropTypes.func,
+  onClick: PropTypes.func,
   isSongPlaying: PropTypes.bool.isRequired,
 }
 
-export default function AudioButton({ handleClick, isSongPlaying }) {
+export default function AudioButton({ onClick, isSongPlaying }) {
   return (
-    <Button onClick={handleClick} data-testid="audio-button">
+    <Button onClick={onClick} data-testid="audio-button">
       {isSongPlaying ? <PauseIcon title="pause" /> : <PlayIcon title="play" />}
     </Button>
   )

@@ -1,33 +1,33 @@
 import { render } from '@testing-library/react'
 import user from '@testing-library/user-event'
-import Button from './Button'
+import ButtonPrimary from './ButtonPrimary'
 
-describe('Button', () => {
+describe('ButtonPrimary', () => {
   it('renders correctly', () => {
     const { container, rerender } = render(
-      <Button disabled={false} handleClick={() => {}}>
+      <ButtonPrimary disabled={false} onClick={() => {}}>
         Save this song
-      </Button>
+      </ButtonPrimary>
     )
     expect(container.firstChild).toMatchSnapshot()
 
     rerender(
-      <Button disabled={true} handleClick={() => {}}>
+      <ButtonPrimary disabled={true} onClick={() => {}}>
         Save this song
-      </Button>
+      </ButtonPrimary>
     )
     expect(container.firstChild).toMatchSnapshot()
   })
-  it('calls handleClick with the correct id', () => {
-    const handleClickMock = jest.fn()
+  it('calls onClick with the correct id', () => {
+    const onClickMock = jest.fn()
     const { getByRole } = render(
-      <Button disabled={false} handleClick={() => handleClickMock('a')}>
+      <ButtonPrimary disabled={false} onClick={() => onClickMock('a')}>
         Save this song
-      </Button>
+      </ButtonPrimary>
     )
     const button = getByRole('button')
     user.click(button)
 
-    expect(handleClickMock).toHaveBeenCalledWith('a')
+    expect(onClickMock).toHaveBeenCalledWith('a')
   })
 })

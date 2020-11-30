@@ -18,7 +18,7 @@ function App() {
   const { toggleCurrentSongId, isSongPlaying, currentSongId } = useAudio({
     artistData,
   })
-  const { savedSongs, saveSong } = useArtist({ artistData })
+  const { savedSongs, saveSong, deleteSavedSong } = useArtist({ artistData })
   const [showSavedSongList, setShowSavedSongList] = useState(false)
 
   return (
@@ -39,6 +39,7 @@ function App() {
         )}
         {showSavedSongList ? (
           <SavedSongList
+            deleteSavedSong={deleteSavedSong}
             savedSongs={savedSongs}
             toggleCurrentSongId={toggleCurrentSongId}
             isSongPlaying={isSongPlaying}
@@ -49,9 +50,7 @@ function App() {
         )}
       </Main>
       <Footer className="footer-fixed">
-        <Navigation
-          handleClick={() => setShowSavedSongList(!showSavedSongList)}
-        >
+        <Navigation onClick={() => setShowSavedSongList(!showSavedSongList)}>
           {showSavedSongList ? 'all songs' : 'saved songs'}
         </Navigation>
       </Footer>

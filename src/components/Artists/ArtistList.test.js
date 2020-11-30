@@ -105,7 +105,7 @@ describe('ArtistList', () => {
         SavedSongsList={[]}
       />
     )
-    const button = getByTestId('button')
+    const button = getByTestId('save-button')
     user.click(button)
     expect(saveSongMock).toHaveBeenCalled()
   })
