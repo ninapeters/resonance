@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import SavedSong from './SavedSong'
 
 SavedSongList.propTypes = {
+  stopPlayingSong: PropTypes.func,
   deleteSavedSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
@@ -11,6 +12,7 @@ SavedSongList.propTypes = {
 }
 
 export default function SavedSongList({
+  stopPlayingSong,
   deleteSavedSong,
   savedSongs,
   toggleCurrentSongId,
@@ -25,6 +27,7 @@ export default function SavedSongList({
           artist={artist}
           songTitle={songTitle}
           id={id}
+          stopPlayingSong={stopPlayingSong}
           deleteSavedSong={deleteSavedSong}
           toggleCurrentSongId={toggleCurrentSongId}
           isSongPlaying={isSongPlaying}

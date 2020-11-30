@@ -8,6 +8,7 @@ import { ReactComponent as ResetIcon } from '../../assets/reset.svg'
 import { ReactComponent as BinIcon } from '../../assets/bin.svg'
 
 SavedSong.propTypes = {
+  stopPlayingSong: PropTypes.func,
   artist: PropTypes.string.isRequired,
   songTitle: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -18,6 +19,7 @@ SavedSong.propTypes = {
 }
 
 export default function SavedSong({
+  stopPlayingSong,
   artist,
   songTitle,
   id,
@@ -35,7 +37,7 @@ export default function SavedSong({
           <ButtonWrapper>
             <ButtonSecondary
               id={id}
-              onClick={() => setToBeDeleted(true)}
+              onClick={prepareDeletion}
               data-testid="x-button"
             >
               <XIcon />
@@ -73,6 +75,10 @@ export default function SavedSong({
       )}
     </>
   )
+  function prepareDeletion() {
+    stopPlayingSong()
+    setToBeDeleted(true)
+  }
 }
 
 const ListItem = styled.li`
