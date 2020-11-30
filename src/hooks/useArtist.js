@@ -10,7 +10,11 @@ export default function useArtist({ artistData }) {
     saveToLocal('savedSongs', savedSongs)
   }, [savedSongs])
 
-  return { savedSongs, saveSong, deleteSavedSong }
+  return {
+    savedSongs,
+    saveSong,
+    deleteSavedSong,
+  }
 
   function saveSong(id) {
     setSavedSongs([
