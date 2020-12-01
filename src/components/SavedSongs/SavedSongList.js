@@ -20,7 +20,7 @@ export default function SavedSongList({
   currentSongId,
 }) {
   return (
-    <ListStyled>
+    <List>
       {savedSongs?.map(({ artist, songTitle, id }) => (
         <SavedSong
           key={id}
@@ -34,11 +34,11 @@ export default function SavedSongList({
           currentSongId={currentSongId}
         />
       ))}
-    </ListStyled>
+    </List>
   )
 }
 
-const ListStyled = styled.ul`
+const List = styled.ul`
   display: grid;
   gap: 8px;
   list-style: none;

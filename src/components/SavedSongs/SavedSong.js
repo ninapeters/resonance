@@ -3,9 +3,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import AudioButton from '../Buttons/AudioButton'
 import ButtonSecondary from '../Buttons/ButtonSecondary'
-import { ReactComponent as XIcon } from '../../assets/x.svg'
-import { ReactComponent as ResetIcon } from '../../assets/reset.svg'
-import { ReactComponent as BinIcon } from '../../assets/bin.svg'
+import { XIcon, ResetIcon, BinIcon } from '../Icons'
 
 SavedSong.propTypes = {
   stopPlayingSong: PropTypes.func,
@@ -32,13 +30,13 @@ export default function SavedSong({
 
   return (
     <>
-      {!toBeDeleted && (
+      {toBeDeleted || (
         <ListItem>
           <ButtonWrapper>
             <ButtonSecondary
               id={id}
-              onClick={prepareDeletion}
-              data-testid="x-button"
+              onClick={() => prepareToDelete(id)}
+              data-testid="prepare-delete-button"
             >
               <XIcon />
             </ButtonSecondary>
@@ -75,8 +73,9 @@ export default function SavedSong({
       )}
     </>
   )
-  function prepareDeletion() {
-    stopPlayingSong()
+
+  function prepareToDelete(id) {
+    stopPlayingSong(id)
     setToBeDeleted(true)
   }
 }

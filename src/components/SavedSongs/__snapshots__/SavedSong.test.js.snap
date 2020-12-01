@@ -65,7 +65,7 @@ exports[`SavedSong renders correctly 1`] = `
   >
     <button
       class="c2"
-      data-testid="x-button"
+      data-testid="prepare-delete-button"
       id="a"
     >
       <svg>

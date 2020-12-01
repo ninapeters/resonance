@@ -41,9 +41,11 @@ export default function useAudio({ artistData }) {
     }
   }
 
-  function stopPlayingSong() {
-    songRef.current.stop()
-    setIsSongPlaying(false)
+  function stopPlayingSong(id) {
+    if (id === currentSongId) {
+      songRef.current.stop()
+      setIsSongPlaying(false)
+    }
   }
 
   return {
