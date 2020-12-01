@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import { ReactComponent as PlayIcon } from '../../assets/play.svg'
-import { ReactComponent as PauseIcon } from '../../assets/pause.svg'
+import { PlayIcon, PauseIcon } from '../Icons'
 
 AudioButton.propTypes = {
   onClick: PropTypes.func,

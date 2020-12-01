@@ -15,7 +15,12 @@ function App() {
   useEffect(() => {
     setArtistData(normalizeArtists(data.tracks.items))
   }, [])
-  const { toggleCurrentSongId, isSongPlaying, currentSongId } = useAudio({
+  const {
+    toggleCurrentSongId,
+    isSongPlaying,
+    currentSongId,
+    stopPlayingSong,
+  } = useAudio({
     artistData,
   })
   const { savedSongs, saveSong, deleteSavedSong } = useArtist({ artistData })
@@ -39,6 +44,7 @@ function App() {
         )}
         {showSavedSongList ? (
           <SavedSongList
+            stopPlayingSong={stopPlayingSong}
             deleteSavedSong={deleteSavedSong}
             savedSongs={savedSongs}
             toggleCurrentSongId={toggleCurrentSongId}

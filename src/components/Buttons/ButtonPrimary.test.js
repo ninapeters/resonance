@@ -18,6 +18,7 @@ describe('ButtonPrimary', () => {
     )
     expect(container.firstChild).toMatchSnapshot()
   })
+
   it('calls onClick with the correct id', () => {
     const onClickMock = jest.fn()
     const { getByRole } = render(

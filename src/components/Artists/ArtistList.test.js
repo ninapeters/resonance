@@ -23,6 +23,7 @@ describe('ArtistList', () => {
     )
     expect(container.firstChild).toMatchSnapshot()
   })
+
   it('calls toggleCurrentSongId correctly', () => {
     const toggleCurrentSongIdMock = jest.fn()
     const { getByTestId } = render(
@@ -46,6 +47,7 @@ describe('ArtistList', () => {
     user.click(button)
     expect(toggleCurrentSongIdMock).toHaveBeenCalled()
   })
+
   it('toggles the isSongPlaying state correctly', () => {
     const { getByTitle, queryByTitle, rerender } = render(
       <ArtistList
@@ -86,6 +88,7 @@ describe('ArtistList', () => {
     expect(queryByTitle('play')).not.toBeInTheDocument()
     expect(getByTitle('pause')).toBeInTheDocument()
   })
+
   it('calls saveSong correctly', () => {
     const saveSongMock = jest.fn()
     const { getByTestId } = render(
