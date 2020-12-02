@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
-import queryString from 'query-string'
 import data from './data/spotifyTrackData.json'
+import getToken from './services/getToken'
 import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
 import useAudio from './hooks/useAudio'
@@ -13,15 +13,7 @@ export default App
 
 function App() {
   useEffect(() => {
-    let parsed = queryString.parse(window.location.search)
-    let accessToken = parsed.access_token
-    fetch('https://api.spotify.com/v1/me', {
-      headers: {
-        Authorization: 'Bearer ' + accessToken,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+    getToken()
   }, [])
 
   const [artistData, setArtistData] = useState([])

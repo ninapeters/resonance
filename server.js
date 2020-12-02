@@ -2,20 +2,27 @@ const cors = require("cors")
 const express = require('express')
 const request = require('request')
 const querystring = require('querystring')
+const cookieParser = require('cookie-parser');
+const axios = require('axios')
 
+const stateKey = 'spotify_auth_state';
 const app = express()
 app.use(cors())
+app.use(cookieParser())
 
 const redirect_uri = 
   process.env.REDIRECT_URI || 
   'http://localhost:8888/callback'
 
 const client_id = process.env.CLIENT_ID
-console.log(client_id)
 const client_secret = process.env.CLIENT_SECRET
 const port = process.env.PORT || 8888
 
 app.get('/login', function(req, res) {
+
+  const state = generateRandomString(16);
+  res.cookie(stateKey, state);
+
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -26,8 +33,8 @@ app.get('/login', function(req, res) {
 })
 
 app.get('/callback', function(req, res) {
-  let code = req.query.code || null
-  let authOptions = {
+  const code = req.query.code || null
+  const authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     form: {
       code: code,
@@ -41,8 +48,8 @@ app.get('/callback', function(req, res) {
     },
     json: true
   }
-  request.post(authOptions, function(error, response, body) {
-    let access_token = body.access_token
+request.post(authOptions, function(error, response, body) {
+    const access_token = body.access_token
     const uri = 'http://localhost:3000'
     res.redirect(uri + '?access_token=' + access_token)
   })
