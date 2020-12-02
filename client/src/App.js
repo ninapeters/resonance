@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import queryString from 'query-string'
 import data from './data/spotifyTrackData.json'
 import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
@@ -11,10 +12,24 @@ import Navigation from './components/Navigation/Navigation'
 export default App
 
 function App() {
+  useEffect(() => {
+    let parsed = queryString.parse(window.location.search)
+    let accessToken = parsed.access_token
+    fetch('https://api.spotify.com/v1/me', {
+      headers: {
+        Authorization: 'Bearer ' + accessToken,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+  }, [])
+
   const [artistData, setArtistData] = useState([])
+
   useEffect(() => {
     setArtistData(normalizeArtists(data.tracks.items))
   }, [])
+
   const {
     toggleCurrentSongId,
     isSongPlaying,
@@ -23,6 +38,7 @@ function App() {
   } = useAudio({
     artistData,
   })
+
   const { savedSongs, saveSong, deleteSavedSong } = useArtist({ artistData })
   const [showSavedSongList, setShowSavedSongList] = useState(false)
 
