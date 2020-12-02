@@ -61,10 +61,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/badabam/cats-app-with-env.git"
+        "url": "git+https://github.com/ninapeters/capstone-project.git"
     },
     "bugs": {
-        "url": "https://github.com/badabam/cats-app-with-env/issues"
+        "url": "https://github.com/ninapeters/capstone-project/issues"
     },
-    "homepage": "https://github.com/badabam/cats-app-with-env#readme"
+    "homepage": "https://github.com/ninapeters/capstone-project#readme"
 }
