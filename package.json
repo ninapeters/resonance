@@ -1,52 +1,70 @@
 {
-  "name": "capstone-project",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "howler": "^2.2.1",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
-    "styled-components": "^5.2.1",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "styleguide:build": "styleguidist build",
-    "styleguide": "FAST_REFRESH=false styleguidist server",
-    "test:e2e": "start-server-and-test start http://localhost:3000 cy:run",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.1.2",
-    "@testing-library/user-event": "^12.2.2",
-    "cypress": "^6.0.0",
-    "jest-styled-components": "^7.0.3",
-    "react-styleguidist": "^11.1.2"
-  }
+    "name": "underground",
+    "private": true,
+    "version": "1.0.0",
+    "description": "A music finder app",
+    "main": "server.js",
+    "engines": {
+        "node": ">=12.0.0 <15.0.0"
+    },
+    "scripts": {
+        "postinstall": "cd client && npm install",
+        "build": "cd client && npm run build",
+        "test:watch": "cd client && npm run test:watch",
+        "test": "npm run lint && npm run prettier && cd client && npm test",
+        "lint": "eslint . --ext .js",
+        "prettify": "prettier --write .",
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "client": "cd client && npm start",
+        "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,html,css,json}\"",
+        "server": "env-cmd nodemon server.js",
+        "storybook": "cd client && npm run storybook",
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "Nina Peters",
+    "license": "MIT",
+    "dependencies": {
+        "@types/jest": "^26.0.16",
+        "axios": "^0.21.0",
+        "env-cmd": "^10.1.0",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^4.8.2",
+        "@typescript-eslint/parser": "^4.8.2",
+        "babel-eslint": "^10.1.0",
+        "concurrently": "^5.3.0",
+        "eslint": "^7.14.0",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-config-react-app": "^6.0.0",
+        "eslint-plugin-flowtype": "^5.2.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.5.2",
+        "nodemon": "^2.0.6",
+        "prettier": "2.2.0",
+        "typescript": "^4.1.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "pre-push": "npm test"
+        }
+    },
+    "lint-staged": {
+        "*.js": "eslint --cache --fix",
+        "*.{js,css,md}": "prettier --write"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/badabam/cats-app-with-env.git"
+    },
+    "bugs": {
+        "url": "https://github.com/badabam/cats-app-with-env/issues"
+    },
+    "homepage": "https://github.com/badabam/cats-app-with-env#readme"
 }
