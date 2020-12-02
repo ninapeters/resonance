@@ -1,5 +1,5 @@
 const app = require('./api/index')
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 8888
 const express = require('express')
 const path = require('path')
 
@@ -14,3 +14,4 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)
 })
+
