@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import data from './data/spotifyTrackData.json'
-import getToken from './services/getToken'
+import getProfile from './services/getProfile'
 import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
 import useAudio from './hooks/useAudio'
@@ -13,7 +13,7 @@ export default App
 
 function App() {
   useEffect(() => {
-    getToken()
+    getProfile().then((data) => console.log(data))
   }, [])
 
   const [artistData, setArtistData] = useState([])
