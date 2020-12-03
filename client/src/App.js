@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro'
 import data from './data/spotifyTrackData.json'
-import getProfile from './services/getProfile'
 import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
+import useToken from './hooks/useToken'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
 import ArtistList from './components/Artists/ArtistList'
@@ -12,9 +12,7 @@ import Navigation from './components/Navigation/Navigation'
 export default App
 
 function App() {
-  useEffect(() => {
-    getProfile().then((data) => console.log(data))
-  }, [])
+  const { token } = useToken()
 
   const [artistData, setArtistData] = useState([])
 
@@ -36,41 +34,50 @@ function App() {
 
   return (
     <AppWrapper>
-      <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
-      <Main>
-        {showSavedSongList === false ? (
-          <ArtistList
-            artists={artistData}
-            toggleCurrentSongId={toggleCurrentSongId}
-            isSongPlaying={isSongPlaying}
-            currentSongId={currentSongId}
-            saveSong={saveSong}
-            savedSongs={savedSongs}
-          />
-        ) : (
-          ''
-        )}
-        {showSavedSongList ? (
-          <SavedSongList
-            stopPlayingSong={stopPlayingSong}
-            deleteSavedSong={deleteSavedSong}
-            savedSongs={savedSongs}
-            toggleCurrentSongId={toggleCurrentSongId}
-            isSongPlaying={isSongPlaying}
-            currentSongId={currentSongId}
-          />
-        ) : (
-          ''
-        )}
-      </Main>
-      <Footer className="footer-fixed">
-        <Navigation onClick={() => setShowSavedSongList(!showSavedSongList)}>
-          {showSavedSongList ? 'all songs' : 'saved songs'}
-        </Navigation>
-      </Footer>
+      {token ? (
+        <>
+          <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
+          <Main>
+            {showSavedSongList === false ? (
+              <ArtistList
+                artists={artistData}
+                toggleCurrentSongId={toggleCurrentSongId}
+                isSongPlaying={isSongPlaying}
+                currentSongId={currentSongId}
+                saveSong={saveSong}
+                savedSongs={savedSongs}
+              />
+            ) : (
+              ''
+            )}
+            {showSavedSongList ? (
+              <SavedSongList
+                stopPlayingSong={stopPlayingSong}
+                deleteSavedSong={deleteSavedSong}
+                savedSongs={savedSongs}
+                toggleCurrentSongId={toggleCurrentSongId}
+                isSongPlaying={isSongPlaying}
+                currentSongId={currentSongId}
+              />
+            ) : (
+              ''
+            )}
+          </Main>
+          <Footer className="footer-fixed">
+            <Navigation
+              onClick={() => setShowSavedSongList(!showSavedSongList)}
+            >
+              {showSavedSongList ? 'all songs' : 'saved songs'}
+            </Navigation>
+          </Footer>
+        </>
+      ) : (
+        <h1>no token</h1>
+      )}
     </AppWrapper>
   )
 }
+
 const AppWrapper = styled.div`
   display: grid;
   grid-template-rows: 6% auto 8%;
