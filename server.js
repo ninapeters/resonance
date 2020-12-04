@@ -2,24 +2,27 @@ const express = require('express')
 const request = require('request')
 const cors = require('cors')
 const path = require('path')
+const fs = require('fs')
 const axios = require('axios')
 const querystring = require('querystring')
 
 const app = express()
-
-app.use(express.static(path.join(__dirname, 'client/build')))
 app.use(cors())
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-})
+const clientPath = path.join(__dirname, 'client/build')
+const isClientBuilt = fs.existsSync(clientPath)
+isClientBuilt && app.use(express.static(clientPath))
+
+isClientBuilt &&
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  })
 
 const redirect_uri =
   process.env.REDIRECT_URI || 'http://localhost:3001/callback'
 const client_id = process.env.CLIENT_ID
 const client_secret = process.env.CLIENT_SECRET
 const port = process.env.PORT || 3001
-const uri = process.env.URI || 'http://localhost:3000'
 
 const scope = [
   'user-read-currently-playing',
@@ -53,7 +56,7 @@ app.get('/login', function (req, res) {
 app.get('/callback', function (req, res) {
   const code = req.query.code || null
   const authOptions = {
-    url: 'https://accounts.spotify.com/api/token',
+    uri: 'https://accounts.spotify.com/api/token',
     form: {
       code: code,
       redirect_uri: redirect_uri,
@@ -62,21 +65,21 @@ app.get('/callback', function (req, res) {
     headers: {
       Authorization:
         'Basic ' +
-        new Buffer.alloc(client_id + ':' + client_secret).toString('base64'),
+        new Buffer(client_id + ':' + client_secret).toString('base64'),
     },
     json: true,
   }
-  request.post(authOptions, function (error, res, body) {
+  request.post(authOptions, function (error, response, body) {
     if (!error && res.statusCode === 200) {
       let access_token = body.access_token,
         refresh_token = body.refresh_token
       const options = {
-        url: 'https://api.spotify.com/v1/me',
+        uri: 'https://api.spotify.com/v1/me',
         headers: { Authorization: 'Bearer ' + access_token },
         json: true,
       }
       // use the access token to access the Spotify Web API
-      request.get(options, function (error, res, body) {
+      request.get(options, function (error, response, body) {
         console.log(body)
       })
       // we can also pass the token to the browser to make requests from there
@@ -102,11 +105,11 @@ app.get('/refresh_token', function (req, res) {
   // requesting access token from refresh token
   const refresh_token = req.query.refresh_token
   const authOptions = {
-    url: 'https://accounts.spotify.com/api/token',
+    uri: 'https://accounts.spotify.com/api/token',
     headers: {
       Authorization:
         'Basic ' +
-        new Buffer.alloc(client_id + ':' + client_secret).toString('base64'),
+        new Buffer(client_id + ':' + client_secret).toString('base64'),
     },
     form: {
       grant_type: 'refresh_token',
@@ -122,12 +125,6 @@ app.get('/refresh_token', function (req, res) {
       })
     }
   })
-})
-
-// post token in URL
-request.post(function (error, res, body) {
-  const access_token = body.access_token
-  res.redirect(uri + '?access_token=' + access_token)
 })
 
 // get profile data

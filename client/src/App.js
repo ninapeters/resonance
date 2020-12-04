@@ -38,18 +38,6 @@ function App() {
         <>
           <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
           <Main>
-            {showSavedSongList === false ? (
-              <ArtistList
-                artists={artistData}
-                toggleCurrentSongId={toggleCurrentSongId}
-                isSongPlaying={isSongPlaying}
-                currentSongId={currentSongId}
-                saveSong={saveSong}
-                savedSongs={savedSongs}
-              />
-            ) : (
-              ''
-            )}
             {showSavedSongList ? (
               <SavedSongList
                 stopPlayingSong={stopPlayingSong}
@@ -60,7 +48,14 @@ function App() {
                 currentSongId={currentSongId}
               />
             ) : (
-              ''
+              <ArtistList
+                artists={artistData}
+                toggleCurrentSongId={toggleCurrentSongId}
+                isSongPlaying={isSongPlaying}
+                currentSongId={currentSongId}
+                saveSong={saveSong}
+                savedSongs={savedSongs}
+              />
             )}
           </Main>
           <Footer className="footer-fixed">
@@ -72,7 +67,7 @@ function App() {
           </Footer>
         </>
       ) : (
-        <h1>no token</h1>
+        <a href="http:localhost/3001">Login with spotify</a>
       )}
     </AppWrapper>
   )
