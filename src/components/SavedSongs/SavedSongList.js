@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import SavedSong from './SavedSong'
+import Header from '../Header'
 
 SavedSongList.propTypes = {
   stopPlayingSong: PropTypes.func,
@@ -20,21 +21,24 @@ export default function SavedSongList({
   currentSongId,
 }) {
   return (
-    <List>
-      {savedSongs?.map(({ artist, songTitle, id }) => (
-        <SavedSong
-          key={id}
-          artist={artist}
-          songTitle={songTitle}
-          id={id}
-          stopPlayingSong={stopPlayingSong}
-          deleteSavedSong={deleteSavedSong}
-          toggleCurrentSongId={toggleCurrentSongId}
-          isSongPlaying={isSongPlaying}
-          currentSongId={currentSongId}
-        />
-      ))}
-    </List>
+    <>
+      <Header>Favorites</Header>
+      <List>
+        {savedSongs?.map(({ artist, songTitle, id }) => (
+          <SavedSong
+            key={id}
+            artist={artist}
+            songTitle={songTitle}
+            id={id}
+            stopPlayingSong={stopPlayingSong}
+            deleteSavedSong={deleteSavedSong}
+            toggleCurrentSongId={toggleCurrentSongId}
+            isSongPlaying={isSongPlaying}
+            currentSongId={currentSongId}
+          />
+        ))}
+      </List>
+    </>
   )
 }
 
@@ -42,6 +46,6 @@ const List = styled.ul`
   display: grid;
   gap: 32px;
   list-style: none;
-  margin: 22px 0;
+  margin: 32px 0;
   padding: 0;
 `

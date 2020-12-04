@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import Header from '../Header'
 import AudioButton from '../Buttons/AudioButton'
 import Button from '../Buttons/Button'
 import { SaveIcon } from '../Icons'

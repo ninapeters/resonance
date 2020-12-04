@@ -28,17 +28,20 @@ function App() {
 
   return (
     <AppWrapper>
-      <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
       <Main>
         {showSavedSongList === false ? (
-          <ArtistList
-            artists={artistData}
-            toggleCurrentSongId={toggleCurrentSongId}
-            isSongPlaying={isSongPlaying}
-            currentSongId={currentSongId}
-            saveSong={saveSong}
-            savedSongs={savedSongs}
-          />
+          <>
+            <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
+
+            <ArtistList
+              artists={artistData}
+              toggleCurrentSongId={toggleCurrentSongId}
+              isSongPlaying={isSongPlaying}
+              currentSongId={currentSongId}
+              saveSong={saveSong}
+              savedSongs={savedSongs}
+            />
+          </>
         ) : (
           ''
         )}
@@ -65,7 +68,7 @@ function App() {
 }
 const AppWrapper = styled.div`
   display: grid;
-  grid-template-rows: 6% auto 8%;
+  grid-template-rows: auto 8%;
   height: 100vh;
 
   &.footer-fixed {
