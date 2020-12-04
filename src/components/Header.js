@@ -9,7 +9,7 @@ const HeaderStyled = styled.div`
   display: grid;
   font-size: 1.6em;
   font-weight: 300;
-  height: ${(props) => (props.hasImage ? '384px' : '144px')};
+  height: 144px;
   letter-spacing: 0.05em;
   place-items: center;
   text-transform: uppercase;
@@ -19,7 +19,6 @@ const Header = (props) => <HeaderStyled {...props} />
 
 Header.propTypes = {
   children: PropTypes.array,
-  hasImage: PropTypes.bool,
 }
 
 export default Header

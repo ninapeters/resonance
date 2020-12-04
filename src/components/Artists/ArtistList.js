@@ -26,9 +26,7 @@ export default function ArtistList({
     <ListStyled>
       {artists?.map(({ artist, songTitle, image, id }) => (
         <ListItemStyled key={id}>
-          <Header hasImage>
-            <Cover src={image} alt="" />
-          </Header>
+          <Cover src={image} alt="" />
           <Content>
             <Artist>{artist}</Artist>
             <Song>{songTitle}</Song>
@@ -69,6 +67,10 @@ const ListItemStyled = styled.li`
   grid-template-rows: 384px 1fr;
 `
 const Cover = styled.img`
+  box-shadow: var(--shadow-dark);
+  object-fit: cover;
+  border-radius: 0 0 70px 70px;
+  height: 384px;
   width: 100%;
 `
 const Content = styled.div`
@@ -80,11 +82,13 @@ const Artist = styled.span`
   font-size: 1.2em;
   font-weight: 700;
   text-transform: uppercase;
+  margin-bottom: 8px;
 `
 const Song = styled.span`
   color: var(--primary-regular);
   font-size: 1.6em;
   font-weight: 700;
+  line-height: 1;
   text-transform: uppercase;
 `
 const ButtonWrapper = styled.div`
