@@ -34,41 +34,33 @@ function App() {
 
   return (
     <AppWrapper>
-      {token ? (
-        <>
-          <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
-          <Main>
-            {showSavedSongList ? (
-              <SavedSongList
-                stopPlayingSong={stopPlayingSong}
-                deleteSavedSong={deleteSavedSong}
-                savedSongs={savedSongs}
-                toggleCurrentSongId={toggleCurrentSongId}
-                isSongPlaying={isSongPlaying}
-                currentSongId={currentSongId}
-              />
-            ) : (
-              <ArtistList
-                artists={artistData}
-                toggleCurrentSongId={toggleCurrentSongId}
-                isSongPlaying={isSongPlaying}
-                currentSongId={currentSongId}
-                saveSong={saveSong}
-                savedSongs={savedSongs}
-              />
-            )}
-          </Main>
-          <Footer className="footer-fixed">
-            <Navigation
-              onClick={() => setShowSavedSongList(!showSavedSongList)}
-            >
-              {showSavedSongList ? 'all songs' : 'saved songs'}
-            </Navigation>
-          </Footer>
-        </>
-      ) : (
-        <a href="http:localhost/3001">Login with spotify</a>
-      )}
+      <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
+      <Main>
+        {showSavedSongList ? (
+          <SavedSongList
+            stopPlayingSong={stopPlayingSong}
+            deleteSavedSong={deleteSavedSong}
+            savedSongs={savedSongs}
+            toggleCurrentSongId={toggleCurrentSongId}
+            isSongPlaying={isSongPlaying}
+            currentSongId={currentSongId}
+          />
+        ) : (
+          <ArtistList
+            artists={artistData}
+            toggleCurrentSongId={toggleCurrentSongId}
+            isSongPlaying={isSongPlaying}
+            currentSongId={currentSongId}
+            saveSong={saveSong}
+            savedSongs={savedSongs}
+          />
+        )}
+      </Main>
+      <Footer className="footer-fixed">
+        <Navigation onClick={() => setShowSavedSongList(!showSavedSongList)}>
+          {showSavedSongList ? 'all songs' : 'saved songs'}
+        </Navigation>
+      </Footer>
     </AppWrapper>
   )
 }
