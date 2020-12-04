@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import AudioButton from '../Buttons/AudioButton'
-import ButtonSecondary from '../Buttons/ButtonSecondary'
+import Button from '../Buttons/Button'
 import { XIcon, ResetIcon, BinIcon } from '../Icons'
 
 SavedSong.propTypes = {
@@ -33,13 +33,13 @@ export default function SavedSong({
       {toBeDeleted || (
         <ListItem>
           <ButtonWrapper>
-            <ButtonSecondary
+            <Button
               id={id}
               onClick={() => prepareToDelete(id)}
               data-testid="prepare-delete-button"
             >
               <XIcon />
-            </ButtonSecondary>
+            </Button>
           </ButtonWrapper>
           <Artist>{artist}</Artist>
           <Song>{songTitle}</Song>
@@ -125,6 +125,6 @@ const ConfirmationWrapper = styled.section`
     text-align: center;
   }
 `
-const ConfirmationButton = styled(ButtonSecondary)`
+const ConfirmationButton = styled(Button)`
   justify-self: center;
 `
