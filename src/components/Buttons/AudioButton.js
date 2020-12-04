@@ -5,23 +5,25 @@ import { PlayIcon, PauseIcon } from '../Icons'
 AudioButton.propTypes = {
   onClick: PropTypes.func,
   isSongPlaying: PropTypes.bool.isRequired,
+  isSmall: PropTypes.bool,
 }
 
-export default function AudioButton({ onClick, isSongPlaying }) {
+export default function AudioButton({ onClick, isSongPlaying, isSmall }) {
   return (
-    <Button onClick={onClick} data-testid="audio-button">
+    <Button onClick={onClick} data-testid="audio-button" isSmall={isSmall}>
       {isSongPlaying ? <PauseIcon title="pause" /> : <PlayIcon title="play" />}
     </Button>
   )
 }
 
 const Button = styled.button`
-  background: var(--white-transparent);
+  background: ${(props) =>
+    props.isSmall ? 'transparent' : 'var(--white-transparent)'};
   border: none;
   border-radius: 50%;
-  box-shadow: var(--shadow-light);
-  fill: var(--primary-light);
-  height: 60px;
+  box-shadow: ${(props) => (props.isSmall ? 'none' : 'var(--shadow-light)')};
+  fill: var(--primary-regular);
+  height: ${(props) => (props.isSmall ? '48px' : '60px')};
   padding: 14px;
-  width: 60px;
+  width: ${(props) => (props.isSmall ? '48px' : '60px')};
 `

@@ -72,7 +72,6 @@ describe('SavedSong', () => {
     const Button = getByTestId('prepare-delete-button')
     user.click(Button)
     expect(stopPlayingSongMock).toHaveBeenCalled()
-    expect(getByText('Do you want to delete this song?')).toBeInTheDocument()
     expect(getByTestId('reset-button')).toBeInTheDocument()
     expect(getByTestId('delete-button')).toBeInTheDocument()
   })

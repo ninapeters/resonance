@@ -40,8 +40,8 @@ export default function SavedSongList({
 
 const List = styled.ul`
   display: grid;
-  gap: 8px;
+  gap: 32px;
   list-style: none;
-  margin: 0;
+  margin: 22px 0;
   padding: 0;
 `
