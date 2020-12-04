@@ -13,6 +13,8 @@ export default App
 
 function App() {
   const { token } = useToken()
+  console.log(token)
+
   const [artistData, setArtistData] = useState([])
 
   useEffect(() => {

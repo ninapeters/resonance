@@ -3,7 +3,6 @@ const request = require('request')
 const cors = require('cors')
 const path = require('path')
 const fs = require('fs')
-const axios = require('axios')
 const querystring = require('querystring')
 
 const app = express()
@@ -30,9 +29,6 @@ const scope = [
   'user-read-playback-state',
   'user-modify-playback-state',
 ]
-
-const sendAxiosError = (res) => (error) =>
-  res.status(error.response.status || 500).json(error.response.data)
 
 app.get('*', (req, res, next) => {
   res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
@@ -126,16 +122,6 @@ app.get('/refresh_token', function (req, res) {
       })
     }
   })
-})
-
-// get profile data
-app.get('/profile', (req, res) => {
-  axios
-    .get('https://api.spotify.com/v1/me')
-    .then((result) => {
-      res.json(result.data)
-    })
-    .catch(sendAxiosError(res))
 })
 
 app.listen(port, () => {

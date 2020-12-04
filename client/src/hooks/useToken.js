@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import getTokenfromUrl from '../services/getTokenfromUrl'
+import getTokenFromUrl from '../services/getTokenFromUrl'
 
 export default function useToken() {
   const [token, setToken] = useState(null)
 
   useEffect(() => {
-    const hash = getTokenfromUrl()
+    const hash = getTokenFromUrl()
     window.location.hash = ''
     const _token = hash.access_token
 
