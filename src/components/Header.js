@@ -11,7 +11,6 @@ const HeaderStyled = styled.div`
   font-weight: 300;
   height: ${(props) => (props.hasImage ? '384px' : '144px')};
   letter-spacing: 0.05em;
-  padding: 6px;
   place-items: center;
   text-transform: uppercase;
   width: 100%;
