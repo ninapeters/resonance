@@ -83,6 +83,7 @@ app.get('/callback', function (req, res) {
         console.log('body of get request: ', body)
       })
       // we can also pass the token to the browser to make requests from there
+      console.log(refresh_token)
       res.redirect(
         'http://localhost:3000/#' +
           querystring.stringify({
