@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import Header from '../Header'
 import AudioButton from '../Buttons/AudioButton'
 import Button from '../Buttons/Button'
 import { SaveIcon } from '../Icons'
@@ -25,16 +26,17 @@ export default function ArtistList({
     <ListStyled>
       {artists?.map(({ artist, songTitle, id }) => (
         <ListItemStyled key={id}>
-          <Artist>{artist}</Artist>
-          <Song>{songTitle}</Song>
-          <AudioButtonWrapper>
+          <Header hasImage />
+          <Content>
+            <Artist>{artist}</Artist>
+            <Song>{songTitle}</Song>
+          </Content>
+          <ButtonWrapper>
             <AudioButton
               onClick={() => toggleCurrentSongId(id)}
               isSongPlaying={isSongPlaying && currentSongId === id}
               currentSongId={currentSongId}
             />
-          </AudioButtonWrapper>
-          <ButtonWrapper>
             <Button
               id={id}
               onClick={() => saveSong(id)}
@@ -52,37 +54,38 @@ export default function ArtistList({
 
 const ListStyled = styled.ul`
   display: grid;
-  gap: 8px;
+  gap: 80px;
   list-style: none;
   margin: 0;
   padding: 0;
 `
 const ListItemStyled = styled.li`
-  background-color: var(--primary-light);
+  position: relative;
   display: grid;
-  grid-template-columns: 80% auto;
-  grid-template-rows: 1fr 1fr 2fr;
-  padding: 20px;
+  row-gap: 46px;
+  grid-template-columns: 100%;
+  grid-template-rows: 384px 1fr;
+`
+const Content = styled.div`
+  padding: 0 22px;
 `
 const Artist = styled.span`
   display: block;
-  font-size: 75%;
-  font-weight: 300;
-  padding-bottom: 6px;
+  color: var(--primary-regular);
+  font-size: 1.2em;
+  font-weight: 700;
   text-transform: uppercase;
 `
 const Song = styled.span`
-  color: var(--primary-dark);
-  font-size: 1em;
-  font-weight: 600;
-  grid-column-start: 1;
-`
-const AudioButtonWrapper = styled.div`
-  grid-column-start: 2;
-  grid-row: 1/3;
-  justify-self: end;
+  color: var(--primary-regular);
+  font-size: 1.6em;
+  font-weight: 700;
+  text-transform: uppercase;
 `
 const ButtonWrapper = styled.div`
-  align-self: end;
-  grid-column: 1/3;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 268px;
+  width: 100%;
 `
