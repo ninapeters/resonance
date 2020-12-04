@@ -12,8 +12,10 @@
         "build": "cd client && npm run build",
         "test:watch": "cd client && npm run test:watch",
         "test": "npm run lint && npm run prettier && cd client && npm test",
+        "prettify": "prettier --write .",
         "dev": "concurrently \"npm run server\" \"npm run client\"",
         "client": "cd client && npm start",
+        "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,html,css,json}\"",
         "server": "env-cmd nodemon server.js",
         "start": "node server.js"
     },

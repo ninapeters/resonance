@@ -1,10 +1,11 @@
-const app = require('./api/index')
 const express = require('express')
 const request = require('request')
 const cors = require('cors')
 const path = require('path')
 const axios = require('axios')
 const querystring = require('querystring')
+
+const app = express()
 
 app.use(express.static(path.join(__dirname, 'client/build')))
 app.use(cors())
@@ -13,19 +14,19 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })
 
-const app = express()
-
-const port = process.env.PORT || 3001
-const redirect_uri = process.env.REDIRECT_URI || "http://localhost:3000/callback"
+const redirect_uri =
+  process.env.REDIRECT_URI || 'http://localhost:3001/callback'
 const client_id = process.env.CLIENT_ID
 const client_secret = process.env.CLIENT_SECRET
+const port = process.env.PORT || 3001
+const uri = process.env.URI || 'http://localhost:3000'
 
 const scope = [
-  "user-read-currently-playing",
-  "user-read-recently-played",
-  "user-read-playback-state",
-  "user-modify-playback-state",
-];
+  'user-read-currently-playing',
+  'user-read-recently-played',
+  'user-read-playback-state',
+  'user-modify-playback-state',
+]
 
 const sendAxiosError = (res) => (error) =>
   res.status(error.response.status || 500).json(error.response.data)
@@ -36,44 +37,100 @@ app.get('*', (req, res, next) => {
 })
 
 // get request >> redirect to spotify login page
-app.get('/login', function(req, res) {
-  res.redirect('https://accounts.spotify.com/authorize?' +
-    querystring.stringify({
-      response_type: 'code',
-      client_id: client_id,
-      scope: scope,
-      redirect_uri: redirect_uri,
-    })
+app.get('/login', function (req, res) {
+  res.redirect(
+    'https://accounts.spotify.com/authorize?' +
+      querystring.stringify({
+        response_type: 'code',
+        client_id: client_id,
+        scope: scope,
+        redirect_uri: redirect_uri,
+      })
   )
 })
 
-// get request >> get token
-app.get('/callback', function(req, res) {
+// get token and refresh token
+app.get('/callback', function (req, res) {
   const code = req.query.code || null
   const authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     form: {
       code: code,
-      redirect_uri,
-      grant_type: 'authorization_code'
+      redirect_uri: redirect_uri,
+      grant_type: 'authorization_code',
     },
     headers: {
-      'Authorization': 'Basic ' + (new Buffer.alloc(
-        client_id + ':' + client_secret
-      ).toString('base64'))
+      Authorization:
+        'Basic ' +
+        new Buffer.alloc(client_id + ':' + client_secret).toString('base64'),
     },
-    json: true
+    json: true,
   }
+  request.post(authOptions, function (error, res, body) {
+    if (!error && res.statusCode === 200) {
+      let access_token = body.access_token,
+        refresh_token = body.refresh_token
+      const options = {
+        url: 'https://api.spotify.com/v1/me',
+        headers: { Authorization: 'Bearer ' + access_token },
+        json: true,
+      }
+      // use the access token to access the Spotify Web API
+      request.get(options, function (error, res, body) {
+        console.log(body)
+      })
+      // we can also pass the token to the browser to make requests from there
+      res.redirect(
+        '/#' +
+          querystring.stringify({
+            access_token: access_token,
+            refresh_token: refresh_token,
+          })
+      )
+    } else {
+      res.redirect(
+        '/#' +
+          querystring.stringify({
+            error: 'invalid_token',
+          })
+      )
+    }
+  })
 })
 
-// post request >> show token in URL
-request.post(authOptions, function(error, response, body) {
+app.get('/refresh_token', function (req, res) {
+  // requesting access token from refresh token
+  const refresh_token = req.query.refresh_token
+  const authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
+    headers: {
+      Authorization:
+        'Basic ' +
+        new Buffer.alloc(client_id + ':' + client_secret).toString('base64'),
+    },
+    form: {
+      grant_type: 'refresh_token',
+      refresh_token: refresh_token,
+    },
+    json: true,
+  }
+  request.post(authOptions, function (error, res, body) {
+    if (!error && res.statusCode === 200) {
+      const access_token = body.access_token
+      res.send({
+        access_token: access_token,
+      })
+    }
+  })
+})
+
+// post token in URL
+request.post(function (error, res, body) {
   const access_token = body.access_token
-  const uri = 'http://localhost:3000'
   res.redirect(uri + '?access_token=' + access_token)
 })
 
-// get request >> profile data
+// get profile data
 app.get('/profile', (req, res) => {
   axios
     .get('https://api.spotify.com/v1/me')
@@ -84,5 +141,7 @@ app.get('/profile', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Server listening at ${port}, got to http://localhost:${port}/login to start authorization flow.`)
+  console.log(
+    `Server listening at ${port}, got to http://localhost:${port}/login to start authorization flow.`
+  )
 })
