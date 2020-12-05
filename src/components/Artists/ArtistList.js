@@ -54,41 +54,41 @@ export default function ArtistList({
 const ListStyled = styled.ul`
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
   margin: 0;
+  overflow-x: scroll;
   padding: 0;
+  scroll-snap-type: x mandatory;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
 `
 const ListItemStyled = styled.li`
-  flex: 1 0 100%;
-  scroll-snap-align: start;
-  position: relative;
   display: grid;
-  row-gap: 46px;
+  flex: 1 0 100%;
   grid-template-columns: 100%;
-  grid-template-rows: 60vh auto;
+  grid-template-rows: 54vh auto;
+  position: relative;
+  row-gap: 46px;
+  scroll-snap-align: start;
 `
 const Cover = styled.img`
-  box-shadow: var(--shadow-dark);
-  object-fit: cover;
   border-radius: 0 0 70px 70px;
-  height: 60vh;
+  box-shadow: var(--shadow-dark);
+  height: 54vh;
+  object-fit: cover;
   width: 100%;
 `
 const Content = styled.div`
   padding: 0 22px;
 `
 const Artist = styled.span`
-  display: block;
   color: var(--primary-regular);
+  display: block;
   font-size: 1.2em;
   font-weight: 700;
-  text-transform: uppercase;
   margin-bottom: 8px;
+  text-transform: uppercase;
 `
 const Song = styled.span`
   color: var(--primary-regular);
@@ -101,6 +101,6 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   position: absolute;
-  top: 54%;
+  top: 50%;
   width: 100%;
 `

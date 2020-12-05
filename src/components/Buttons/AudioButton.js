@@ -26,4 +26,7 @@ const Button = styled.button`
   height: ${(props) => (props.isSmall ? '48px' : '60px')};
   padding: 14px;
   width: ${(props) => (props.isSmall ? '48px' : '60px')};
+  &:focus {
+    outline: 0;
+  }
 `

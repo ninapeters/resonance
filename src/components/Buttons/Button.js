@@ -14,9 +14,11 @@ const ButtonStyled = styled.button`
   height: 60px;
   padding: 14px;
   width: 60px;
-
   &:disabled {
     fill: var(--spotify-green);
+  }
+  &:focus {
+    outline: 0;
   }
 `
 const Button = (props) => <ButtonStyled {...props} />

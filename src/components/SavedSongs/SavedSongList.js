@@ -52,13 +52,13 @@ const Container = styled.section`
   }
 `
 const List = styled.ul`
-  overflow-y: auto;
-  scrollbar-width: none;
   display: grid;
   gap: 32px;
   list-style: none;
   margin: 0;
+  overflow-y: auto;
   padding: 32px 0;
+  scrollbar-width: none;
   &:after {
     content: '';
     display: block;
