@@ -4,7 +4,7 @@ import SavedSong from './SavedSong'
 import Header from '../Header'
 
 SavedSongList.propTypes = {
-  stopPlayingSong: PropTypes.func,
+  stopPlayingSongById: PropTypes.func,
   deleteSavedSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
@@ -13,7 +13,7 @@ SavedSongList.propTypes = {
 }
 
 export default function SavedSongList({
-  stopPlayingSong,
+  stopPlayingSongById,
   deleteSavedSong,
   savedSongs,
   toggleCurrentSongId,
@@ -21,8 +21,8 @@ export default function SavedSongList({
   currentSongId,
 }) {
   return (
-    <Container>
-      <Header className="header-fixed">Favorites</Header>
+    <>
+      <HeaderFixed>Favorites</HeaderFixed>
       <List>
         {savedSongs?.map(({ artist, songTitle, id }) => (
           <SavedSong
@@ -30,7 +30,7 @@ export default function SavedSongList({
             artist={artist}
             songTitle={songTitle}
             id={id}
-            stopPlayingSong={stopPlayingSong}
+            stopPlayingSongById={stopPlayingSongById}
             deleteSavedSong={deleteSavedSong}
             toggleCurrentSongId={toggleCurrentSongId}
             isSongPlaying={isSongPlaying}
@@ -38,18 +38,14 @@ export default function SavedSongList({
           />
         ))}
       </List>
-    </Container>
+    </>
   )
 }
-const Container = styled.section`
-  display: grid;
-  grid-template-rows: 144px auto;
-  height: 100%;
-  &.header-fixed {
-    top: 0;
-    left: 0;
-    position: fixed;
-  }
+
+const HeaderFixed = styled(Header)`
+  top: 0;
+  left: 0;
+  position: fixed;
 `
 const List = styled.ul`
   display: grid;
@@ -57,8 +53,14 @@ const List = styled.ul`
   list-style: none;
   margin: 0;
   overflow-y: auto;
-  padding: 32px 0;
+  padding: 0 0;
   scrollbar-width: none;
+  &:before {
+    content: '';
+    display: block;
+    height: 144px;
+    width: 100%;
+  }
   &:after {
     content: '';
     display: block;

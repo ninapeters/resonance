@@ -6,7 +6,7 @@ import Button from '../Buttons/Button'
 import { XIcon, ResetIcon, BinIcon } from '../Icons'
 
 SavedSong.propTypes = {
-  stopPlayingSong: PropTypes.func,
+  stopPlayingSongById: PropTypes.func,
   artist: PropTypes.string.isRequired,
   songTitle: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -17,7 +17,7 @@ SavedSong.propTypes = {
 }
 
 export default function SavedSong({
-  stopPlayingSong,
+  stopPlayingSongById,
   artist,
   songTitle,
   id,
@@ -83,7 +83,7 @@ export default function SavedSong({
   )
 
   function prepareToDelete(id) {
-    stopPlayingSong(id)
+    stopPlayingSongById(id)
     setToBeDeleted(true)
   }
 }
@@ -92,6 +92,7 @@ const ListItem = styled.li`
   display: grid;
   column-gap: 8px;
   grid-template-columns: 48px auto;
+  grid-template-rows: auto;
   padding: 0 22px;
 `
 const ButtonWrapper = styled.div`
@@ -99,16 +100,16 @@ const ButtonWrapper = styled.div`
   grid-column-start: 1;
 `
 const PrepareToDeleteButton = styled(Button)`
-  height: 48px;
+  height: 100%;
   width: 48px;
 `
 const Content = styled.div`
   box-shadow: var(--shadow-light);
   border-radius: 10px 34px 34px 10px;
   display: grid;
-  grid-template-columns: 82% auto;
-  grid-template-rows: 50% 50%;
-  padding: 0 0 0 8px;
+  grid-template-columns: 80% auto;
+  grid-template-rows: auto;
+  padding: 2px 4px 2px 12px;
 `
 const Artist = styled.span`
   align-self: end;
@@ -124,11 +125,13 @@ const Song = styled.span`
   font-size: 0.9em;
   font-weight: 700;
   text-transform: uppercase;
+  line-height: 1;
 `
 const AudioButtonWrapper = styled.div`
   grid-column-start: 3;
   grid-row: 1/3;
   justify-self: end;
+  align-self: center;
 `
 const Container = styled.div`
   padding: 0 22px;

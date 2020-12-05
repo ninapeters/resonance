@@ -19,6 +19,7 @@ function App() {
     toggleCurrentSongId,
     isSongPlaying,
     currentSongId,
+    stopPlayingSongById,
     stopPlayingSong,
   } = useAudio({
     artistData,
@@ -47,7 +48,7 @@ function App() {
         )}
         {showSavedSongList ? (
           <SavedSongList
-            stopPlayingSong={stopPlayingSong}
+            stopPlayingSongById={stopPlayingSongById}
             deleteSavedSong={deleteSavedSong}
             savedSongs={savedSongs}
             toggleCurrentSongId={toggleCurrentSongId}
@@ -59,12 +60,17 @@ function App() {
         )}
       </Main>
       <Footer className="footer-fixed">
-        <Navigation onClick={() => setShowSavedSongList(!showSavedSongList)}>
+        <Navigation onClick={switchPages}>
           {showSavedSongList ? 'all songs' : 'saved songs'}
         </Navigation>
       </Footer>
     </AppWrapper>
   )
+
+  function switchPages() {
+    stopPlayingSong()
+    setShowSavedSongList(!showSavedSongList)
+  }
 }
 const AppWrapper = styled.div`
   display: grid;
