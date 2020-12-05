@@ -2,7 +2,7 @@ One saved song item:
 
 ```js
 <SavedSong
-  stopPlayingSong={() => {}}
+  stopPlayingSongById={() => {}}
   artist="Unprocessed"
   songTitle="Real"
   id="a"
