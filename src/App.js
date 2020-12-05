@@ -70,7 +70,6 @@ const AppWrapper = styled.div`
   display: grid;
   grid-template-rows: auto 8%;
   height: 100vh;
-
   &.footer-fixed {
     bottom: 0;
     left: 0;
