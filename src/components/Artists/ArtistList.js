@@ -70,13 +70,13 @@ const ListItemStyled = styled.li`
   display: grid;
   row-gap: 46px;
   grid-template-columns: 100%;
-  grid-template-rows: 384px 1fr;
+  grid-template-rows: 60vh auto;
 `
 const Cover = styled.img`
   box-shadow: var(--shadow-dark);
   object-fit: cover;
   border-radius: 0 0 70px 70px;
-  height: 384px;
+  height: 60vh;
   width: 100%;
 `
 const Content = styled.div`
@@ -101,6 +101,6 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   position: absolute;
-  top: 268px;
+  top: 54%;
   width: 100%;
 `

@@ -21,8 +21,8 @@ export default function SavedSongList({
   currentSongId,
 }) {
   return (
-    <>
-      <Header>Favorites</Header>
+    <Container>
+      <Header className="header-fixed">Favorites</Header>
       <List>
         {savedSongs?.map(({ artist, songTitle, id }) => (
           <SavedSong
@@ -38,14 +38,34 @@ export default function SavedSongList({
           />
         ))}
       </List>
-    </>
+    </Container>
   )
 }
-
+const Container = styled.section`
+  display: grid;
+  grid-template-rows: 144px auto;
+  height: 100%;
+  &.header-fixed {
+    top: 0;
+    left: 0;
+    position: fixed;
+  }
+`
 const List = styled.ul`
+  overflow-y: auto;
+  scrollbar-width: none;
   display: grid;
   gap: 32px;
   list-style: none;
-  margin: 32px 0;
-  padding: 0;
+  margin: 0;
+  padding: 32px 0;
+  &:after {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 100%;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
