@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SavedSongList renders correctly 1`] = `
-.c9 {
+.c11 {
   background: transparent;
   border: none;
   border-radius: 50%;
@@ -12,7 +12,11 @@ exports[`SavedSongList renders correctly 1`] = `
   width: 48px;
 }
 
-.c3 {
+.c11:focus {
+  outline: 0;
+}
+
+.c5 {
   background: var(--white-transparent);
   border: none;
   border-radius: 34px 10px 10px 34px;
@@ -23,11 +27,15 @@ exports[`SavedSongList renders correctly 1`] = `
   width: 60px;
 }
 
-.c3:disabled {
+.c5:disabled {
   fill: var(--spotify-green);
 }
 
-.c1 {
+.c5:focus {
+  outline: 0;
+}
+
+.c3 {
   display: grid;
   -webkit-column-gap: 8px;
   column-gap: 8px;
@@ -35,17 +43,17 @@ exports[`SavedSongList renders correctly 1`] = `
   padding: 0 22px;
 }
 
-.c2 {
+.c4 {
   grid-row: 1/3;
   grid-column-start: 1;
 }
 
-.c4 {
+.c6 {
   height: 48px;
   width: 48px;
 }
 
-.c5 {
+.c7 {
   box-shadow: var(--shadow-light);
   border-radius: 10px 34px 34px 10px;
   display: grid;
@@ -54,7 +62,7 @@ exports[`SavedSongList renders correctly 1`] = `
   padding: 0 0 0 8px;
 }
 
-.c6 {
+.c8 {
   -webkit-align-self: end;
   -ms-flex-item-align: end;
   align-self: end;
@@ -64,7 +72,7 @@ exports[`SavedSongList renders correctly 1`] = `
   text-transform: uppercase;
 }
 
-.c7 {
+.c9 {
   -webkit-align-self: start;
   -ms-flex-item-align: start;
   align-self: start;
@@ -75,112 +83,167 @@ exports[`SavedSongList renders correctly 1`] = `
   text-transform: uppercase;
 }
 
-.c8 {
+.c10 {
   grid-column-start: 3;
   grid-row: 1/3;
   justify-self: end;
 }
 
+.c1 {
+  background: var(--gradient-light);
+  border-radius: 0 0 70px 70px;
+  box-shadow: var(--shadow-dark);
+  color: var(--white);
+  display: grid;
+  font-size: 1.6em;
+  font-weight: 300;
+  height: 144px;
+  -webkit-letter-spacing: 0.05em;
+  -moz-letter-spacing: 0.05em;
+  -ms-letter-spacing: 0.05em;
+  letter-spacing: 0.05em;
+  place-items: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
 .c0 {
+  display: grid;
+  grid-template-rows: 144px auto;
+  height: 100%;
+}
+
+.c0.header-fixed {
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+.c2 {
   display: grid;
   gap: 32px;
   list-style: none;
-  margin: 22px 0;
-  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  padding: 32px 0;
+  -webkit-scrollbar-width: none;
+  -moz-scrollbar-width: none;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
 }
 
-<ul
+.c2:after {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 100%;
+}
+
+.c2::-webkit-scrollbar {
+  display: none;
+}
+
+<section
   class="c0"
 >
-  <li
-    class="c1"
+  <div
+    class="c1 header-fixed"
   >
-    <div
-      class="c2"
+    Favorites
+  </div>
+  <ul
+    class="c2"
+  >
+    <li
+      class="c3"
     >
-      <button
-        class="c3 c4"
-        data-testid="prepare-delete-button"
-        id="a"
-      >
-        <svg>
-          x.svg
-        </svg>
-      </button>
-    </div>
-    <div
-      class="c5"
-    >
-      <span
-        class="c6"
-      >
-        Unprocessed
-      </span>
-      <span
-        class="c7"
-      >
-        Real
-      </span>
       <div
-        class="c8"
+        class="c4"
       >
         <button
-          class="c9"
-          data-testid="audio-button"
+          class="c5 c6"
+          data-testid="prepare-delete-button"
+          id="a"
         >
-          <svg
-            title="play"
-          >
-            play.svg
+          <svg>
+            x.svg
           </svg>
         </button>
       </div>
-    </div>
-  </li>
-  <li
-    class="c1"
-  >
-    <div
-      class="c2"
-    >
-      <button
-        class="c3 c4"
-        data-testid="prepare-delete-button"
-        id="b"
-      >
-        <svg>
-          x.svg
-        </svg>
-      </button>
-    </div>
-    <div
-      class="c5"
-    >
-      <span
-        class="c6"
-      >
-        Dance Gavin Dance
-      </span>
-      <span
+      <div
         class="c7"
       >
-        We Own The Night
-      </span>
+        <span
+          class="c8"
+        >
+          Unprocessed
+        </span>
+        <span
+          class="c9"
+        >
+          Real
+        </span>
+        <div
+          class="c10"
+        >
+          <button
+            class="c11"
+            data-testid="audio-button"
+          >
+            <svg
+              title="play"
+            >
+              play.svg
+            </svg>
+          </button>
+        </div>
+      </div>
+    </li>
+    <li
+      class="c3"
+    >
       <div
-        class="c8"
+        class="c4"
       >
         <button
-          class="c9"
-          data-testid="audio-button"
+          class="c5 c6"
+          data-testid="prepare-delete-button"
+          id="b"
         >
-          <svg
-            title="play"
-          >
-            play.svg
+          <svg>
+            x.svg
           </svg>
         </button>
       </div>
-    </div>
-  </li>
-</ul>
+      <div
+        class="c7"
+      >
+        <span
+          class="c8"
+        >
+          Dance Gavin Dance
+        </span>
+        <span
+          class="c9"
+        >
+          We Own The Night
+        </span>
+        <div
+          class="c10"
+        >
+          <button
+            class="c11"
+            data-testid="audio-button"
+          >
+            <svg
+              title="play"
+            >
+              play.svg
+            </svg>
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
 `;

@@ -57,7 +57,7 @@ describe('SavedSong', () => {
 
   it('renders delete field and stops playing current song', () => {
     const stopPlayingSongMock = jest.fn()
-    const { getByTestId, getByText } = render(
+    const { getByTestId } = render(
       <SavedSong
         stopPlayingSong={stopPlayingSongMock}
         artist="Unprocessed"

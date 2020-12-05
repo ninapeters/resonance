@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ArtistList renders correctly 1`] = `
+exports[`SavedSongList renders correctly 1`] = `
 .c7 {
   background: var(--white-transparent);
   border: none;
@@ -10,6 +10,10 @@ exports[`ArtistList renders correctly 1`] = `
   height: 60px;
   padding: 14px;
   width: 60px;
+}
+
+.c7:focus {
+  outline: 0;
 }
 
 .c8 {
@@ -27,27 +31,30 @@ exports[`ArtistList renders correctly 1`] = `
   fill: var(--spotify-green);
 }
 
-.c0 {
-  display: grid;
-  gap: 80px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.c8:focus {
+  outline: 0;
 }
 
 .c1 {
-  position: relative;
   display: grid;
-  row-gap: 46px;
+  -webkit-flex: 1 0 100%;
+  -ms-flex: 1 0 100%;
+  flex: 1 0 100%;
   grid-template-columns: 100%;
-  grid-template-rows: 384px 1fr;
+  grid-template-rows: 54vh auto;
+  position: relative;
+  row-gap: 46px;
+  -webkit-scroll-snap-align: start;
+  -moz-scroll-snap-align: start;
+  -ms-scroll-snap-align: start;
+  scroll-snap-align: start;
 }
 
 .c2 {
-  box-shadow: var(--shadow-dark);
-  object-fit: cover;
   border-radius: 0 0 70px 70px;
-  height: 384px;
+  box-shadow: var(--shadow-dark);
+  height: 54vh;
+  object-fit: cover;
   width: 100%;
 }
 
@@ -56,12 +63,12 @@ exports[`ArtistList renders correctly 1`] = `
 }
 
 .c4 {
-  display: block;
   color: var(--primary-regular);
+  display: block;
   font-size: 1.2em;
   font-weight: 700;
-  text-transform: uppercase;
   margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
 .c5 {
@@ -82,8 +89,33 @@ exports[`ArtistList renders correctly 1`] = `
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
   position: absolute;
-  top: 268px;
+  top: 50%;
   width: 100%;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  margin: 0;
+  overflow-x: scroll;
+  padding: 0;
+  -webkit-scroll-snap-type: x mandatory;
+  -moz-scroll-snap-type: x mandatory;
+  -ms-scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
+  -webkit-scrollbar-width: none;
+  -moz-scrollbar-width: none;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
+}
+
+.c0::-webkit-scrollbar {
+  display: none;
 }
 
 <ul
@@ -127,6 +159,51 @@ exports[`ArtistList renders correctly 1`] = `
         class="c8"
         data-testid="save-button"
         id="a"
+      >
+        <svg>
+          save.svg
+        </svg>
+      </button>
+    </div>
+  </li>
+  <li
+    class="c1"
+  >
+    <img
+      alt=""
+      class="c2"
+    />
+    <div
+      class="c3"
+    >
+      <span
+        class="c4"
+      >
+        Dance Gavin Dance
+      </span>
+      <span
+        class="c5"
+      >
+        We Own The Night
+      </span>
+    </div>
+    <div
+      class="c6"
+    >
+      <button
+        class="c7"
+        data-testid="audio-button"
+      >
+        <svg
+          title="play"
+        >
+          play.svg
+        </svg>
+      </button>
+      <button
+        class="c8"
+        data-testid="save-button"
+        id="b"
       >
         <svg>
           save.svg

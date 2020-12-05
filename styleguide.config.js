@@ -4,6 +4,7 @@ module.exports = {
   ignore: [
     '**/App.js',
     '**/*.test.js',
+    '**/**/ArtistList.js',
     '**/**/SavedSongList.js',
     '**/**/Icons.js',
     '**/**/use**.js',
