@@ -18,7 +18,7 @@ const HeaderStyled = styled.div`
 const Header = (props) => <HeaderStyled {...props} />
 
 Header.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.string,
 }
 
 export default Header

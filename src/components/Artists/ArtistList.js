@@ -52,13 +52,20 @@ export default function ArtistList({
 }
 
 const ListStyled = styled.ul`
-  display: grid;
-  gap: 80px;
-  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
   margin: 0;
   padding: 0;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 const ListItemStyled = styled.li`
+  flex: 1 0 100%;
+  scroll-snap-align: start;
   position: relative;
   display: grid;
   row-gap: 46px;

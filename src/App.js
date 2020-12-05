@@ -90,6 +90,5 @@ const Footer = styled.footer`
 const UnmuteMessage = styled.p`
   color: var(--primary-dark-transparent);
   font-size: 0.7em;
-  padding: 4px;
   text-align: center;
 `
