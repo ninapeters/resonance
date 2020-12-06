@@ -5,10 +5,10 @@ const ButtonStyled = styled.button`
   background: var(--white-transparent);
   border: none;
   border-radius: ${(props) =>
-    props.isDelteButton ? '34px 10px 10px 34px' : '50%'};
+    props.isDeleteButton ? '34px 10px 10px 34px' : '50%'};
   box-shadow: var(--shadow-light);
   fill: ${(props) =>
-    props.isDelteButton
+    props.isDeleteButton
       ? 'var(--cta-red)'
       : 'var(--spotify-green-transparent)'};
   height: 60px;
@@ -24,8 +24,8 @@ const ButtonStyled = styled.button`
 const Button = (props) => <ButtonStyled {...props} />
 
 Button.propTypes = {
-  onClick: PropTypes.func,
-  isDelteButton: PropTypes.bool,
+  onClick: PropTypes.func.isRequired,
+  isDeleteButton: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.element.isRequired,
 }

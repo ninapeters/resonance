@@ -30,22 +30,6 @@ function App() {
   return (
     <AppWrapper>
       <Main>
-        {showSavedSongList === false ? (
-          <>
-            <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
-
-            <ArtistList
-              artists={artistData}
-              toggleCurrentSongId={toggleCurrentSongId}
-              isSongPlaying={isSongPlaying}
-              currentSongId={currentSongId}
-              saveSong={saveSong}
-              savedSongs={savedSongs}
-            />
-          </>
-        ) : (
-          ''
-        )}
         {showSavedSongList ? (
           <SavedSongList
             stopPlayingSongById={stopPlayingSongById}
@@ -56,7 +40,17 @@ function App() {
             currentSongId={currentSongId}
           />
         ) : (
-          ''
+          <>
+            <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
+            <ArtistList
+              artists={artistData}
+              toggleCurrentSongId={toggleCurrentSongId}
+              isSongPlaying={isSongPlaying}
+              currentSongId={currentSongId}
+              saveSong={saveSong}
+              savedSongs={savedSongs}
+            />
+          </>
         )}
       </Main>
       <Footer className="footer-fixed">

@@ -4,7 +4,7 @@ import SavedSong from './SavedSong'
 import Header from '../Header'
 
 SavedSongList.propTypes = {
-  stopPlayingSongById: PropTypes.func,
+  stopPlayingSongById: PropTypes.func.isRequired,
   deleteSavedSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
@@ -55,13 +55,13 @@ const List = styled.ul`
   overflow-y: auto;
   padding: 0 0;
   scrollbar-width: none;
-  &:before {
+  &::before {
     content: '';
     display: block;
     height: 144px;
     width: 100%;
   }
-  &:after {
+  &::after {
     content: '';
     display: block;
     height: 4px;

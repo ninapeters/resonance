@@ -110,7 +110,7 @@ exports[`SavedSong renders correctly 1`] = `
       </svg>
     </button>
   </div>
-  <div
+  <section
     class="c4"
   >
     <span
@@ -137,6 +137,6 @@ exports[`SavedSong renders correctly 1`] = `
         </svg>
       </button>
     </div>
-  </div>
+  </section>
 </li>
 `;

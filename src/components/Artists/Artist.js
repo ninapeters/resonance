@@ -71,7 +71,7 @@ const Cover = styled.img`
   object-fit: cover;
   width: 100%;
 `
-const Content = styled.div`
+const Content = styled.section`
   padding: 0 22px;
 `
 const ArtistName = styled.span`

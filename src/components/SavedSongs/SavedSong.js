@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import AudioButton from '../Buttons/AudioButton'
 import Button from '../Buttons/Button'
-import { XIcon, ResetIcon, BinIcon } from '../Icons'
+import { CrossIcon, ResetIcon, BinIcon } from '../Icons'
 
 SavedSong.propTypes = {
   stopPlayingSongById: PropTypes.func,
@@ -33,14 +33,14 @@ export default function SavedSong({
       {toBeDeleted || (
         <ListItem>
           <ButtonWrapper>
-            <PrepareToDeleteButton
-              isDelteButton
+            <ButtonPrepareToDelete
+              isDeleteButton
               id={id}
               onClick={() => prepareToDelete(id)}
               data-testid="prepare-delete-button"
             >
-              <XIcon />
-            </PrepareToDeleteButton>
+              <CrossIcon />
+            </ButtonPrepareToDelete>
           </ButtonWrapper>
           <Content>
             <Artist>{artist}</Artist>
@@ -99,11 +99,11 @@ const ButtonWrapper = styled.div`
   grid-row: 1/3;
   grid-column-start: 1;
 `
-const PrepareToDeleteButton = styled(Button)`
+const ButtonPrepareToDelete = styled(Button)`
   height: 100%;
   width: 48px;
 `
-const Content = styled.div`
+const Content = styled.section`
   box-shadow: var(--shadow-light);
   border-radius: 10px 34px 34px 10px;
   display: grid;

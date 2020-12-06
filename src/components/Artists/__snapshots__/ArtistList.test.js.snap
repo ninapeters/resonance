@@ -128,7 +128,7 @@ exports[`SavedSongList renders correctly 1`] = `
       alt=""
       class="c2"
     />
-    <div
+    <section
       class="c3"
     >
       <span
@@ -141,7 +141,7 @@ exports[`SavedSongList renders correctly 1`] = `
       >
         Real
       </span>
-    </div>
+    </section>
     <div
       class="c6"
     >
@@ -173,7 +173,7 @@ exports[`SavedSongList renders correctly 1`] = `
       alt=""
       class="c2"
     />
-    <div
+    <section
       class="c3"
     >
       <span
@@ -186,7 +186,7 @@ exports[`SavedSongList renders correctly 1`] = `
       >
         We Own The Night
       </span>
-    </div>
+    </section>
     <div
       class="c6"
     >

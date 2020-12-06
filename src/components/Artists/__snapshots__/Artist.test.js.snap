@@ -101,7 +101,7 @@ exports[`Artist renders correctly 1`] = `
     class="c1"
     src="https://testurl.com"
   />
-  <div
+  <section
     class="c2"
   >
     <span
@@ -114,7 +114,7 @@ exports[`Artist renders correctly 1`] = `
     >
       Real
     </span>
-  </div>
+  </section>
   <div
     class="c5"
   >
