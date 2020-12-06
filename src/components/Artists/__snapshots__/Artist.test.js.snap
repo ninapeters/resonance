@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Artist renders correctly 1`] = `
+.c6 {
+  background: var(--white-transparent);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--primary-regular);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c6:focus {
+  outline: 0;
+}
+
+.c7 {
+  background: var(--white-transparent);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--spotify-green-transparent);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c7:disabled {
+  fill: var(--spotify-green);
+}
+
+.c7:focus {
+  outline: 0;
+}
+
+.c0 {
+  display: grid;
+  -webkit-flex: 1 0 100%;
+  -ms-flex: 1 0 100%;
+  flex: 1 0 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 54vh auto;
+  position: relative;
+  row-gap: 46px;
+  -webkit-scroll-snap-align: start;
+  -moz-scroll-snap-align: start;
+  -ms-scroll-snap-align: start;
+  scroll-snap-align: start;
+}
+
+.c1 {
+  border-radius: 0 0 70px 70px;
+  box-shadow: var(--shadow-dark);
+  height: 54vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+.c2 {
+  padding: 0 22px;
+}
+
+.c3 {
+  color: var(--primary-regular);
+  display: block;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.c4 {
+  color: var(--primary-regular);
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+<li
+  class="c0"
+>
+  <img
+    alt=""
+    class="c1"
+    src="https://testurl.com"
+  />
+  <section
+    class="c2"
+  >
+    <span
+      class="c3"
+    >
+      Unprocessed
+    </span>
+    <span
+      class="c4"
+    >
+      Real
+    </span>
+  </section>
+  <div
+    class="c5"
+  >
+    <button
+      class="c6"
+      data-testid="audio-button"
+    >
+      <svg
+        title="play"
+      >
+        play.svg
+      </svg>
+    </button>
+    <button
+      class="c7"
+      data-testid="save-button"
+      id="a"
+    >
+      <svg>
+        save.svg
+      </svg>
+    </button>
+  </div>
+</li>
+`;

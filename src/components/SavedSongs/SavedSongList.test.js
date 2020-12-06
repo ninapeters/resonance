@@ -5,6 +5,7 @@ describe('SavedSongList', () => {
   it('renders correctly', () => {
     const { container } = render(
       <SavedSongList
+        stopPlayingSongById={() => {}}
         deleteSavedSong={() => {}}
         savedSongs={[
           {

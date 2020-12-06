@@ -19,6 +19,7 @@ function App() {
     toggleCurrentSongId,
     isSongPlaying,
     currentSongId,
+    stopPlayingSongById,
     stopPlayingSong,
   } = useAudio({
     artistData,
@@ -28,23 +29,10 @@ function App() {
 
   return (
     <AppWrapper>
-      <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
       <Main>
-        {showSavedSongList === false ? (
-          <ArtistList
-            artists={artistData}
-            toggleCurrentSongId={toggleCurrentSongId}
-            isSongPlaying={isSongPlaying}
-            currentSongId={currentSongId}
-            saveSong={saveSong}
-            savedSongs={savedSongs}
-          />
-        ) : (
-          ''
-        )}
         {showSavedSongList ? (
           <SavedSongList
-            stopPlayingSong={stopPlayingSong}
+            stopPlayingSongById={stopPlayingSongById}
             deleteSavedSong={deleteSavedSong}
             savedSongs={savedSongs}
             toggleCurrentSongId={toggleCurrentSongId}
@@ -52,22 +40,36 @@ function App() {
             currentSongId={currentSongId}
           />
         ) : (
-          ''
+          <>
+            <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
+            <ArtistList
+              artists={artistData}
+              toggleCurrentSongId={toggleCurrentSongId}
+              isSongPlaying={isSongPlaying}
+              currentSongId={currentSongId}
+              saveSong={saveSong}
+              savedSongs={savedSongs}
+            />
+          </>
         )}
       </Main>
       <Footer className="footer-fixed">
-        <Navigation onClick={() => setShowSavedSongList(!showSavedSongList)}>
+        <Navigation onClick={switchPages}>
           {showSavedSongList ? 'all songs' : 'saved songs'}
         </Navigation>
       </Footer>
     </AppWrapper>
   )
+
+  function switchPages() {
+    stopPlayingSong()
+    setShowSavedSongList(!showSavedSongList)
+  }
 }
 const AppWrapper = styled.div`
   display: grid;
-  grid-template-rows: 6% auto 8%;
+  grid-template-rows: auto 8%;
   height: 100vh;
-
   &.footer-fixed {
     bottom: 0;
     left: 0;
@@ -87,6 +89,5 @@ const Footer = styled.footer`
 const UnmuteMessage = styled.p`
   color: var(--primary-dark-transparent);
   font-size: 0.7em;
-  padding: 4px;
   text-align: center;
 `

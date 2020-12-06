@@ -1,33 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SavedSong renders correctly 1`] = `
-.c6 {
-  background-color: transparent;
-  border: var(--primary-dark) 2px solid;
-  fill: var(--primary-dark);
-  height: 46px;
-  padding: 10px;
-  width: 46px;
+.c8 {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  box-shadow: none;
+  fill: var(--primary-regular);
+  height: 48px;
+  padding: 14px;
+  width: 48px;
+}
+
+.c8:focus {
+  outline: 0;
 }
 
 .c2 {
-  background-color: var(--primary-dark);
+  background: var(--white-transparent);
   border: none;
-  fill: var(--white);
-  font-size: 0.8em;
-  padding: 10px;
-  height: 100%;
-  width: 36px;
+  border-radius: 34px 10px 10px 34px;
+  box-shadow: var(--shadow-light);
+  fill: var(--cta-red);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c2:disabled {
+  fill: var(--spotify-green);
+}
+
+.c2:focus {
+  outline: 0;
 }
 
 .c0 {
-  background-color: var(--primary-light);
   display: grid;
-  -webkit-column-gap: 14px;
-  column-gap: 14px;
-  grid-template-columns: 36px auto 46px;
-  grid-template-rows: 1fr 1fr;
-  padding: 20px;
+  -webkit-column-gap: 8px;
+  column-gap: 8px;
+  grid-template-columns: 48px auto;
+  grid-template-rows: auto;
+  padding: 0 22px;
 }
 
 .c1 {
@@ -36,25 +50,48 @@ exports[`SavedSong renders correctly 1`] = `
 }
 
 .c3 {
-  display: block;
-  font-size: 75%;
-  font-weight: 300;
-  padding-bottom: 6px;
-  text-transform: uppercase;
-  grid-column-start: 2;
+  height: 100%;
+  width: 48px;
 }
 
 .c4 {
-  color: var(--primary-dark);
-  font-size: 1em;
-  font-weight: 600;
-  grid-column-start: 2;
+  box-shadow: var(--shadow-light);
+  border-radius: 10px 34px 34px 10px;
+  display: grid;
+  grid-template-columns: 80% auto;
+  grid-template-rows: auto;
+  padding: 2px 4px 2px 12px;
 }
 
 .c5 {
+  -webkit-align-self: end;
+  -ms-flex-item-align: end;
+  align-self: end;
+  color: var(--primary-regular);
+  font-size: 0.9em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.c6 {
+  -webkit-align-self: start;
+  -ms-flex-item-align: start;
+  align-self: start;
+  color: var(--primary-regular);
+  grid-row-start: 2;
+  font-size: 0.9em;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.c7 {
   grid-column-start: 3;
   grid-row: 1/3;
   justify-self: end;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 <li
@@ -64,7 +101,7 @@ exports[`SavedSong renders correctly 1`] = `
     class="c1"
   >
     <button
-      class="c2"
+      class="c2 c3"
       data-testid="prepare-delete-button"
       id="a"
     >
@@ -73,29 +110,33 @@ exports[`SavedSong renders correctly 1`] = `
       </svg>
     </button>
   </div>
-  <span
-    class="c3"
-  >
-    Unprocessed
-  </span>
-  <span
+  <section
     class="c4"
   >
-    Real
-  </span>
-  <div
-    class="c5"
-  >
-    <button
-      class="c6"
-      data-testid="audio-button"
+    <span
+      class="c5"
     >
-      <svg
-        title="play"
+      Unprocessed
+    </span>
+    <span
+      class="c6"
+    >
+      Real
+    </span>
+    <div
+      class="c7"
+    >
+      <button
+        class="c8"
+        data-testid="audio-button"
       >
-        play.svg
-      </svg>
-    </button>
-  </div>
+        <svg
+          title="play"
+        >
+          play.svg
+        </svg>
+      </button>
+    </div>
+  </section>
 </li>
 `;

@@ -2,11 +2,11 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import AudioButton from '../Buttons/AudioButton'
-import ButtonSecondary from '../Buttons/ButtonSecondary'
-import { XIcon, ResetIcon, BinIcon } from '../Icons'
+import Button from '../Buttons/Button'
+import { CrossIcon, ResetIcon, BinIcon } from '../Icons'
 
 SavedSong.propTypes = {
-  stopPlayingSong: PropTypes.func,
+  stopPlayingSongById: PropTypes.func,
   artist: PropTypes.string.isRequired,
   songTitle: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -17,7 +17,7 @@ SavedSong.propTypes = {
 }
 
 export default function SavedSong({
-  stopPlayingSong,
+  stopPlayingSongById,
   artist,
   songTitle,
   id,
@@ -33,98 +33,130 @@ export default function SavedSong({
       {toBeDeleted || (
         <ListItem>
           <ButtonWrapper>
-            <ButtonSecondary
+            <ButtonPrepareToDelete
+              isDeleteButton
               id={id}
               onClick={() => prepareToDelete(id)}
               data-testid="prepare-delete-button"
             >
-              <XIcon />
-            </ButtonSecondary>
+              <CrossIcon />
+            </ButtonPrepareToDelete>
           </ButtonWrapper>
-          <Artist>{artist}</Artist>
-          <Song>{songTitle}</Song>
-          <AudioButtonWrapper>
-            <AudioButton
-              onClick={() => toggleCurrentSongId(id)}
-              isSongPlaying={isSongPlaying && currentSongId === id}
-              currentSongId={currentSongId}
-            />
-          </AudioButtonWrapper>
+          <Content>
+            <Artist>{artist}</Artist>
+            <Song>{songTitle}</Song>
+            <AudioButtonWrapper>
+              <AudioButton
+                isSmall
+                onClick={() => toggleCurrentSongId(id)}
+                isSongPlaying={isSongPlaying && currentSongId === id}
+                currentSongId={currentSongId}
+              />
+            </AudioButtonWrapper>
+          </Content>
         </ListItem>
       )}
       {toBeDeleted && (
-        <ConfirmationWrapper>
-          <p>Do you want to delete this song?</p>
-          <ConfirmationButton
-            id={id}
-            onClick={() => deleteSavedSong(id)}
-            data-testid="delete-button"
-          >
-            <BinIcon />
-          </ConfirmationButton>
-          <ConfirmationButton
-            id={id}
-            onClick={() => setToBeDeleted(false)}
-            data-testid="reset-button"
-          >
-            <ResetIcon />
-          </ConfirmationButton>
-        </ConfirmationWrapper>
+        <Container>
+          <ConfirmationWrapper>
+            <p>Do you want to delete {songTitle}?</p>
+            <ConfirmationButtonWrapper>
+              <DelteButton
+                id={id}
+                onClick={() => deleteSavedSong(id)}
+                data-testid="delete-button"
+              >
+                <BinIcon />
+              </DelteButton>
+              <ResetButton
+                id={id}
+                onClick={() => setToBeDeleted(false)}
+                data-testid="reset-button"
+              >
+                <ResetIcon />
+              </ResetButton>
+            </ConfirmationButtonWrapper>
+          </ConfirmationWrapper>
+        </Container>
       )}
     </>
   )
 
   function prepareToDelete(id) {
-    stopPlayingSong(id)
+    stopPlayingSongById(id)
     setToBeDeleted(true)
   }
 }
 
 const ListItem = styled.li`
-  background-color: var(--primary-light);
   display: grid;
-  column-gap: 14px;
-  grid-template-columns: 36px auto 46px;
-  grid-template-rows: 1fr 1fr;
-  padding: 20px;
+  column-gap: 8px;
+  grid-template-columns: 48px auto;
+  grid-template-rows: auto;
+  padding: 0 22px;
 `
 const ButtonWrapper = styled.div`
   grid-row: 1/3;
   grid-column-start: 1;
 `
+const ButtonPrepareToDelete = styled(Button)`
+  height: 100%;
+  width: 48px;
+`
+const Content = styled.section`
+  box-shadow: var(--shadow-light);
+  border-radius: 10px 34px 34px 10px;
+  display: grid;
+  grid-template-columns: 80% auto;
+  grid-template-rows: auto;
+  padding: 2px 4px 2px 12px;
+`
 const Artist = styled.span`
-  display: block;
-  font-size: 75%;
+  align-self: end;
+  color: var(--primary-regular);
+  font-size: 0.9em;
   font-weight: 300;
-  padding-bottom: 6px;
   text-transform: uppercase;
-  grid-column-start: 2;
 `
 const Song = styled.span`
-  color: var(--primary-dark);
-  font-size: 1em;
-  font-weight: 600;
-  grid-column-start: 2;
+  align-self: start;
+  color: var(--primary-regular);
+  grid-row-start: 2;
+  font-size: 0.9em;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
 `
 const AudioButtonWrapper = styled.div`
   grid-column-start: 3;
   grid-row: 1/3;
   justify-self: end;
+  align-self: center;
 `
-const ConfirmationWrapper = styled.section`
-  background-color: var(--primary-light);
+const Container = styled.div`
+  padding: 0 22px;
   display: grid;
-  column-gap: 14px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  padding: 20px;
+`
+const ConfirmationWrapper = styled.div`
   p {
     align-self: start;
-    grid-column: 1/3;
-    margin: 0;
+    color: var(--primary-regular);
+    font-size: 0.9em;
+    font-weight: 700;
     text-align: center;
   }
 `
-const ConfirmationButton = styled(ButtonSecondary)`
-  justify-self: center;
+const ConfirmationButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`
+const DelteButton = styled(Button)`
+  height: 48px;
+  width: 48px;
+  fill: var(--cta-red);
+`
+const ResetButton = styled(Button)`
+  height: 48px;
+  width: 48px;
+  fill: var(--spotify-green);
 `
