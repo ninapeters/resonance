@@ -64,7 +64,7 @@ const List = styled.ul`
   &::after {
     content: '';
     display: block;
-    height: 4px;
+    height: 82px;
     width: 100%;
   }
   &::-webkit-scrollbar {

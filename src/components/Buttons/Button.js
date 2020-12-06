@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 const ButtonStyled = styled.button`
-  background: var(--white-transparent);
+  background: var(--white-transparent-min);
   border: none;
   border-radius: ${(props) =>
     props.isDeleteButton ? '34px 10px 10px 34px' : '50%'};

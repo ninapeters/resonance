@@ -18,7 +18,7 @@ export default function AudioButton({ onClick, isSongPlaying, isSmall }) {
 
 const Button = styled.button`
   background: ${(props) =>
-    props.isSmall ? 'transparent' : 'var(--white-transparent)'};
+    props.isSmall ? 'transparent' : 'var(--white-transparent-min)'};
   border: none;
   border-radius: 50%;
   box-shadow: ${(props) => (props.isSmall ? 'none' : 'var(--shadow-light)')};

@@ -19,7 +19,8 @@ body {
     --primary-dark-transparent: #3C3C3CBF;
     --secondary: #B261A0;
     --white: #FFF;
-    --white-transparent: #FFFFFFF2;
+    --white-transparent-min: #FFFFFFF2;
+    --white-transparent-max: #FFFFFF80;
     --spotify-green: #08DA73;
     --spotify-green-transparent: #08DA7333;
     --cta-red: #FF6262;
