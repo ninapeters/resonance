@@ -2,16 +2,63 @@
 
 exports[`Navigation renders correctly 1`] = `
 .c0 {
-  background-color: transparent;
-  border: var(--primary-dark) 2px solid;
-  color: var(--primary-dark);
-  font-size: 0.8em;
-  padding: 6px;
+  display: grid;
+  place-items: center;
+  width: 100%;
 }
 
-<button
+.c1 {
+  background: var(--gradient-light);
+  border-radius: 28px;
+  box-shadow: var(--shadow-light);
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  padding: 10px 50px 8px;
+}
+
+.c2 {
+  fill: var(--white-transparent-max);
+  width: 28px;
+}
+
+.c2.active {
+  fill: var(--white);
+}
+
+.c2:focus {
+  outline: none;
+}
+
+<section
   class="c0"
 >
-  all songs
-</button>
+  <nav
+    class="c1"
+  >
+    <a
+      aria-current="page"
+      class="c2 active"
+      data-testid="link-home"
+      href="/"
+    >
+      <svg>
+        home.svg
+      </svg>
+    </a>
+    <a
+      class="c2"
+      data-testid="link-favorites"
+      href="/favorites"
+    >
+      <svg>
+        save.svg
+      </svg>
+    </a>
+  </nav>
+</section>
 `;

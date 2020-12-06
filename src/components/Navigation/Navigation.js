@@ -4,18 +4,29 @@ import { HomeIcon, SaveIcon } from '../Icons'
 
 export default function Navigation({ onClick }) {
   return (
-    <Nav>
-      <NavLinkStyled exact to="/" onClick={onClick}>
-        <HomeIcon />
-      </NavLinkStyled>
-      <NavLinkStyled to="/favorites" onClick={onClick}>
-        <SaveIcon />
-      </NavLinkStyled>
-    </Nav>
+    <NavWrapper>
+      <NavBar>
+        <NavLinkStyled exact to="/" onClick={onClick} data-testid="link-home">
+          <HomeIcon />
+        </NavLinkStyled>
+        <NavLinkStyled
+          to="/favorites"
+          onClick={onClick}
+          data-testid="link-favorites"
+        >
+          <SaveIcon />
+        </NavLinkStyled>
+      </NavBar>
+    </NavWrapper>
   )
 }
 
-const Nav = styled.nav`
+const NavWrapper = styled.section`
+  display: grid;
+  place-items: center;
+  width: 100%;
+`
+const NavBar = styled.nav`
   background: var(--gradient-light);
   border-radius: 28px;
   box-shadow: var(--shadow-light);

@@ -33,7 +33,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <UnmuteMessage>
-              <p>Don't forget to unmute your device.</p>
+              <p>Please unmute your device.</p>
             </UnmuteMessage>
             <ArtistList
               artists={artistData}
@@ -70,23 +70,23 @@ const Main = styled.main`
   }
 `
 const UnmuteMessage = styled.div`
-  background: var(--white-transparent-min);
+  background: var(--white-transparent-max);
   padding: 8px;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 10;
   p {
-    color: var(--primary-dark);
+    color: var(--primary-regular);
     font-size: 0.7em;
+    font-weight: 700;
     margin: 0;
     text-align: center;
   }
 `
 const Footer = styled.footer`
   bottom: 30px;
-  display: grid;
-  padding: 0 14px;
-  place-items: center;
+  left: 0;
   position: fixed;
-  width: 100%;
+  right: 0;
 `
