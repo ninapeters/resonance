@@ -1,19 +1,48 @@
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
+import { HomeIcon, SaveIcon } from '../Icons'
 
-Navigation.propTypes = {
-  onClick: PropTypes.func,
-  children: PropTypes.string.isRequired,
+export default function Navigation({ onClick }) {
+  return (
+    <NavWrapper>
+      <NavBar>
+        <NavLinkStyled exact to="/" onClick={onClick} data-testid="link-home">
+          <HomeIcon />
+        </NavLinkStyled>
+        <NavLinkStyled
+          to="/favorites"
+          onClick={onClick}
+          data-testid="link-favorites"
+        >
+          <SaveIcon />
+        </NavLinkStyled>
+      </NavBar>
+    </NavWrapper>
+  )
 }
 
-export default function Navigation({ onClick, children }) {
-  return <NavButton onClick={onClick}>{children}</NavButton>
-}
-
-const NavButton = styled.button`
-  background-color: transparent;
-  border: var(--primary-dark) 2px solid;
-  color: var(--primary-dark);
-  font-size: 0.8em;
-  padding: 6px;
+const NavWrapper = styled.section`
+  display: grid;
+  place-items: center;
+  width: 100%;
+`
+const NavBar = styled.nav`
+  background: var(--gradient-light);
+  border-radius: 28px;
+  box-shadow: var(--shadow-light);
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-evenly;
+  padding: 10px 50px 8px;
+`
+const NavLinkStyled = styled(NavLink)`
+  fill: var(--white-transparent-max);
+  width: 28px;
+  &.active {
+    fill: var(--white);
+  }
+  &:focus {
+    outline: none;
+  }
 `

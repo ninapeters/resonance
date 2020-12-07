@@ -1,3 +1,4 @@
+import { Switch, Route } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import data from './data/spotifyTrackData.json'
 import normalizeArtists from './services/normalizeArtists'
@@ -25,23 +26,15 @@ function App() {
     artistData,
   })
   const { savedSongs, saveSong, deleteSavedSong } = useArtist({ artistData })
-  const [showSavedSongList, setShowSavedSongList] = useState(false)
 
   return (
-    <AppWrapper>
+    <>
       <Main>
-        {showSavedSongList ? (
-          <SavedSongList
-            stopPlayingSongById={stopPlayingSongById}
-            deleteSavedSong={deleteSavedSong}
-            savedSongs={savedSongs}
-            toggleCurrentSongId={toggleCurrentSongId}
-            isSongPlaying={isSongPlaying}
-            currentSongId={currentSongId}
-          />
-        ) : (
-          <>
-            <UnmuteMessage>Don't forget to unmute your device.</UnmuteMessage>
+        <Switch>
+          <Route exact path="/">
+            <UnmuteMessage>
+              <p>Please unmute your device.</p>
+            </UnmuteMessage>
             <ArtistList
               artists={artistData}
               toggleCurrentSongId={toggleCurrentSongId}
@@ -50,44 +43,50 @@ function App() {
               saveSong={saveSong}
               savedSongs={savedSongs}
             />
-          </>
-        )}
+          </Route>
+          <Route path="/favorites">
+            <SavedSongList
+              stopPlayingSongById={stopPlayingSongById}
+              deleteSavedSong={deleteSavedSong}
+              savedSongs={savedSongs}
+              toggleCurrentSongId={toggleCurrentSongId}
+              isSongPlaying={isSongPlaying}
+              currentSongId={currentSongId}
+            />
+          </Route>
+        </Switch>
       </Main>
-      <Footer className="footer-fixed">
-        <Navigation onClick={switchPages}>
-          {showSavedSongList ? 'all songs' : 'saved songs'}
-        </Navigation>
+      <Footer>
+        <Navigation onClick={stopPlayingSong} />
       </Footer>
-    </AppWrapper>
+    </>
   )
-
-  function switchPages() {
-    stopPlayingSong()
-    setShowSavedSongList(!showSavedSongList)
-  }
 }
-const AppWrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto 8%;
-  height: 100vh;
-  &.footer-fixed {
-    bottom: 0;
-    left: 0;
-    position: fixed;
-  }
-`
+
 const Main = styled.main`
-  overflow-y: auto;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
 `
-const Footer = styled.footer`
-  place-self: center;
+const UnmuteMessage = styled.div`
+  background: var(--white-transparent-max);
+  padding: 8px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  p {
+    color: var(--primary-regular);
+    font-size: 0.7em;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+  }
 `
-const UnmuteMessage = styled.p`
-  color: var(--primary-dark-transparent);
-  font-size: 0.7em;
-  text-align: center;
+const Footer = styled.footer`
+  bottom: 30px;
+  left: 0;
+  position: fixed;
+  right: 0;
 `
