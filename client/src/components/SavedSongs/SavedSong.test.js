@@ -6,7 +6,7 @@ describe('SavedSong', () => {
   it('renders correctly', () => {
     const { container } = render(
       <SavedSong
-        stopPlayingSong={() => {}}
+        stopPlayingSongById={() => {}}
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -23,7 +23,7 @@ describe('SavedSong', () => {
     const toggleCurrentSongIdMock = jest.fn()
     const { getByTestId } = render(
       <SavedSong
-        stopPlayingSong={() => {}}
+        stopPlayingSongById={() => {}}
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -41,7 +41,7 @@ describe('SavedSong', () => {
   it('has delete button', () => {
     const { getByTestId } = render(
       <SavedSong
-        stopPlayingSong={() => {}}
+        stopPlayingSongById={() => {}}
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -55,11 +55,10 @@ describe('SavedSong', () => {
     expect(Button).toBeInTheDocument()
   })
 
-  it('renders delete field and stops playing current song', () => {
-    const stopPlayingSongMock = jest.fn()
-    const { getByTestId, getByText } = render(
+  it('renders delete field', () => {
+    const { getByTestId } = render(
       <SavedSong
-        stopPlayingSong={stopPlayingSongMock}
+        stopPlayingSongById={() => {}}
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -71,17 +70,15 @@ describe('SavedSong', () => {
     )
     const Button = getByTestId('prepare-delete-button')
     user.click(Button)
-    expect(stopPlayingSongMock).toHaveBeenCalled()
-    expect(getByText('Do you want to delete this song?')).toBeInTheDocument()
     expect(getByTestId('reset-button')).toBeInTheDocument()
     expect(getByTestId('delete-button')).toBeInTheDocument()
   })
 
   it("stops playing the current song, if it's the one to be deleted", () => {
-    const stopPlayingSongMock = jest.fn()
+    const stopPlayingSongByIdMock = jest.fn()
     const { getByTestId } = render(
       <SavedSong
-        stopPlayingSong={() => stopPlayingSongMock('a')}
+        stopPlayingSongById={() => stopPlayingSongByIdMock('a')}
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -93,13 +90,13 @@ describe('SavedSong', () => {
     )
     const Button = getByTestId('prepare-delete-button')
     user.click(Button)
-    expect(stopPlayingSongMock).toHaveBeenCalledWith('a')
+    expect(stopPlayingSongByIdMock).toHaveBeenCalledWith('a')
   })
 
   it('switches the appearance of play and pause button by changing the state isSongPlaying', () => {
     const { getByTitle, queryByTitle, rerender } = render(
       <SavedSong
-        stopPlayingSong={() => {}}
+        stopPlayingSongById={() => {}}
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -113,7 +110,7 @@ describe('SavedSong', () => {
 
     rerender(
       <SavedSong
-        stopPlayingSong={() => {}}
+        stopPlayingSongById={() => {}}
         artist="Unprocessed"
         songTitle="Real"
         id="a"

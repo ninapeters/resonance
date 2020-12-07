@@ -1,9 +1,10 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import SavedSong from './SavedSong'
+import Header from '../Header'
 
 SavedSongList.propTypes = {
-  stopPlayingSong: PropTypes.func,
+  stopPlayingSongById: PropTypes.func.isRequired,
   deleteSavedSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
@@ -12,7 +13,7 @@ SavedSongList.propTypes = {
 }
 
 export default function SavedSongList({
-  stopPlayingSong,
+  stopPlayingSongById,
   deleteSavedSong,
   savedSongs,
   toggleCurrentSongId,
@@ -20,28 +21,53 @@ export default function SavedSongList({
   currentSongId,
 }) {
   return (
-    <List>
-      {savedSongs?.map(({ artist, songTitle, id }) => (
-        <SavedSong
-          key={id}
-          artist={artist}
-          songTitle={songTitle}
-          id={id}
-          stopPlayingSong={stopPlayingSong}
-          deleteSavedSong={deleteSavedSong}
-          toggleCurrentSongId={toggleCurrentSongId}
-          isSongPlaying={isSongPlaying}
-          currentSongId={currentSongId}
-        />
-      ))}
-    </List>
+    <>
+      <HeaderFixed>Favorites</HeaderFixed>
+      <List>
+        {savedSongs?.map(({ artist, songTitle, id }) => (
+          <SavedSong
+            key={id}
+            artist={artist}
+            songTitle={songTitle}
+            id={id}
+            stopPlayingSongById={stopPlayingSongById}
+            deleteSavedSong={deleteSavedSong}
+            toggleCurrentSongId={toggleCurrentSongId}
+            isSongPlaying={isSongPlaying}
+            currentSongId={currentSongId}
+          />
+        ))}
+      </List>
+    </>
   )
 }
 
+const HeaderFixed = styled(Header)`
+  top: 0;
+  left: 0;
+  position: fixed;
+`
 const List = styled.ul`
   display: grid;
-  gap: 8px;
+  gap: 32px;
   list-style: none;
   margin: 0;
-  padding: 0;
+  overflow-y: auto;
+  padding: 0 0;
+  scrollbar-width: none;
+  &::before {
+    content: '';
+    display: block;
+    height: 144px;
+    width: 100%;
+  }
+  &::after {
+    content: '';
+    display: block;
+    height: 82px;
+    width: 100%;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `

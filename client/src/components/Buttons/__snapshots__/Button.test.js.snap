@@ -1,15 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AudioButton renders correctly 1`] = `
+exports[`Button renders correctly 1`] = `
 .c0 {
   background: var(--white-transparent-min);
   border: none;
   border-radius: 50%;
   box-shadow: var(--shadow-light);
-  fill: var(--primary-regular);
+  fill: var(--spotify-green-transparent);
   height: 60px;
   padding: 14px;
   width: 60px;
+}
+
+.c0:disabled {
+  fill: var(--spotify-green);
 }
 
 .c0:focus {
@@ -18,12 +22,9 @@ exports[`AudioButton renders correctly 1`] = `
 
 <button
   class="c0"
-  data-testid="audio-button"
 >
-  <svg
-    title="play"
-  >
-    play.svg
+  <svg>
+    x.svg
   </svg>
 </button>
 `;

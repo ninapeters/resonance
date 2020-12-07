@@ -1,23 +1,23 @@
 import { render } from '@testing-library/react'
 import user from '@testing-library/user-event'
-import ButtonSecondary from './ButtonSecondary'
+import Button from './Button'
 import { ReactComponent as DeleteIcon } from '../../assets/x.svg'
 
-describe('ButtonSecondary', () => {
+describe('Button', () => {
   it('renders correctly', () => {
     const { container } = render(
-      <ButtonSecondary onClick={() => {}}>
+      <Button onClick={() => {}}>
         <DeleteIcon />
-      </ButtonSecondary>
+      </Button>
     )
     expect(container.firstChild).toMatchSnapshot()
   })
   it('calls onClick with the correct id', () => {
     const onClickMock = jest.fn()
     const { getByRole } = render(
-      <ButtonSecondary onClick={() => onClickMock('a')}>
+      <Button onClick={() => onClickMock('a')}>
         <DeleteIcon />
-      </ButtonSecondary>
+      </Button>
     )
     const button = getByRole('button')
     user.click(button)

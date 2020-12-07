@@ -1,7 +1,7 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 
-exports[`SavedSongList renders correctly 1`] = `
-.c0 {
+const HeaderStyled = styled.div`
   background: var(--gradient-light);
   border-radius: 0 0 70px 70px;
   box-shadow: var(--shadow-dark);
@@ -10,24 +10,15 @@ exports[`SavedSongList renders correctly 1`] = `
   font-size: 1.6em;
   font-weight: 300;
   height: 144px;
-  -webkit-letter-spacing: 0.05em;
-  -moz-letter-spacing: 0.05em;
-  -ms-letter-spacing: 0.05em;
   letter-spacing: 0.05em;
   place-items: center;
   text-transform: uppercase;
   width: 100%;
+`
+const Header = (props) => <HeaderStyled {...props} />
+
+Header.propTypes = {
+  children: PropTypes.string,
 }
 
-.c1 {
-  top: 0;
-  left: 0;
-  position: fixed;
-}
-
-<div
-  class="c0 c1"
->
-  Favorites
-</div>
-`;
+export default Header
