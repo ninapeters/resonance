@@ -14,7 +14,6 @@ export default App
 
 function App() {
   const { token } = useToken()
-  console.log(token)
 
   const [artistData, setArtistData] = useState([])
 
@@ -36,40 +35,42 @@ function App() {
 
   return (
     <>
-      <Main>
-        {token ? (
-          <Switch>
-            <Route exact path="/">
-              <UnmuteMessage>
-                <p>Please unmute your device.</p>
-              </UnmuteMessage>
-              <ArtistList
-                artists={artistData}
-                toggleCurrentSongId={toggleCurrentSongId}
-                isSongPlaying={isSongPlaying}
-                currentSongId={currentSongId}
-                saveSong={saveSong}
-                savedSongs={savedSongs}
-              />
-            </Route>
-            <Route path="/favorites">
-              <SavedSongList
-                stopPlayingSongById={stopPlayingSongById}
-                deleteSavedSong={deleteSavedSong}
-                savedSongs={savedSongs}
-                toggleCurrentSongId={toggleCurrentSongId}
-                isSongPlaying={isSongPlaying}
-                currentSongId={currentSongId}
-              />
-            </Route>
-          </Switch>
-        ) : (
-          <a href="http://localhost:3001/login">Login</a>
-        )}
-      </Main>
-      <Footer>
-        <Navigation onClick={stopPlayingSong} />
-      </Footer>
+      {token ? (
+        <>
+          <Main>
+            <Switch>
+              <Route exact path="/">
+                <UnmuteMessage>
+                  <p>Please unmute your device.</p>
+                </UnmuteMessage>
+                <ArtistList
+                  artists={artistData}
+                  toggleCurrentSongId={toggleCurrentSongId}
+                  isSongPlaying={isSongPlaying}
+                  currentSongId={currentSongId}
+                  saveSong={saveSong}
+                  savedSongs={savedSongs}
+                />
+              </Route>
+              <Route path="/favorites">
+                <SavedSongList
+                  stopPlayingSongById={stopPlayingSongById}
+                  deleteSavedSong={deleteSavedSong}
+                  savedSongs={savedSongs}
+                  toggleCurrentSongId={toggleCurrentSongId}
+                  isSongPlaying={isSongPlaying}
+                  currentSongId={currentSongId}
+                />
+              </Route>
+            </Switch>
+          </Main>
+          <Footer>
+            <Navigation onClick={stopPlayingSong} />
+          </Footer>
+        </>
+      ) : (
+        <a href="http://localhost:3001/login">Login</a>
+      )}
     </>
   )
 }

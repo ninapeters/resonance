@@ -61,13 +61,13 @@ export default function SavedSong({
           <ConfirmationWrapper>
             <p>Do you want to delete {songTitle}?</p>
             <ConfirmationButtonWrapper>
-              <DelteButton
+              <DeleteButton
                 id={id}
                 onClick={() => deleteSavedSong(id)}
                 data-testid="delete-button"
               >
                 <BinIcon />
-              </DelteButton>
+              </DeleteButton>
               <ResetButton
                 id={id}
                 onClick={() => setToBeDeleted(false)}
@@ -150,7 +150,7 @@ const ConfirmationButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
 `
-const DelteButton = styled(Button)`
+const DeleteButton = styled(Button)`
   height: 48px;
   width: 48px;
   fill: var(--cta-red);
