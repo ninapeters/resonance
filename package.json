@@ -1,8 +1,8 @@
 {
-  "name": "underground",
+  "name": "resonance",
   "private": true,
   "version": "1.0.0",
-  "description": "A music finder app",
+  "description": "Discover new music with Spotify",
   "main": "server.js",
   "engines": {
     "node": ">=12.0.0 <15.0.0"
