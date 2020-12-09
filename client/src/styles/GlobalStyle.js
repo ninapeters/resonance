@@ -25,7 +25,7 @@ body {
     --spotify-green-transparent: #08DA7333;
     --cta-red: #FF6262;
     --shadow-light: 0 0 2px #10193366;
-    --shadow-dark: 0 0 3px #23364399;
+    --shadow-dark: 0 0 5px #23364399;
     --gradient-light: linear-gradient(200deg, #A7669D 0%, #739EBB 70%);
 }
 `

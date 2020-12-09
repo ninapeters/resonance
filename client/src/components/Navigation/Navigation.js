@@ -29,7 +29,7 @@ const NavWrapper = styled.section`
 const NavBar = styled.nav`
   background: var(--gradient-light);
   border-radius: 28px;
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-dark);
   display: grid;
   gap: 40px;
   grid-template-columns: 1fr 1fr;
