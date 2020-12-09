@@ -10,13 +10,12 @@ export default function Login() {
           <Logo />
         </LogoWrapper>
         <Content>
-          <a href="http://localhost:3001/login" data-testid="login-button">
-            <LoginButton>
-              <p>
-                Login with <SpotifyLogo />
-              </p>
-            </LoginButton>
-          </a>
+          <LoginLink
+            href="http://localhost:3001/login"
+            data-testid="login-button"
+          >
+            Login with <SpotifyLogo />
+          </LoginLink>
           <p>
             and discover new songs <br></br> and artists.
           </p>
@@ -38,39 +37,28 @@ const LoginGrid = styled.div`
   place-content: center;
 `
 const LogoWrapper = styled.div`
-  grid-row-start: 1;
   place-self: center;
   width: 90%;
   max-width: 420px;
 `
 const Content = styled.div`
-  grid-row-start: 2;
+  justify-self: center;
   p {
     color: white;
     font-size: 0.9;
     font-weight: 300;
     text-align: center;
-  }
-  span {
-    font-weight: 700;
-  }
-  a {
-    text-decoration: none;
+    margin-top: 24px;
   }
 `
-const LoginButton = styled.div`
+const LoginLink = styled.a`
   background: var(--white);
   border-radius: 28px;
   box-shadow: var(--shadow-dark);
-  padding: 6px 0 12px;
-  width: 100%;
-  max-width: 420px;
-
-  p {
-    color: var(--spotify-green);
-    font-weight: 700;
-    margin: auto;
-  }
+  color: var(--spotify-green);
+  font-weight: 700;
+  padding: 6px 80px 12px;
+  text-decoration: none;
 `
 const SpotifyLogo = styled(Spotify)`
   width: 22px;
