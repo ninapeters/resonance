@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
 import useToken from './hooks/useToken'
+import Login from './components/Login/Login'
 import ArtistList from './components/Artists/ArtistList'
 import SavedSongList from './components/SavedSongs/SavedSongList'
 import Navigation from './components/Navigation/Navigation'
@@ -69,7 +70,7 @@ function App() {
           </Footer>
         </>
       ) : (
-        <a href="http://localhost:3001/login">Login</a>
+        <Login />
       )}
     </>
   )
