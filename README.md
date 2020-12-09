@@ -9,7 +9,7 @@ I am a great music enthusiast myself and can never get enough of new inspiration
 
 ## Screenshots
 
-![resonance-mock](client/src/assets/screenshots/resonance_mock.jpg)
+![resonance-mock](client/src/assets/screenshots/resonance_mock_small.jpg)
 
 ---
 ## Framework 
