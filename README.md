@@ -59,7 +59,7 @@ You need a Client ID and a Client Secret from the Spotify Web API.
 
 `$ npm run dev` 
 
-Runs the app in the development mode.\
+Runs the server in the development mode.\
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 `$ npm run build && npm start` 
