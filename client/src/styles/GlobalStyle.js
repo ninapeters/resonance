@@ -26,6 +26,7 @@ body {
     --cta-red: #FF6262;
     --shadow-light: 0 0 2px #10193366;
     --shadow-dark: 0 0 5px #23364399;
-    --gradient-light: linear-gradient(200deg, #A7669D 0%, #739EBB 70%);
+    --gradient-regular: linear-gradient(200deg, #A7669D 0%, #739EBB 40%);
+    --gradient-light: linear-gradient(200deg, #907FAA  0%, #739EBB 60%);
 }
 `
