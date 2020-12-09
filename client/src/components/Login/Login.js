@@ -35,11 +35,13 @@ const LoginGrid = styled.div`
   grid-template-rows: 2fr 1fr;
   height: 100vh;
   padding: 0 44px;
+  place-content: center;
 `
 const LogoWrapper = styled.div`
   grid-row-start: 1;
   place-self: center;
   width: 90%;
+  max-width: 420px;
 `
 const Content = styled.div`
   grid-row-start: 2;
@@ -62,6 +64,8 @@ const LoginButton = styled.div`
   box-shadow: var(--shadow-dark);
   padding: 6px 0 12px;
   width: 100%;
+  max-width: 420px;
+
   p {
     color: var(--spotify-green);
     font-weight: 700;
