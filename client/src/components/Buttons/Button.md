@@ -1,27 +1,26 @@
 Save button
 
 ```jsx
-<Button onClick={() => {}} style={{ width: '60px', height: '60px' }}>
-  <img src={'./src/assets/styleguide/save-green.svg'} />
+import { SaveIcon } from '../Icons'
+;<Button onClick={() => {}}>
+  <SaveIcon />
 </Button>
 ```
 
 Save button disabled
 
 ```jsx
-<Button disabled onClick={() => {}} style={{ width: '60px', height: '60px' }}>
-  <img src={'./src/assets/styleguide/save-green-disabled.svg'} />
+import { SaveIcon } from '../Icons'
+;<Button disabled onClick={() => {}}>
+  <SaveIcon />
 </Button>
 ```
 
 Delete button
 
 ```jsx
-<Button
-  isDeleteButton
-  onClick={() => {}}
-  style={{ width: '60px', height: '60px' }}
->
-  <img src={'./src/assets/styleguide/x-red.svg'} />
+import { CrossIcon } from '../Icons'
+;<Button isDeleteButton onClick={() => {}}>
+  <CrossIcon />
 </Button>
 ```

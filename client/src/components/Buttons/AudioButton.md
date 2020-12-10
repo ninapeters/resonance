@@ -1,11 +1,11 @@
 Audio Button: Play
 
-```js
+```jsx
 <AudioButton onClick={() => {}} isSongPlaying={false} />
 ```
 
 Audio Button: Pause
 
-```js
+```jsx
 <AudioButton onClick={() => {}} isSongPlaying={true} />
 ```

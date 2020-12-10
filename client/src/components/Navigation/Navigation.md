@@ -1,5 +1,5 @@
 Navigation
 
-```js
+```jsx
 <Navigation onClick={() => {}}>all songs</Navigation>
 ```

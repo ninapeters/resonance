@@ -1,6 +1,6 @@
 One Artist:
 
-```js
+```jsx
 <Artist
   artist="Unprocessed"
   songTitle="Real"

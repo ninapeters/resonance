@@ -1,6 +1,6 @@
 One saved song item:
 
-```js
+```jsx
 <SavedSong
   stopPlayingSongById={() => {}}
   artist="Unprocessed"
