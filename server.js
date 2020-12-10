@@ -1,9 +1,7 @@
 const express = require('express')
-const request = require('request')
 const cors = require('cors')
 const path = require('path')
 const fs = require('fs')
-const querystring = require('querystring')
 
 const app = express()
 app.use(cors())
@@ -17,106 +15,73 @@ isClientBuilt &&
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
   })
 
-const redirect_uri =
-  process.env.REDIRECT_URI || 'http://localhost:3001/callback'
-const client_id = process.env.CLIENT_ID
-const client_secret = process.env.CLIENT_SECRET
 const port = process.env.PORT || 3001
 
-const scope = [
-  'user-read-currently-playing',
-  'user-read-recently-played',
-  'user-read-playback-state',
-  'user-modify-playback-state',
+const SpotifyWebApi = require('spotify-web-api-node')
+const scopes = [
+  'user-read-private',
+  'user-read-email',
+  'playlist-modify-public',
+  'playlist-modify-private',
 ]
 
-app.get('*', (req, res, next) => {
-  res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
-  next()
+const spotifyApi = new SpotifyWebApi({
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  redirectUri: process.env.REDIRECT_URI,
 })
 
-// get request >> redirect to spotify login page
-app.get('/login', function (req, res) {
-  res.redirect(
-    'https://accounts.spotify.com/authorize?' +
-      querystring.stringify({
-        response_type: 'code',
-        client_id: client_id,
-        scope: scope,
-        redirect_uri: redirect_uri,
-      })
-  )
+/* GET home page. */
+app.get('/', function (req, res, next) {
+  res.render('index', { title: 'Express' })
 })
 
-// get token and refresh token
-app.get('/callback', function (req, res) {
-  const code = req.query.code || null
-  const authOptions = {
-    uri: 'https://accounts.spotify.com/api/token',
-    form: {
-      code: code,
-      redirect_uri: redirect_uri,
-      grant_type: 'authorization_code',
-    },
-    headers: {
-      Authorization:
-        'Basic ' +
-        new Buffer.from(client_id + ':' + client_secret).toString('base64'),
-    },
-    json: true,
+app.get('/login', (req, res) => {
+  res.redirect(spotifyApi.createAuthorizeURL(scopes))
+})
+
+app.get('/callback', (req, res) => {
+  const error = req.query.error
+  const code = req.query.code
+  const state = req.query.state
+
+  if (error) {
+    console.error('Callback Error:', error)
+    res.send(`Callback Error: ${error}`)
+    return
   }
-  request.post(authOptions, function (error, response, body) {
-    if (!error && res.statusCode === 200) {
-      let access_token = body.access_token,
-        refresh_token = body.refresh_token
-      const options = {
-        uri: 'https://api.spotify.com/v1/me',
-        headers: { Authorization: 'Bearer ' + access_token },
-        json: true,
-      }
-      // we can also pass the token to the browser to make requests from there
-      res.redirect(
-        'http://localhost:3000/#' +
-          querystring.stringify({
-            access_token: access_token,
-            refresh_token: refresh_token,
-          })
-      )
-    } else {
-      res.redirect(
-        '/#' +
-          querystring.stringify({
-            error: 'invalid_token',
-          })
-      )
-    }
-  })
-})
 
-app.get('/refresh_token', function (req, res) {
-  // requesting access token from refresh token
-  const refresh_token = req.query.refresh_token
-  const authOptions = {
-    uri: 'https://accounts.spotify.com/api/token',
-    headers: {
-      Authorization:
-        'Basic ' +
-        new Buffer.from(client_id + ':' + client_secret).toString('base64'),
-    },
-    form: {
-      grant_type: 'refresh_token',
-      refresh_token: refresh_token,
-    },
-    json: true,
-  }
-  request.post(authOptions, function (error, res, body) {
-    if (!error && res.statusCode === 200) {
-      const access_token = body.access_token
-      res.send({
-        access_token: access_token,
-      })
-    }
-  })
+  spotifyApi
+    .authorizationCodeGrant(code)
+    .then((data) => {
+      const access_token = data.body['access_token']
+      const refresh_token = data.body['refresh_token']
+      const expires_in = data.body['expires_in']
+
+      spotifyApi.setAccessToken(access_token)
+      spotifyApi.setRefreshToken(refresh_token)
+
+      console.log('access_token:', access_token)
+      console.log('refresh_token:', refresh_token)
+
+      console.log(
+        `Sucessfully retreived access token. Expires in ${expires_in} s.`
+      )
+      res.redirect('http://localhost:3000/home')
+
+      setInterval(async () => {
+        const data = await spotifyApi.refreshAccessToken()
+        const access_token = data.body['access_token']
+
+        console.log('The access token has been refreshed!')
+        console.log('access_token:', access_token)
+        spotifyApi.setAccessToken(access_token)
+      }, (expires_in / 2) * 1000)
+    })
+    .catch((error) => {
+      console.error('Error getting Tokens:', error)
+      res.send(`Error getting Tokens: ${error}`)
+    })
 })
 
 app.listen(port, () => {

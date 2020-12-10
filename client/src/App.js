@@ -5,7 +5,6 @@ import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
-import useToken from './hooks/useToken'
 import Login from './components/Login/Login'
 import ArtistList from './components/Artists/ArtistList'
 import SavedSongList from './components/SavedSongs/SavedSongList'
@@ -14,8 +13,6 @@ import Navigation from './components/Navigation/Navigation'
 export default App
 
 function App() {
-  const { token } = useToken()
-
   const [artistData, setArtistData] = useState([])
 
   useEffect(() => {
@@ -36,42 +33,39 @@ function App() {
 
   return (
     <>
-      {token ? (
-        <>
-          <Main>
-            <Switch>
-              <Route exact path="/">
-                <UnmuteMessage>
-                  <p>Please unmute your device.</p>
-                </UnmuteMessage>
-                <ArtistList
-                  artists={artistData}
-                  toggleCurrentSongId={toggleCurrentSongId}
-                  isSongPlaying={isSongPlaying}
-                  currentSongId={currentSongId}
-                  saveSong={saveSong}
-                  savedSongs={savedSongs}
-                />
-              </Route>
-              <Route path="/favorites">
-                <SavedSongList
-                  stopPlayingSongById={stopPlayingSongById}
-                  deleteSavedSong={deleteSavedSong}
-                  savedSongs={savedSongs}
-                  toggleCurrentSongId={toggleCurrentSongId}
-                  isSongPlaying={isSongPlaying}
-                  currentSongId={currentSongId}
-                />
-              </Route>
-            </Switch>
-          </Main>
-          <Footer>
-            <Navigation onClick={stopPlayingSong} />
-          </Footer>
-        </>
-      ) : (
-        <Login />
-      )}
+      <Main>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route exact path="/home">
+            <UnmuteMessage>
+              <p>Please unmute your device.</p>
+            </UnmuteMessage>
+            <ArtistList
+              artists={artistData}
+              toggleCurrentSongId={toggleCurrentSongId}
+              isSongPlaying={isSongPlaying}
+              currentSongId={currentSongId}
+              saveSong={saveSong}
+              savedSongs={savedSongs}
+            />
+          </Route>
+          <Route path="/favorites">
+            <SavedSongList
+              stopPlayingSongById={stopPlayingSongById}
+              deleteSavedSong={deleteSavedSong}
+              savedSongs={savedSongs}
+              toggleCurrentSongId={toggleCurrentSongId}
+              isSongPlaying={isSongPlaying}
+              currentSongId={currentSongId}
+            />
+          </Route>
+        </Switch>
+      </Main>
+      <Footer>
+        <Navigation onClick={stopPlayingSong} />
+      </Footer>
     </>
   )
 }
