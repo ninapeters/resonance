@@ -1,4 +1,4 @@
-# resonance
+![resonance-logo](client/src/assets/screenshots/resonance_header_small.jpg)
 
 "resonance" is a browser app for music lovers who are open to new discoveries.
 
@@ -12,28 +12,32 @@ I am a great music enthusiast myself and can never get enough of new inspiration
 ![resonance-mock](client/src/assets/screenshots/resonance_mock_small.jpg)
 
 ---
-## Framework 
+## Tech Stack 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-**Other tools that I used**
-
-- [howler.js](https://howlerjs.com/)
-- [styleguidist](https://react-styleguidist.js.org/)
-- [styled-components](https://styled-components.com/)
-- [PropTypes](https://www.npmjs.com/package/prop-types)
-- [Spotify Web API Node](https://github.com/thelinmichael/spotify-web-api-node)
+- React
+- React Router
+- React Hooks
+- Styled Components
+- PropTypes
+- Styleguidist
+- React Testing Library
+- JEST
+- Cypress
+- Howler.js
 
 **API Reference**
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
 
+- [Spotify Web API Node](https://github.com/thelinmichael/spotify-web-api-node)
+
+---
 ## How to use?
 
-`$ npm install`
+`$ npm install` 
 
 Installs all packages.
 
-`$ npm test`
+`$ npm test` 
 
 Verify that the project runs without errors.
 
@@ -62,15 +66,10 @@ You need a Client ID and a Client Secret from the Spotify Web API.
 Runs the server in the development mode.\
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
-`$ npm run build && npm start` 
-
-For production.
-
 ---
-## Credits
-
-Thanks for this intense and great time and for all your support!\
-[neuefische GmbH ](https://github.com/neuefische)
-
 ## License
 [MIT](https://en.wikipedia.org/wiki/MIT_License#License_terms) 
+
+---
+Thanks for this intense and great time and for all your support!\
+[neuefische GmbH ](https://github.com/neuefische)
