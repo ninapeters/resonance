@@ -61,7 +61,7 @@ app.get('/callback', function (req, res) {
     headers: {
       Authorization:
         'Basic ' +
-        new Buffer(client_id + ':' + client_secret).toString('base64'),
+        new Buffer.from(client_id + ':' + client_secret).toString('base64'),
     },
     json: true,
   }
@@ -75,7 +75,6 @@ app.get('/callback', function (req, res) {
         json: true,
       }
       // we can also pass the token to the browser to make requests from there
-      console.log(refresh_token)
       res.redirect(
         'http://localhost:3000/#' +
           querystring.stringify({
@@ -102,7 +101,7 @@ app.get('/refresh_token', function (req, res) {
     headers: {
       Authorization:
         'Basic ' +
-        new Buffer(client_id + ':' + client_secret).toString('base64'),
+        new Buffer.from(client_id + ':' + client_secret).toString('base64'),
     },
     form: {
       grant_type: 'refresh_token',
