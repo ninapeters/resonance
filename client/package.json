@@ -2,6 +2,7 @@
   "name": "capstone-project",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "howler": "^2.2.1",
     "prop-types": "^15.7.2",
@@ -16,13 +17,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test:watch": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --passWithNoTests",
     "eject": "react-scripts eject",
     "styleguide:build": "styleguidist build",
-    "styleguide": "FAST_REFRESH=false styleguidist server",
-    "test:e2e": "start-server-and-test start http://localhost:3000 cy:run",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "styleguide": "FAST_REFRESH=false styleguidist server"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +45,6 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
-    "cypress": "^6.0.0",
     "jest-styled-components": "^7.0.3",
     "react-styleguidist": "^11.1.2"
   }
