@@ -11,16 +11,17 @@ exports[`Login renders correctly 1`] = `
   grid-template-rows: 2fr 1fr;
   height: 100vh;
   padding: 0 44px;
+  place-content: center;
 }
 
 .c2 {
-  grid-row-start: 1;
   place-self: center;
   width: 90%;
+  max-width: 420px;
 }
 
 .c3 {
-  grid-row-start: 2;
+  justify-self: center;
 }
 
 .c3 p {
@@ -28,29 +29,18 @@ exports[`Login renders correctly 1`] = `
   font-size: 0.9;
   font-weight: 300;
   text-align: center;
-}
-
-.c3 span {
-  font-weight: 700;
-}
-
-.c3 a {
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  margin-top: 24px;
 }
 
 .c4 {
   background: var(--white);
   border-radius: 28px;
   box-shadow: var(--shadow-dark);
-  padding: 6px 0 12px;
-  width: 100%;
-}
-
-.c4 p {
   color: var(--spotify-green);
   font-weight: 700;
-  margin: auto;
+  padding: 6px 80px 8px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c5 {
@@ -77,21 +67,16 @@ exports[`Login renders correctly 1`] = `
       class="c3"
     >
       <a
+        class="c4"
         data-testid="login-button"
         href="http://localhost:3001/login"
       >
-        <div
-          class="c4"
+        Login with 
+        <svg
+          class="c5"
         >
-          <p>
-            Login with 
-            <svg
-              class="c5"
-            >
-              spotify.svg
-            </svg>
-          </p>
-        </div>
+          spotify.svg
+        </svg>
       </a>
       <p>
         and discover new songs 

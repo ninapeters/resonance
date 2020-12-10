@@ -16,9 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test:watch": "react-scripts test",
-    "test": "react-scripts test --watchAll=false --passWithNoTests",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "styleguide:build": "styleguidist build",
     "styleguide": "FAST_REFRESH=false styleguidist server"
