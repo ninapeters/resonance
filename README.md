@@ -17,13 +17,15 @@ I am a great music enthusiast myself and can never get enough of new inspiration
 - React
 - React Router
 - React Hooks
+- Howler.js
 - Styled Components
 - PropTypes
 - Styleguidist
 - React Testing Library
 - JEST
 - Cypress
-- Howler.js
+- Node.js
+- Express.js
 
 **API Reference**
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
