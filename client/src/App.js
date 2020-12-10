@@ -32,41 +32,42 @@ function App() {
   const { savedSongs, saveSong, deleteSavedSong } = useArtist({ artistData })
 
   return (
-    <>
-      <Main>
-        <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Route exact path="/home">
-            <UnmuteMessage>
-              <p>Please unmute your device.</p>
-            </UnmuteMessage>
-            <ArtistList
-              artists={artistData}
-              toggleCurrentSongId={toggleCurrentSongId}
-              isSongPlaying={isSongPlaying}
-              currentSongId={currentSongId}
-              saveSong={saveSong}
-              savedSongs={savedSongs}
-            />
-          </Route>
-          <Route path="/favorites">
-            <SavedSongList
-              stopPlayingSongById={stopPlayingSongById}
-              deleteSavedSong={deleteSavedSong}
-              savedSongs={savedSongs}
-              toggleCurrentSongId={toggleCurrentSongId}
-              isSongPlaying={isSongPlaying}
-              currentSongId={currentSongId}
-            />
-          </Route>
-        </Switch>
-      </Main>
-      <Footer>
-        <Navigation onClick={stopPlayingSong} />
-      </Footer>
-    </>
+    <Main>
+      <Switch>
+        <Route exact path="/">
+          <Login />
+        </Route>
+        <Route path="/home">
+          <UnmuteMessage>
+            <p>Please unmute your device.</p>
+          </UnmuteMessage>
+          <ArtistList
+            artists={artistData}
+            toggleCurrentSongId={toggleCurrentSongId}
+            isSongPlaying={isSongPlaying}
+            currentSongId={currentSongId}
+            saveSong={saveSong}
+            savedSongs={savedSongs}
+          />
+          <Footer>
+            <Navigation onClick={stopPlayingSong} />
+          </Footer>
+        </Route>
+        <Route path="/favorites">
+          <SavedSongList
+            stopPlayingSongById={stopPlayingSongById}
+            deleteSavedSong={deleteSavedSong}
+            savedSongs={savedSongs}
+            toggleCurrentSongId={toggleCurrentSongId}
+            isSongPlaying={isSongPlaying}
+            currentSongId={currentSongId}
+          />
+          <Footer>
+            <Navigation onClick={stopPlayingSong} />
+          </Footer>
+        </Route>
+      </Switch>
+    </Main>
   )
 }
 

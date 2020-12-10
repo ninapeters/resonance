@@ -6,12 +6,7 @@ export default function Navigation({ onClick }) {
   return (
     <NavWrapper>
       <NavBar>
-        <NavLinkStyled
-          exact
-          to="/home"
-          onClick={onClick}
-          data-testid="link-home"
-        >
+        <NavLinkStyled to="/home" onClick={onClick} data-testid="link-home">
           <HomeIcon />
         </NavLinkStyled>
         <NavLinkStyled
