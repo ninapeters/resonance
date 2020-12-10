@@ -57,7 +57,7 @@ const LoginLink = styled.a`
   box-shadow: var(--shadow-dark);
   color: var(--spotify-green);
   font-weight: 700;
-  padding: 6px 80px 12px;
+  padding: 6px 80px 8px;
   text-decoration: none;
 `
 const SpotifyLogo = styled(Spotify)`
