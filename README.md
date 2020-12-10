@@ -12,7 +12,8 @@ I am a great music enthusiast myself and can never get enough of new inspiration
 ![resonance-mock](client/src/assets/screenshots/resonance_mock_small.jpg)
 
 ---
-## Tech Stack 
+
+## Tech Stack
 
 - React
 - React Router
@@ -28,18 +29,20 @@ I am a great music enthusiast myself and can never get enough of new inspiration
 - Express.js
 
 **API Reference**
+
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
 
 - [Spotify Web API Node](https://github.com/thelinmichael/spotify-web-api-node)
 
 ---
+
 ## How to use?
 
-`$ npm install` 
+`$ npm install`
 
 Installs all packages.
 
-`$ npm test` 
+`$ npm test`
 
 Verify that the project runs without errors.
 
@@ -59,19 +62,22 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### **Server**
 
-`$ mv .env.example .env` 
+`$ mv .env.example .env`
 
 You need a Client ID and a Client Secret from the Spotify Web API.
 
-`$ npm run dev` 
+`$ npm run dev`
 
 Runs the server in the development mode.\
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 ---
+
 ## License
-[MIT](https://en.wikipedia.org/wiki/MIT_License#License_terms) 
+
+[MIT](https://en.wikipedia.org/wiki/MIT_License#License_terms)
 
 ---
+
 Thanks for this intense and great time and for all your support!\
 [neuefische GmbH ](https://github.com/neuefische)
