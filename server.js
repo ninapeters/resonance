@@ -3,6 +3,8 @@ const cors = require('cors')
 const path = require('path')
 const fs = require('fs')
 
+const SpotifyWebApi = require('spotify-web-api-node')
+
 const app = express()
 app.use(cors())
 
@@ -17,7 +19,6 @@ isClientBuilt &&
 
 const port = process.env.PORT || 3001
 
-const SpotifyWebApi = require('spotify-web-api-node')
 const scopes = [
   'user-read-private',
   'user-read-email',
@@ -61,9 +62,6 @@ app.get('/callback', (req, res) => {
       spotifyApi.setAccessToken(access_token)
       spotifyApi.setRefreshToken(refresh_token)
 
-      console.log('access_token:', access_token)
-      console.log('refresh_token:', refresh_token)
-
       console.log(
         `Sucessfully retreived access token. Expires in ${expires_in} s.`
       )
@@ -74,7 +72,6 @@ app.get('/callback', (req, res) => {
         const access_token = data.body['access_token']
 
         console.log('The access token has been refreshed!')
-        console.log('access_token:', access_token)
         spotifyApi.setAccessToken(access_token)
       }, (expires_in / 2) * 1000)
     })
