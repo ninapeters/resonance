@@ -10,9 +10,15 @@ import ArtistList from './components/Artists/ArtistList'
 import SavedSongList from './components/SavedSongs/SavedSongList'
 import Navigation from './components/Navigation/Navigation'
 
+import getTrack from './services/getTrack'
+
 export default App
 
 function App() {
+  useEffect(() => {
+    getTrack()
+  })
+
   const [artistData, setArtistData] = useState([])
 
   useEffect(() => {
