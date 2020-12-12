@@ -14,12 +14,15 @@ import Navigation from './components/Navigation/Navigation'
 export default App
 
 function App() {
-  const { token } = useSpotify()
+  const { spotify, track, token } = useSpotify()
+
+  console.log('track in app: ', track)
 
   const [artistData, setArtistData] = useState([])
 
   useEffect(() => {
-    setArtistData(normalizeArtists(data.tracks.items))
+    setArtistData(normalizeArtists(track.tracks.items))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const {
@@ -32,7 +35,9 @@ function App() {
     artistData,
   })
 
-  const { savedSongs, saveSong, deleteSavedSong } = useArtist({ artistData })
+  const { savedSongs, saveSong, deleteSavedSong } = useArtist({
+    artistData,
+  })
 
   return (
     <Main>
@@ -43,6 +48,7 @@ function App() {
               <p>Please unmute your device.</p>
             </UnmuteMessage>
             <ArtistList
+              spotify={spotify}
               artists={artistData}
               toggleCurrentSongId={toggleCurrentSongId}
               isSongPlaying={isSongPlaying}

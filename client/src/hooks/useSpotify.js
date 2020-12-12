@@ -5,7 +5,7 @@ import getTokenFromUrl from '../services/getTokenFromUrl'
 
 export default function useToken() {
   const spotify = new SpotifyWebApi()
-  const [{ token }, dispatch] = useDataLayerValue()
+  const [{ token, track }, dispatch] = useDataLayerValue()
 
   useEffect(() => {
     const hash = getTokenFromUrl()
@@ -19,9 +19,16 @@ export default function useToken() {
       })
 
       spotify.setAccessToken(_token)
+
+      spotify.searchTracks('Love', { limit: 1, offset: 20 }).then((track) =>
+        dispatch({
+          type: 'SET_TRACK',
+          track: track,
+        })
+      )
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return { spotify, token }
+  return { track, token }
 }
