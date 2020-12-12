@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import data from './data/spotifyTrackData.json'
 import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
-import useToken from './hooks/useToken'
+import useSpotify from './hooks/useSpotify'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
 import Login from './components/Login/Login'
@@ -14,7 +14,7 @@ import Navigation from './components/Navigation/Navigation'
 export default App
 
 function App() {
-  const { token } = useToken()
+  const { token } = useSpotify()
 
   const [artistData, setArtistData] = useState([])
 
