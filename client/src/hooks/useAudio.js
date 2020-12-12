@@ -6,7 +6,7 @@ export default function useAudio({ artistData }) {
   const [isSongPlaying, setIsSongPlaying] = useState(false)
   const songRef = useRef(null)
 
-  const songUrl = artistData.find((artist) => artist.id === currentSongId)
+  const songUrl = artistData?.find((artist) => artist.id === currentSongId)
     ?.songUrl
 
   useEffect(() => {

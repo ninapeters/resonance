@@ -20,12 +20,14 @@ export default function useToken() {
 
       spotify.setAccessToken(_token)
 
-      spotify.searchTracks('Love', { limit: 1, offset: 20 }).then((track) =>
-        dispatch({
-          type: 'SET_TRACK',
-          track: track,
-        })
-      )
+      spotify
+        .searchTracks('Love', { limit: 10, offset: 500, market: 'DE' })
+        .then((track) =>
+          dispatch({
+            type: 'SET_TRACK',
+            track: track,
+          })
+        )
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

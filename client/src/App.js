@@ -1,6 +1,5 @@
 import { Switch, Route } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import data from './data/spotifyTrackData.json'
 import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
 import useSpotify from './hooks/useSpotify'
@@ -14,16 +13,14 @@ import Navigation from './components/Navigation/Navigation'
 export default App
 
 function App() {
-  const { spotify, track, token } = useSpotify()
-
-  console.log('track in app: ', track)
+  const { track, token } = useSpotify()
 
   const [artistData, setArtistData] = useState([])
 
   useEffect(() => {
-    setArtistData(normalizeArtists(track.tracks.items))
+    setArtistData(normalizeArtists(track?.tracks.items))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [track])
 
   const {
     toggleCurrentSongId,
@@ -48,7 +45,6 @@ function App() {
               <p>Please unmute your device.</p>
             </UnmuteMessage>
             <ArtistList
-              spotify={spotify}
               artists={artistData}
               toggleCurrentSongId={toggleCurrentSongId}
               isSongPlaying={isSongPlaying}
