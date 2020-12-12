@@ -41,9 +41,10 @@ exports[`Navigation renders correctly 1`] = `
     class="c1"
   >
     <a
-      class="c2"
+      aria-current="page"
+      class="c2 active"
       data-testid="link-home"
-      href="/home"
+      href="/"
     >
       <svg>
         home.svg

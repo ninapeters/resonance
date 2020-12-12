@@ -21,13 +21,26 @@ export default function useToken() {
       spotify.setAccessToken(_token)
 
       spotify
-        .searchTracks('Love', { limit: 10, offset: 500, market: 'DE' })
+        .searchTracks(getRandomCharacter(), {
+          limit: 15,
+          offset: getRandomOffset(),
+          market: 'DE',
+        })
         .then((track) =>
           dispatch({
             type: 'SET_TRACK',
             track: track,
           })
         )
+    }
+
+    function getRandomCharacter() {
+      const characters = 'abcdefghijklmnopqrstuvwxyz'
+      return characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+
+    function getRandomOffset() {
+      return Math.floor(Math.random() * 500)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
