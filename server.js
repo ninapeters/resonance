@@ -35,7 +35,7 @@ app.get('*', (req, res, next) => {
   next()
 })
 
-// get request >> redirect to spotify login page
+// get request >> redirect to spotify authorization
 app.get('/login', function (req, res) {
   res.redirect(
     'https://accounts.spotify.com/authorize?' +
@@ -74,8 +74,7 @@ app.get('/callback', function (req, res) {
         headers: { Authorization: 'Bearer ' + access_token },
         json: true,
       }
-      // we can also pass the token to the browser to make requests from there
-      console.log(refresh_token)
+      // pass the token to the browser to make requests from there
       res.redirect(
         'http://localhost:3000/#' +
           querystring.stringify({
@@ -121,7 +120,5 @@ app.get('/refresh_token', function (req, res) {
 })
 
 app.listen(port, () => {
-  console.log(
-    `Server listening at ${port}, got to http://localhost:${port}/login to start authorization flow.`
-  )
+  console.log(`Server listening at ${port}.`)
 })
