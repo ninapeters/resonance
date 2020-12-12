@@ -30,6 +30,8 @@ export default function useToken() {
           dispatch({
             type: 'SET_TRACK',
             track: track,
+          }).catch((error) => {
+            console.error(error)
           })
         )
     }
