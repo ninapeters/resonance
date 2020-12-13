@@ -23,6 +23,7 @@ export default function Artist({
   id,
   image,
   updateTrack,
+  stopPlayingSong,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
@@ -41,7 +42,7 @@ export default function Artist({
           <Button
             isRedIcon
             id={id}
-            onClick={() => updateTrack()}
+            onClick={skipSong}
             data-testid="skip-button"
           >
             <SkipIcon />
@@ -63,6 +64,11 @@ export default function Artist({
       </ListItemStyled>
     </>
   )
+
+  function skipSong() {
+    stopPlayingSong()
+    updateTrack()
+  }
 }
 
 const ListItemStyled = styled.li`

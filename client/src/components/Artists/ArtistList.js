@@ -15,6 +15,7 @@ ArtistList.propTypes = {
 export default function ArtistList({
   artists,
   updateTrack,
+  stopPlayingSong,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
@@ -31,6 +32,7 @@ export default function ArtistList({
           image={image}
           id={id}
           updateTrack={updateTrack}
+          stopPlayingSong={stopPlayingSong}
           toggleCurrentSongId={toggleCurrentSongId}
           isSongPlaying={isSongPlaying}
           currentSongId={currentSongId}

@@ -46,6 +46,7 @@ export default function App() {
             <ArtistList
               artists={artistData}
               updateTrack={updateTrack}
+              stopPlayingSong={stopPlayingSong}
               toggleCurrentSongId={toggleCurrentSongId}
               isSongPlaying={isSongPlaying}
               currentSongId={currentSongId}
