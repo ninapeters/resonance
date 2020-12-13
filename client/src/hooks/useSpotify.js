@@ -23,7 +23,7 @@ export default function useSpotify() {
 
       spotify
         .searchTracks('genre:alternative', {
-          limit: 10,
+          limit: 1,
           offset: getRandomOffset(),
           market: 'DE',
         })

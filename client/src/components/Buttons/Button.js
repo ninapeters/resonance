@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 const ButtonStyled = styled.button`
   background: var(--white-transparent-min);
   border: none;
-  border-radius: ${(props) =>
-    props.isDeleteButton ? '34px 10px 10px 34px' : '50%'};
+  border-radius: 50%;
   box-shadow: var(--shadow-light);
   fill: ${(props) =>
     props.isDeleteButton

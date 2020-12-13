@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Buttons/AudioButton'
 import Button from '../Buttons/Button'
-import { SaveIcon } from '../Icons'
+import { SaveIcon, CrossIcon } from '../Icons'
 
 Artist.propTypes = {
   artist: PropTypes.string.isRequired,
@@ -36,6 +36,14 @@ export default function Artist({
           <Song>{songTitle}</Song>
         </Content>
         <ButtonWrapper>
+          <Button
+            isDeleteButton
+            id={id}
+            onClick={() => {}}
+            data-testid="skip-button"
+          >
+            <CrossIcon />
+          </Button>
           <AudioButton
             onClick={() => toggleCurrentSongId(id)}
             isSongPlaying={isSongPlaying && currentSongId === id}

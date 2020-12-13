@@ -100,6 +100,7 @@ const ButtonWrapper = styled.div`
   grid-column-start: 1;
 `
 const ButtonPrepareToDelete = styled(Button)`
+  border-radius: 34px 10px 10px 34px;
   height: 100%;
   width: 48px;
 `
