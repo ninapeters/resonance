@@ -22,6 +22,10 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [track])
 
+  const { savedSongs, saveSong, deleteSavedSong } = useArtist({
+    artistData,
+  })
+
   const {
     toggleCurrentSongId,
     isSongPlaying,
@@ -30,10 +34,7 @@ function App() {
     stopPlayingSong,
   } = useAudio({
     artistData,
-  })
-
-  const { savedSongs, saveSong, deleteSavedSong } = useArtist({
-    artistData,
+    savedSongs,
   })
 
   return (

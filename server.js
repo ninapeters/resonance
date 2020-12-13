@@ -69,6 +69,7 @@ app.get('/callback', function (req, res) {
     if (!error && res.statusCode === 200) {
       let access_token = body.access_token,
         refresh_token = body.refresh_token
+      // eslint-disable-next-line no-unused-vars
       const options = {
         uri: 'https://api.spotify.com/v1/me',
         headers: { Authorization: 'Bearer ' + access_token },
@@ -93,6 +94,7 @@ app.get('/callback', function (req, res) {
   })
 })
 
+// eslint-disable-next-line no-unused-vars
 app.get('/refresh_token', function (req, res) {
   // requesting access token from refresh token
   const refresh_token = req.query.refresh_token
