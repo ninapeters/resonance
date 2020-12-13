@@ -31,8 +31,7 @@ I am a great music enthusiast myself and can never get enough of new inspiration
 **API Reference**
 
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api/)
-
-- [Spotify Web API Node](https://github.com/thelinmichael/spotify-web-api-node)
+- [Spotify Web API JS](https://github.com/JMPerez/spotify-web-api-js)
 
 ---
 
@@ -46,19 +45,17 @@ Installs all packages.
 
 Verify that the project runs without errors.
 
+`$ npm run prettify`
+
+If the test run shows a formatting error.
+
 `$npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
 
-The build is minified and the filenames include the hashes. The app is ready to be deployed!
+`$ npm run dev`
 
-### **Client**
-
-`$ npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app and server in the development mode.
 
 ### **Server**
 
@@ -66,10 +63,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 You need a Client ID and a Client Secret from the Spotify Web API.
 
-`$ npm run dev`
+### **Client**
 
-Runs the server in the development mode.\
-Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+`$ npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ---
 
