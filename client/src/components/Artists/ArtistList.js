@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Artist from './Artist'
 
 ArtistList.propTypes = {
-  artists: PropTypes.array.isRequired,
+  artists: PropTypes.array,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string,

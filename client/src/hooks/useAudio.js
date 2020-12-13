@@ -1,13 +1,14 @@
 import { useEffect, useState, useRef } from 'react'
 import { Howl } from 'howler'
 
-export default function useAudio({ artistData }) {
+export default function useAudio({ artistData, savedSongs }) {
   const [currentSongId, setCurrentSongId] = useState()
   const [isSongPlaying, setIsSongPlaying] = useState(false)
   const songRef = useRef(null)
 
-  const songUrl = artistData.find((artist) => artist.id === currentSongId)
-    ?.songUrl
+  const songUrl =
+    artistData?.find((artist) => artist.id === currentSongId)?.songUrl ??
+    savedSongs?.find((artist) => artist.id === currentSongId)?.songUrl
 
   useEffect(() => {
     songRef.current?.stop()
