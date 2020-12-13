@@ -4,6 +4,7 @@ import Artist from './Artist'
 
 ArtistList.propTypes = {
   artists: PropTypes.array,
+  updateTrack: PropTypes.func.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string,
@@ -13,6 +14,7 @@ ArtistList.propTypes = {
 
 export default function ArtistList({
   artists,
+  updateTrack,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
@@ -28,6 +30,7 @@ export default function ArtistList({
           songTitle={songTitle}
           image={image}
           id={id}
+          updateTrack={updateTrack}
           toggleCurrentSongId={toggleCurrentSongId}
           isSongPlaying={isSongPlaying}
           currentSongId={currentSongId}
@@ -42,6 +45,7 @@ export default function ArtistList({
 const ListStyled = styled.ul`
   display: flex;
   flex-wrap: nowrap;
+  height: 100vh;
   margin: 0;
   overflow-x: scroll;
   padding: 0;

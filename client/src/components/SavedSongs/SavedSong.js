@@ -34,7 +34,7 @@ export default function SavedSong({
         <ListItem>
           <ButtonWrapper>
             <ButtonPrepareToDelete
-              isDeleteButton
+              isRedIcon
               id={id}
               onClick={() => prepareToDelete(id)}
               data-testid="prepare-delete-button"

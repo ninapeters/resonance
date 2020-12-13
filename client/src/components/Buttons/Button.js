@@ -7,9 +7,7 @@ const ButtonStyled = styled.button`
   border-radius: 50%;
   box-shadow: var(--shadow-light);
   fill: ${(props) =>
-    props.isDeleteButton
-      ? 'var(--cta-red)'
-      : 'var(--spotify-green-transparent)'};
+    props.isRedIcon ? 'var(--cta-red)' : 'var(--spotify-green-transparent)'};
   height: 60px;
   padding: 14px;
   width: 60px;
@@ -24,7 +22,7 @@ const Button = (props) => <ButtonStyled {...props} />
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
-  isDeleteButton: PropTypes.bool,
+  isRedIcon: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.element.isRequired,
 }

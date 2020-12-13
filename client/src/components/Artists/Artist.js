@@ -2,13 +2,14 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Buttons/AudioButton'
 import Button from '../Buttons/Button'
-import { SaveIcon, CrossIcon } from '../Icons'
+import { SaveIcon, SkipIcon } from '../Icons'
 
 Artist.propTypes = {
   artist: PropTypes.string.isRequired,
   songTitle: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   image: PropTypes.string,
+  updateTrack: PropTypes.func.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string,
@@ -21,6 +22,7 @@ export default function Artist({
   songTitle,
   id,
   image,
+  updateTrack,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
@@ -37,12 +39,12 @@ export default function Artist({
         </Content>
         <ButtonWrapper>
           <Button
-            isDeleteButton
+            isRedIcon
             id={id}
-            onClick={() => {}}
+            onClick={() => updateTrack()}
             data-testid="skip-button"
           >
-            <CrossIcon />
+            <SkipIcon />
           </Button>
           <AudioButton
             onClick={() => toggleCurrentSongId(id)}
@@ -101,6 +103,6 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   position: absolute;
-  top: 50%;
+  top: 36%;
   width: 100%;
 `

@@ -21,24 +21,28 @@ export default function useSpotify() {
 
       spotify.setAccessToken(_token)
 
-      spotify
-        .searchTracks('genre:alternative', {
-          limit: 1,
-          offset: getRandomOffset(),
-          market: 'DE',
-        })
-        .then((track) =>
-          dispatch({
-            type: 'SET_TRACK',
-            track: track,
-          })
-        )
-        .catch((error) => {
-          console.error(error)
-        })
+      updateTrack()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return { track, token }
+  function updateTrack() {
+    spotify
+      .searchTracks('genre:alternative', {
+        limit: 1,
+        offset: getRandomOffset(),
+        market: 'DE',
+      })
+      .then((track) =>
+        dispatch({
+          type: 'SET_TRACK',
+          track: track,
+        })
+      )
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
+  return { track, token, updateTrack }
 }
