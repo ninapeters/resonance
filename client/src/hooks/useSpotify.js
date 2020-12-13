@@ -2,8 +2,9 @@ import { useEffect } from 'react'
 import { useDataLayerValue } from '../DataLayer'
 import SpotifyWebApi from 'spotify-web-api-js'
 import getTokenFromUrl from '../services/getTokenFromUrl'
+import getRandomOffset from '../services/getRandomOffset'
 
-export default function useToken() {
+export default function useSpotify() {
   const spotify = new SpotifyWebApi()
   const [{ token, track }, dispatch] = useDataLayerValue()
 
@@ -21,8 +22,8 @@ export default function useToken() {
       spotify.setAccessToken(_token)
 
       spotify
-        .searchTracks(getRandomCharacter(), {
-          limit: 15,
+        .searchTracks('genre:alternative', {
+          limit: 1,
           offset: getRandomOffset(),
           market: 'DE',
         })
@@ -35,15 +36,6 @@ export default function useToken() {
         .catch((error) => {
           console.error(error)
         })
-    }
-
-    function getRandomCharacter() {
-      const characters = 'abcdefghijklmnopqrstuvwxyz'
-      return characters.charAt(Math.floor(Math.random() * characters.length))
-    }
-
-    function getRandomOffset() {
-      return Math.floor(Math.random() * 500)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

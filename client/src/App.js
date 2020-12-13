@@ -10,9 +10,7 @@ import ArtistList from './components/Artists/ArtistList'
 import SavedSongList from './components/SavedSongs/SavedSongList'
 import Navigation from './components/Navigation/Navigation'
 
-export default App
-
-function App() {
+export default function App() {
   const { track, token } = useSpotify()
 
   const [artistData, setArtistData] = useState([])
