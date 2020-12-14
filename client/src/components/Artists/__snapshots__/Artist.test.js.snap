@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Artist renders correctly 1`] = `
-.c6 {
+.c7 {
   background: var(--white-transparent-min);
   border: none;
   border-radius: 50%;
@@ -12,11 +12,30 @@ exports[`Artist renders correctly 1`] = `
   width: 60px;
 }
 
+.c7:focus {
+  outline: 0;
+}
+
+.c6 {
+  background: var(--white-transparent-min);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--cta-red);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c6:disabled {
+  fill: var(--spotify-green);
+}
+
 .c6:focus {
   outline: 0;
 }
 
-.c7 {
+.c8 {
   background: var(--white-transparent-min);
   border: none;
   border-radius: 50%;
@@ -27,11 +46,11 @@ exports[`Artist renders correctly 1`] = `
   width: 60px;
 }
 
-.c7:disabled {
+.c8:disabled {
   fill: var(--spotify-green);
 }
 
-.c7:focus {
+.c8:focus {
   outline: 0;
 }
 
@@ -89,7 +108,7 @@ exports[`Artist renders correctly 1`] = `
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
   position: absolute;
-  top: 50%;
+  top: 36%;
   width: 100%;
 }
 
@@ -120,6 +139,15 @@ exports[`Artist renders correctly 1`] = `
   >
     <button
       class="c6"
+      data-testid="skip-button"
+      id="a"
+    >
+      <svg>
+        skip.svg
+      </svg>
+    </button>
+    <button
+      class="c7"
       data-testid="audio-button"
     >
       <svg
@@ -129,7 +157,7 @@ exports[`Artist renders correctly 1`] = `
       </svg>
     </button>
     <button
-      class="c7"
+      class="c8"
       data-testid="save-button"
       id="a"
     >

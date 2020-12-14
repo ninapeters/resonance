@@ -19,7 +19,7 @@ exports[`SavedSong renders correctly 1`] = `
 .c2 {
   background: var(--white-transparent-min);
   border: none;
-  border-radius: 34px 10px 10px 34px;
+  border-radius: 50%;
   box-shadow: var(--shadow-light);
   fill: var(--cta-red);
   height: 60px;
@@ -50,6 +50,7 @@ exports[`SavedSong renders correctly 1`] = `
 }
 
 .c3 {
+  border-radius: 34px 10px 10px 34px;
   height: 100%;
   width: 48px;
 }

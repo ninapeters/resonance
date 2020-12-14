@@ -4,7 +4,7 @@ import Artist from './Artist'
 
 ArtistList.propTypes = {
   artists: PropTypes.array,
-  updateTrack: PropTypes.func.isRequired,
+  updateTrack: PropTypes.func,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string,

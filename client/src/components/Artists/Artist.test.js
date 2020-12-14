@@ -10,6 +10,7 @@ describe('Artist', () => {
         songTitle="Real"
         id="a"
         image="https://testurl.com"
+        updateTrack={() => {}}
         toggleCurrentSongId={() => {}}
         isSongPlaying={false}
         currentSongId="a"
@@ -28,6 +29,7 @@ describe('Artist', () => {
         songTitle="Real"
         id="a"
         image="https://testurl.com"
+        updateTrack={() => {}}
         toggleCurrentSongId={() => toggleCurrentSongIdMock('a')}
         isSongPlaying={false}
         currentSongId="a"
@@ -47,6 +49,7 @@ describe('Artist', () => {
         songTitle="Real"
         id="a"
         image="https://testurl.com"
+        updateTrack={() => {}}
         toggleCurrentSongId={() => {}}
         isSongPlaying={false}
         currentSongId="a"
@@ -62,6 +65,7 @@ describe('Artist', () => {
         songTitle="Real"
         id="a"
         image="https://testurl.com"
+        updateTrack={() => {}}
         toggleCurrentSongId={() => {}}
         isSongPlaying={true}
         currentSongId="a"
@@ -81,6 +85,7 @@ describe('Artist', () => {
         songTitle="Real"
         id="a"
         image="https://testurl.com"
+        updateTrack={() => {}}
         toggleCurrentSongId={() => {}}
         isSongPlaying={false}
         currentSongId="a"
