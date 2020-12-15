@@ -7,7 +7,7 @@
 This project was created as part of my graduation from the neuefische coding bootcamp.\
 I am a great music enthusiast myself and can never get enough of new inspiration. So I developed an app that helps to discover and manage new artists quick and easy.
 
-## Screenshots
+## Mockup
 
 ![resonance-mock](client/src/assets/screenshots/resonance_mock_small.jpg)
 
@@ -48,6 +48,10 @@ Verify that the project runs without errors.
 `$ npm run prettify`
 
 If the test run shows a formatting error.
+
+`$ npm run styleguide`
+
+Check out the components.
 
 `$npm run build`
 
