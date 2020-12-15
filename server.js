@@ -12,11 +12,6 @@ const clientPath = path.join(__dirname, 'client/build')
 const isClientBuilt = fs.existsSync(clientPath)
 isClientBuilt && app.use(express.static(clientPath))
 
-isClientBuilt &&
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
-  })
-
 const redirect_uri =
   process.env.REDIRECT_URI || 'http://localhost:3001/callback'
 const client_id = process.env.CLIENT_ID
@@ -78,7 +73,7 @@ app.get('/callback', function (req, res) {
       }
       // pass the token to the browser to make requests from there
       res.redirect(
-        `${origin}` +
+        `${origin}/#` +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token,
@@ -121,6 +116,11 @@ app.get('/refresh_token', function (req, res) {
     }
   })
 })
+
+isClientBuilt &&
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+  })
 
 app.listen(port, () => {
   console.log(`Server listening at ${port}.`)
