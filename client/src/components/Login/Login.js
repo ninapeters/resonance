@@ -10,7 +10,10 @@ export default function Login() {
           <Logo />
         </LogoWrapper>
         <Content>
-          <LoginLink href="/login" data-testid="login-button">
+          <LoginLink
+            href="http://localhost:3001/login"
+            data-testid="login-button"
+          >
             Login with <SpotifyLogo />
           </LoginLink>
           <p>
