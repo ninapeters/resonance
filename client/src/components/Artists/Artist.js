@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import AudioButton from '../Buttons/AudioButton'
 import Button from '../Buttons/Button'
 import { SaveIcon, SkipIcon } from '../Icons'
+import { useEffect } from 'react'
 
 Artist.propTypes = {
   artist: PropTypes.string.isRequired,
@@ -22,6 +23,7 @@ export default function Artist({
   songTitle,
   id,
   image,
+  songUrl,
   updateTrack,
   stopPlayingSong,
   toggleCurrentSongId,
@@ -30,6 +32,17 @@ export default function Artist({
   saveSong,
   savedSongs,
 }) {
+  console.log({ songUrl })
+
+  useEffect(() => {
+    if (songUrl === null) {
+      updateTrack()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [songUrl])
+
+  if (!songUrl) return <></>
+
   return (
     <>
       <ListItemStyled key={id}>

@@ -33,6 +33,7 @@ export default function App() {
   } = useAudio({
     artistData,
     savedSongs,
+    updateTrack,
   })
 
   return (

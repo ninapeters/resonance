@@ -24,12 +24,13 @@ export default function ArtistList({
 }) {
   return (
     <ListStyled>
-      {artists?.map(({ artist, songTitle, image, id }) => (
+      {artists?.map(({ artist, songTitle, image, songUrl, id }) => (
         <Artist
           key={id}
           artist={artist}
           songTitle={songTitle}
           image={image}
+          songUrl={songUrl}
           id={id}
           updateTrack={updateTrack}
           stopPlayingSong={stopPlayingSong}
