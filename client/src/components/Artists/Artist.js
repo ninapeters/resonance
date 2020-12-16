@@ -32,8 +32,6 @@ export default function Artist({
   saveSong,
   savedSongs,
 }) {
-  console.log({ songUrl })
-
   useEffect(() => {
     if (songUrl === null) {
       updateTrack()
@@ -64,6 +62,7 @@ export default function Artist({
             onClick={() => toggleCurrentSongId(id)}
             isSongPlaying={isSongPlaying && currentSongId === id}
             currentSongId={currentSongId}
+            data-testid="audio-button"
           />
           <Button
             id={id}
