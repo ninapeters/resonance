@@ -20,7 +20,6 @@ The saved songs are shown in an overview. There the user can listen to the song 
 
 </br>
 
-![GitHub language count](https://img.shields.io/github/languages/count/ninapeters/capstone-project?color=%23679FBE)
 ![GitHub top language](https://img.shields.io/github/languages/top/ninapeters/capstone-project?color=%23679FBE)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ninapeters/capstone-project?color=%23B261A0)
 
