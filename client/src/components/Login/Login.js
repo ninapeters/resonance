@@ -3,6 +3,8 @@ import { ReactComponent as Spotify } from '../../assets/spotify.svg'
 import { ReactComponent as Logo } from '../../assets/resonance.svg'
 
 export default function Login() {
+  const loginUrl = process.env.REACT_APP_ORIGIN
+
   return (
     <LoginWrapper>
       <LoginGrid>
@@ -10,10 +12,7 @@ export default function Login() {
           <Logo />
         </LogoWrapper>
         <Content>
-          <LoginLink
-            href="http://localhost:3001/login"
-            data-testid="login-button"
-          >
+          <LoginLink href={`${loginUrl}/login`} data-testid="login-button">
             Login with <SpotifyLogo />
           </LoginLink>
           <p>

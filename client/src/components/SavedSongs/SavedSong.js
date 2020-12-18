@@ -32,16 +32,14 @@ export default function SavedSong({
     <>
       {toBeDeleted || (
         <ListItem>
-          <ButtonWrapper>
-            <ButtonPrepareToDelete
-              isDeleteButton
-              id={id}
-              onClick={() => prepareToDelete(id)}
-              data-testid="prepare-delete-button"
-            >
-              <CrossIcon />
-            </ButtonPrepareToDelete>
-          </ButtonWrapper>
+          <ButtonPrepareToDelete
+            isRedIcon
+            id={id}
+            onClick={() => prepareToDelete(id)}
+            data-testid="prepare-delete-button"
+          >
+            <CrossIcon />
+          </ButtonPrepareToDelete>
           <Content>
             <Artist>{artist}</Artist>
             <Song>{songTitle}</Song>
@@ -95,11 +93,10 @@ const ListItem = styled.li`
   grid-template-rows: auto;
   padding: 0 22px;
 `
-const ButtonWrapper = styled.div`
+const ButtonPrepareToDelete = styled(Button)`
   grid-row: 1/3;
   grid-column-start: 1;
-`
-const ButtonPrepareToDelete = styled(Button)`
+  border-radius: 34px 10px 10px 34px;
   height: 100%;
   width: 48px;
 `

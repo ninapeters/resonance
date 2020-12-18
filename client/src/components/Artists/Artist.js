@@ -2,13 +2,15 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import AudioButton from '../Buttons/AudioButton'
 import Button from '../Buttons/Button'
-import { SaveIcon } from '../Icons'
+import { SaveIcon, SkipIcon } from '../Icons'
+import { useEffect } from 'react'
 
 Artist.propTypes = {
   artist: PropTypes.string.isRequired,
   songTitle: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   image: PropTypes.string,
+  updateTrack: PropTypes.func.isRequired,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string,
@@ -21,12 +23,24 @@ export default function Artist({
   songTitle,
   id,
   image,
+  songUrl,
+  updateTrack,
+  stopPlayingSong,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
   saveSong,
   savedSongs,
 }) {
+  useEffect(() => {
+    if (songUrl === null) {
+      updateTrack()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [songUrl])
+
+  if (songUrl === null) return <></>
+
   return (
     <>
       <ListItemStyled key={id}>
@@ -36,10 +50,19 @@ export default function Artist({
           <Song>{songTitle}</Song>
         </Content>
         <ButtonWrapper>
+          <Button
+            isRedIcon
+            id={id}
+            onClick={skipSong}
+            data-testid="skip-button"
+          >
+            <SkipIcon />
+          </Button>
           <AudioButton
             onClick={() => toggleCurrentSongId(id)}
             isSongPlaying={isSongPlaying && currentSongId === id}
             currentSongId={currentSongId}
+            data-testid="audio-button"
           />
           <Button
             id={id}
@@ -53,6 +76,11 @@ export default function Artist({
       </ListItemStyled>
     </>
   )
+
+  function skipSong() {
+    stopPlayingSong()
+    updateTrack()
+  }
 }
 
 const ListItemStyled = styled.li`
@@ -93,6 +121,6 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   position: absolute;
-  top: 50%;
+  top: 36%;
   width: 100%;
 `

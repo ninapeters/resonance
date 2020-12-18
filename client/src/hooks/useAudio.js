@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { Howl } from 'howler'
 
-export default function useAudio({ artistData, savedSongs }) {
+export default function useAudio({ artistData, savedSongs, updateTrack }) {
   const [currentSongId, setCurrentSongId] = useState()
   const [isSongPlaying, setIsSongPlaying] = useState(false)
   const songRef = useRef(null)
@@ -23,6 +23,7 @@ export default function useAudio({ artistData, savedSongs }) {
       },
     })
     setIsSongPlaying(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [songUrl])
 
   useEffect(() => {

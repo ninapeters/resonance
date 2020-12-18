@@ -20,7 +20,7 @@ Delete button
 
 ```jsx
 import { CrossIcon } from '../Icons'
-;<Button isDeleteButton onClick={() => {}}>
+;<Button isRedIcon onClick={() => {}}>
   <CrossIcon />
 </Button>
 ```

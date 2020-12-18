@@ -11,7 +11,7 @@ import SavedSongList from './components/SavedSongs/SavedSongList'
 import Navigation from './components/Navigation/Navigation'
 
 export default function App() {
-  const { track, token } = useSpotify()
+  const { track, token, updateTrack } = useSpotify()
 
   const [artistData, setArtistData] = useState([])
 
@@ -33,6 +33,7 @@ export default function App() {
   } = useAudio({
     artistData,
     savedSongs,
+    updateTrack,
   })
 
   return (
@@ -45,6 +46,8 @@ export default function App() {
             </UnmuteMessage>
             <ArtistList
               artists={artistData}
+              updateTrack={updateTrack}
+              stopPlayingSong={stopPlayingSong}
               toggleCurrentSongId={toggleCurrentSongId}
               isSongPlaying={isSongPlaying}
               currentSongId={currentSongId}

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SavedSongList renders correctly 1`] = `
-.c7 {
+.c8 {
   background: var(--white-transparent-min);
   border: none;
   border-radius: 50%;
@@ -12,11 +12,30 @@ exports[`SavedSongList renders correctly 1`] = `
   width: 60px;
 }
 
+.c8:focus {
+  outline: 0;
+}
+
+.c7 {
+  background: var(--white-transparent-min);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--cta-red);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c7:disabled {
+  fill: var(--spotify-green);
+}
+
 .c7:focus {
   outline: 0;
 }
 
-.c8 {
+.c9 {
   background: var(--white-transparent-min);
   border: none;
   border-radius: 50%;
@@ -27,11 +46,11 @@ exports[`SavedSongList renders correctly 1`] = `
   width: 60px;
 }
 
-.c8:disabled {
+.c9:disabled {
   fill: var(--spotify-green);
 }
 
-.c8:focus {
+.c9:focus {
   outline: 0;
 }
 
@@ -89,7 +108,7 @@ exports[`SavedSongList renders correctly 1`] = `
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
   position: absolute;
-  top: 50%;
+  top: 36%;
   width: 100%;
 }
 
@@ -101,6 +120,7 @@ exports[`SavedSongList renders correctly 1`] = `
   -webkit-flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  height: 100vh;
   margin: 0;
   overflow-x: scroll;
   padding: 0;
@@ -147,6 +167,15 @@ exports[`SavedSongList renders correctly 1`] = `
     >
       <button
         class="c7"
+        data-testid="skip-button"
+        id="a"
+      >
+        <svg>
+          skip.svg
+        </svg>
+      </button>
+      <button
+        class="c8"
         data-testid="audio-button"
       >
         <svg
@@ -156,7 +185,7 @@ exports[`SavedSongList renders correctly 1`] = `
         </svg>
       </button>
       <button
-        class="c8"
+        class="c9"
         data-testid="save-button"
         id="a"
       >
@@ -192,6 +221,15 @@ exports[`SavedSongList renders correctly 1`] = `
     >
       <button
         class="c7"
+        data-testid="skip-button"
+        id="b"
+      >
+        <svg>
+          skip.svg
+        </svg>
+      </button>
+      <button
+        class="c8"
         data-testid="audio-button"
       >
         <svg
@@ -201,7 +239,7 @@ exports[`SavedSongList renders correctly 1`] = `
         </svg>
       </button>
       <button
-        class="c8"
+        class="c9"
         data-testid="save-button"
         id="b"
       >

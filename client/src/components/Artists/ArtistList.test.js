@@ -20,6 +20,7 @@ describe('SavedSongList', () => {
             id: 'b',
           },
         ]}
+        updateTrack={() => {}}
         toggleCurrentSongId={() => {}}
         isSongPlaying={false}
         currentSongId="a"

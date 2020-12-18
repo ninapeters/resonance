@@ -1,17 +1,27 @@
-![resonance-logo](client/src/assets/screenshots/resonance_header_small.jpg)
+![resonance-logo](client/src/assets/screenshots/resonance_header.jpg)
 
-"resonance" is a browser app for music lovers who are open to new discoveries.
+**"resonance" is a browser app for music lovers who are open to new discoveries.**
 
 ## Motivation
 
 This project was created as part of my graduation from the neuefische coding bootcamp.\
 I am a great music enthusiast myself and can never get enough of new inspiration. So I developed an app that helps to discover and manage new artists quick and easy.
 
-## Screenshots
+## Main Features
 
-![resonance-mock](client/src/assets/screenshots/resonance_mock_small.jpg)
+Songs from the Spotify Web API are fetched randomly and displayed appropriately. The user can listen to the song for 30 seconds, pause it, play it again, save or skip it.\
+The saved songs are shown in an overview. There the user can listen to the song snippets or sort them out.
+
+## Mockup
+
+![resonance-mock](client/src/assets/screenshots/resonance_mock_1200x800.jpg)
 
 ---
+
+</br>
+
+![GitHub top language](https://img.shields.io/github/languages/top/ninapeters/capstone-project?color=%23679FBE)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ninapeters/capstone-project?color=%23B261A0)
 
 ## Tech Stack
 
@@ -26,7 +36,7 @@ I am a great music enthusiast myself and can never get enough of new inspiration
 - JEST
 - Cypress
 - Node.js
-- Express.js
+- Express
 
 **API Reference**
 
@@ -49,6 +59,10 @@ Verify that the project runs without errors.
 
 If the test run shows a formatting error.
 
+`$ npm run styleguide`
+
+Check out the components.
+
 `$npm run build`
 
 Builds the app for production to the `build` folder.
@@ -57,18 +71,15 @@ Builds the app for production to the `build` folder.
 
 Runs the app and server in the development mode.
 
-### **Server**
-
 `$ mv .env.example .env`
 
-You need a Client ID and a Client Secret from the Spotify Web API.
+You need a Client ID, Client Secret and Redirect URI from the Spotify Web API.
 
 ### **Client**
 
 `$ npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
 
 ---
 
