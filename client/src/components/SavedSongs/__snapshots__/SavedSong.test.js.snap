@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SavedSong renders correctly 1`] = `
-.c8 {
+.c7 {
   background: transparent;
   border: none;
   border-radius: 50%;
@@ -12,11 +12,11 @@ exports[`SavedSong renders correctly 1`] = `
   width: 48px;
 }
 
-.c8:focus {
+.c7:focus {
   outline: 0;
 }
 
-.c2 {
+.c1 {
   background: var(--white-transparent-min);
   border: none;
   border-radius: 50%;
@@ -27,11 +27,11 @@ exports[`SavedSong renders correctly 1`] = `
   width: 60px;
 }
 
-.c2:disabled {
+.c1:disabled {
   fill: var(--spotify-green);
 }
 
-.c2:focus {
+.c1:focus {
   outline: 0;
 }
 
@@ -44,18 +44,15 @@ exports[`SavedSong renders correctly 1`] = `
   padding: 0 22px;
 }
 
-.c1 {
+.c2 {
   grid-row: 1/3;
   grid-column-start: 1;
-}
-
-.c3 {
   border-radius: 34px 10px 10px 34px;
   height: 100%;
   width: 48px;
 }
 
-.c4 {
+.c3 {
   box-shadow: var(--shadow-light);
   border-radius: 10px 34px 34px 10px;
   display: grid;
@@ -64,7 +61,7 @@ exports[`SavedSong renders correctly 1`] = `
   padding: 2px 4px 2px 12px;
 }
 
-.c5 {
+.c4 {
   -webkit-align-self: end;
   -ms-flex-item-align: end;
   align-self: end;
@@ -74,7 +71,7 @@ exports[`SavedSong renders correctly 1`] = `
   text-transform: uppercase;
 }
 
-.c6 {
+.c5 {
   -webkit-align-self: start;
   -ms-flex-item-align: start;
   align-self: start;
@@ -86,7 +83,7 @@ exports[`SavedSong renders correctly 1`] = `
   line-height: 1;
 }
 
-.c7 {
+.c6 {
   grid-column-start: 3;
   grid-row: 1/3;
   justify-self: end;
@@ -98,37 +95,33 @@ exports[`SavedSong renders correctly 1`] = `
 <li
   class="c0"
 >
-  <div
-    class="c1"
+  <button
+    class="c1 c2"
+    data-testid="prepare-delete-button"
+    id="a"
   >
-    <button
-      class="c2 c3"
-      data-testid="prepare-delete-button"
-      id="a"
-    >
-      <svg>
-        x.svg
-      </svg>
-    </button>
-  </div>
+    <svg>
+      x.svg
+    </svg>
+  </button>
   <section
-    class="c4"
+    class="c3"
   >
     <span
-      class="c5"
+      class="c4"
     >
       Unprocessed
     </span>
     <span
-      class="c6"
+      class="c5"
     >
       Real
     </span>
     <div
-      class="c7"
+      class="c6"
     >
       <button
-        class="c8"
+        class="c7"
         data-testid="audio-button"
       >
         <svg

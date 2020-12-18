@@ -1,6 +1,117 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SavedSongList renders correctly 1`] = `
+.c8 {
+  background: var(--white-transparent-min);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--primary-regular);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c8:focus {
+  outline: 0;
+}
+
+.c7 {
+  background: var(--white-transparent-min);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--cta-red);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c7:disabled {
+  fill: var(--spotify-green);
+}
+
+.c7:focus {
+  outline: 0;
+}
+
+.c9 {
+  background: var(--white-transparent-min);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--spotify-green-transparent);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c9:disabled {
+  fill: var(--spotify-green);
+}
+
+.c9:focus {
+  outline: 0;
+}
+
+.c1 {
+  display: grid;
+  -webkit-flex: 1 0 100%;
+  -ms-flex: 1 0 100%;
+  flex: 1 0 100%;
+  grid-template-columns: 100%;
+  grid-template-rows: 54vh auto;
+  position: relative;
+  row-gap: 46px;
+  -webkit-scroll-snap-align: start;
+  -moz-scroll-snap-align: start;
+  -ms-scroll-snap-align: start;
+  scroll-snap-align: start;
+}
+
+.c2 {
+  border-radius: 0 0 70px 70px;
+  box-shadow: var(--shadow-dark);
+  height: 54vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+.c3 {
+  padding: 0 22px;
+}
+
+.c4 {
+  color: var(--primary-regular);
+  display: block;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.c5 {
+  color: var(--primary-regular);
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 36%;
+  width: 100%;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -29,5 +140,114 @@ exports[`SavedSongList renders correctly 1`] = `
 
 <ul
   class="c0"
-/>
+>
+  <li
+    class="c1"
+  >
+    <img
+      alt=""
+      class="c2"
+    />
+    <section
+      class="c3"
+    >
+      <span
+        class="c4"
+      >
+        Unprocessed
+      </span>
+      <span
+        class="c5"
+      >
+        Real
+      </span>
+    </section>
+    <div
+      class="c6"
+    >
+      <button
+        class="c7"
+        data-testid="skip-button"
+        id="a"
+      >
+        <svg>
+          skip.svg
+        </svg>
+      </button>
+      <button
+        class="c8"
+        data-testid="audio-button"
+      >
+        <svg
+          title="play"
+        >
+          play.svg
+        </svg>
+      </button>
+      <button
+        class="c9"
+        data-testid="save-button"
+        id="a"
+      >
+        <svg>
+          save.svg
+        </svg>
+      </button>
+    </div>
+  </li>
+  <li
+    class="c1"
+  >
+    <img
+      alt=""
+      class="c2"
+    />
+    <section
+      class="c3"
+    >
+      <span
+        class="c4"
+      >
+        Dance Gavin Dance
+      </span>
+      <span
+        class="c5"
+      >
+        We Own The Night
+      </span>
+    </section>
+    <div
+      class="c6"
+    >
+      <button
+        class="c7"
+        data-testid="skip-button"
+        id="b"
+      >
+        <svg>
+          skip.svg
+        </svg>
+      </button>
+      <button
+        class="c8"
+        data-testid="audio-button"
+      >
+        <svg
+          title="play"
+        >
+          play.svg
+        </svg>
+      </button>
+      <button
+        class="c9"
+        data-testid="save-button"
+        id="b"
+      >
+        <svg>
+          save.svg
+        </svg>
+      </button>
+    </div>
+  </li>
+</ul>
 `;

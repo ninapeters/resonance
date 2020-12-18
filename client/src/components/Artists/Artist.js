@@ -39,7 +39,7 @@ export default function Artist({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [songUrl])
 
-  if (!songUrl) return <></>
+  if (songUrl === null) return <></>
 
   return (
     <>
