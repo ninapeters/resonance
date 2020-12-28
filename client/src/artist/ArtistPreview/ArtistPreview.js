@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import AudioButton from '../../components/Buttons/AudioButton'
-import Button from '../../components/Buttons/Button'
-import { SaveIcon, SkipIcon } from '../../components/Icons'
+import AudioButton from '../../app/AudioButton'
+import Button from '../../app/Button'
+import { SaveIcon, SkipIcon } from '../../app/Icons'
 import { useEffect } from 'react'
 
 ArtistPreview.propTypes = {

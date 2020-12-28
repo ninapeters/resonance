@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
-import AudioButton from '../../components/Buttons/AudioButton'
-import Button from '../../components/Buttons/Button'
-import { CrossIcon, ResetIcon, BinIcon } from '../../components/Icons'
+import AudioButton from '../../app/AudioButton'
+import Button from '../../app/Button'
+import { CrossIcon, ResetIcon, BinIcon } from '../../app/Icons'
 
 SavedSong.propTypes = {
   stopPlayingSongById: PropTypes.func,

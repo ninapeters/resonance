@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react'
-import Login from './Login'
+import LoginPage from './LoginPage'
 
-describe('Login', () => {
+describe('LoginPage', () => {
   it('renders correctly', () => {
-    const { container } = render(<Login />)
+    const { container } = render(<LoginPage />)
     expect(container.firstChild).toMatchSnapshot()
   })
   it('links to the right location by clicking the login-button', () => {
-    const { getByTestId } = render(<Login />)
+    const { getByTestId } = render(<LoginPage />)
     expect(getByTestId('login-button').href).toBe('http://localhost:3001/login')
   })
 })

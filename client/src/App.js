@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import useSpotify from './hooks/useSpotify'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
-import Login from './components/Login/Login'
+import LoginPage from './login/LoginPage'
 import ArtistPage from './artist/ArtistPage'
 import SavedSongPage from './saved/SavedSongPage'
 import Navigation from './components/Navigation/Navigation'
@@ -73,7 +73,7 @@ export default function App() {
           </Route>
         </Switch>
       ) : (
-        <Login />
+        <LoginPage />
       )}
     </Main>
   )
