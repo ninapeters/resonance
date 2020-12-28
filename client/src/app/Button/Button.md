@@ -1,7 +1,7 @@
 Save button
 
 ```jsx
-import { SaveIcon } from '../Icons'
+import { SaveIcon } from '../Icons/Icons'
 ;<Button onClick={() => {}}>
   <SaveIcon />
 </Button>
@@ -10,7 +10,7 @@ import { SaveIcon } from '../Icons'
 Save button disabled
 
 ```jsx
-import { SaveIcon } from '../Icons'
+import { SaveIcon } from '../Icons/Icons'
 ;<Button disabled onClick={() => {}}>
   <SaveIcon />
 </Button>
@@ -19,7 +19,7 @@ import { SaveIcon } from '../Icons'
 Delete button
 
 ```jsx
-import { CrossIcon } from '../Icons'
+import { CrossIcon } from '../Icons/Icons'
 ;<Button isRedIcon onClick={() => {}}>
   <CrossIcon />
 </Button>
