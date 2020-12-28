@@ -42,9 +42,6 @@ export default function App() {
       ) : (
         <Switch>
           <Route exact path="/">
-            <UnmuteMessage>
-              <p>Please unmute your device.</p>
-            </UnmuteMessage>
             <ArtistPage
               artists={artistData}
               updateTrack={updateTrack}
@@ -77,20 +74,5 @@ const Main = styled.main`
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
-  }
-`
-const UnmuteMessage = styled.div`
-  background: var(--white-transparent-max);
-  padding: 8px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  p {
-    color: var(--primary-regular);
-    font-size: 0.7em;
-    font-weight: 700;
-    margin: 0;
-    text-align: center;
   }
 `
