@@ -1,4 +1,4 @@
-![resonance-logo](client/src/assets/screenshots/resonance_header.jpg)
+![resonance-logo](assets/resonance_header.jpg)
 
 **"resonance" is a browser app for music lovers who are open to new discoveries.**
 
@@ -14,7 +14,7 @@ The saved songs are shown in an overview. There the user can listen to the song 
 
 ## Mockup
 
-![resonance-mock](client/src/assets/screenshots/resonance_mock_1200x800.jpg)
+![resonance-mock](assets/resonance_mock_1200x800.jpg)
 
 ---
 
