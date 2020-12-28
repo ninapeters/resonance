@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import SavedSong from './SavedSong'
 import Header from '../app/Header'
 
-SavedSongListPage.propTypes = {
+SavedSongPage.propTypes = {
   stopPlayingSongById: PropTypes.func.isRequired,
   deleteSavedSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array.isRequired,
@@ -12,7 +12,7 @@ SavedSongListPage.propTypes = {
   currentSongId: PropTypes.string,
 }
 
-export default function SavedSongListPage({
+export default function SavedSongPage({
   stopPlayingSongById,
   deleteSavedSong,
   savedSongs,

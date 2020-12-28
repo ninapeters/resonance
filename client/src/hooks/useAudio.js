@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { Howl } from 'howler'
 
-export default function useAudio({ artistData, savedSongs, updateTrack }) {
+export default function useAudio({ artistData, savedSongs }) {
   const [currentSongId, setCurrentSongId] = useState()
   const [isSongPlaying, setIsSongPlaying] = useState(false)
   const songRef = useRef(null)
