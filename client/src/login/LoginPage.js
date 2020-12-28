@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro'
-import { ReactComponent as Spotify } from '../assets/spotify.svg'
-import { ReactComponent as Logo } from '../assets/resonance.svg'
+import { Logo, Spotify } from '../app/Logos/Logos'
 
 export default function LoginPage() {
   const loginUrl = process.env.REACT_APP_ORIGIN
