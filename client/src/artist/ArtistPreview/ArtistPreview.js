@@ -1,11 +1,11 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import AudioButton from '../Buttons/AudioButton'
-import Button from '../Buttons/Button'
-import { SaveIcon, SkipIcon } from '../Icons'
+import AudioButton from '../../components/Buttons/AudioButton'
+import Button from '../../components/Buttons/Button'
+import { SaveIcon, SkipIcon } from '../../components/Icons'
 import { useEffect } from 'react'
 
-Artist.propTypes = {
+ArtistPreview.propTypes = {
   artist: PropTypes.string.isRequired,
   songTitle: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
@@ -18,7 +18,7 @@ Artist.propTypes = {
   savedSongs: PropTypes.array,
 }
 
-export default function Artist({
+export default function ArtistPreview({
   artist,
   songTitle,
   id,

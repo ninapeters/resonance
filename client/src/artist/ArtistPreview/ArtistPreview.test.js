@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import user from '@testing-library/user-event'
-import Artist from './Artist'
+import ArtistPreview from './ArtistPreview'
 
-describe('Artist', () => {
+describe('ArtistPreview', () => {
   it('renders correctly', () => {
     const { container } = render(
-      <Artist
+      <ArtistPreview
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -25,7 +25,7 @@ describe('Artist', () => {
   it('calls toggleCurrentSongId with the correct id', () => {
     const toggleCurrentSongIdMock = jest.fn()
     const { getByTestId } = render(
-      <Artist
+      <ArtistPreview
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -46,7 +46,7 @@ describe('Artist', () => {
 
   it('switches the appearance of play and pause button by changing the state isSongPlaying', () => {
     const { getByTitle, queryByTitle, rerender } = render(
-      <Artist
+      <ArtistPreview
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -63,7 +63,7 @@ describe('Artist', () => {
     expect(getByTitle('play')).toBeInTheDocument()
 
     rerender(
-      <Artist
+      <ArtistPreview
         artist="Unprocessed"
         songTitle="Real"
         id="a"
@@ -84,7 +84,7 @@ describe('Artist', () => {
   it('calls saveSong correctly', () => {
     const saveSongMock = jest.fn()
     const { getByTestId } = render(
-      <Artist
+      <ArtistPreview
         artist="Unprocessed"
         songTitle="Real"
         id="a"

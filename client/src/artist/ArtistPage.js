@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import Artist from './Artist'
+import ArtistPreview from './ArtistPreview'
 
-ArtistList.propTypes = {
+ArtistPage.propTypes = {
   artists: PropTypes.array,
   updateTrack: PropTypes.func,
   toggleCurrentSongId: PropTypes.func.isRequired,
@@ -12,7 +12,7 @@ ArtistList.propTypes = {
   savedSongs: PropTypes.array,
 }
 
-export default function ArtistList({
+export default function ArtistPage({
   artists,
   updateTrack,
   stopPlayingSong,
@@ -25,7 +25,7 @@ export default function ArtistList({
   return (
     <ListStyled>
       {artists?.map(({ artist, songTitle, image, songUrl, id }) => (
-        <Artist
+        <ArtistPreview
           key={id}
           artist={artist}
           songTitle={songTitle}

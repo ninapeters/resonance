@@ -31,7 +31,6 @@ export default function useSpotify() {
       .searchTracks('genre:alternative', {
         limit: 1,
         offset: getRandomOffset(),
-        market: 'DE',
       })
       .then((track) =>
         dispatch({

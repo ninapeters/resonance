@@ -1,7 +1,7 @@
-One Artist:
+One preview of an artist:
 
 ```jsx
-<Artist
+<ArtistPreview
   artist="Unprocessed"
   songTitle="Real"
   id="a"

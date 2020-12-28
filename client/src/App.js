@@ -6,7 +6,7 @@ import useSpotify from './hooks/useSpotify'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
 import Login from './components/Login/Login'
-import ArtistList from './components/Artists/ArtistList'
+import ArtistPage from './artist/ArtistPage'
 import SavedSongList from './components/SavedSongs/SavedSongList'
 import Navigation from './components/Navigation/Navigation'
 
@@ -44,7 +44,7 @@ export default function App() {
             <UnmuteMessage>
               <p>Please unmute your device.</p>
             </UnmuteMessage>
-            <ArtistList
+            <ArtistPage
               artists={artistData}
               updateTrack={updateTrack}
               stopPlayingSong={stopPlayingSong}
