@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import SavedSong from './SavedSong'
-import Header from '../components/Header'
+import Header from '../app/Header'
 
 SavedSongListPage.propTypes = {
   stopPlayingSongById: PropTypes.func.isRequired,

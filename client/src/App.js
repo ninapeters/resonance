@@ -8,7 +8,7 @@ import useArtist from './hooks/useArtist'
 import LoginPage from './login/LoginPage'
 import ArtistPage from './artist/ArtistPage'
 import SavedSongPage from './saved/SavedSongPage'
-import Navigation from './components/Navigation/Navigation'
+import Navigation from './app/Navigation'
 
 export default function App() {
   const { track, token, updateTrack } = useSpotify()
