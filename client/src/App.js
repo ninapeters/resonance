@@ -8,7 +8,6 @@ import useArtist from './hooks/useArtist'
 import LoginPage from './login/LoginPage'
 import ArtistPage from './artist/ArtistPage'
 import SavedSongPage from './saved/SavedSongPage'
-import Navigation from './app/Navigation'
 
 export default function App() {
   const { track, token, updateTrack } = useSpotify()
@@ -38,7 +37,9 @@ export default function App() {
 
   return (
     <Main>
-      {token ? (
+      {!token ? (
+        <LoginPage />
+      ) : (
         <Switch>
           <Route exact path="/">
             <UnmuteMessage>
@@ -54,9 +55,6 @@ export default function App() {
               saveSong={saveSong}
               savedSongs={savedSongs}
             />
-            <Footer>
-              <Navigation onClick={stopPlayingSong} />
-            </Footer>
           </Route>
           <Route path="/favorites">
             <SavedSongPage
@@ -66,14 +64,10 @@ export default function App() {
               toggleCurrentSongId={toggleCurrentSongId}
               isSongPlaying={isSongPlaying}
               currentSongId={currentSongId}
+              stopPlayingSong={stopPlayingSong}
             />
-            <Footer>
-              <Navigation onClick={stopPlayingSong} />
-            </Footer>
           </Route>
         </Switch>
-      ) : (
-        <LoginPage />
       )}
     </Main>
   )
@@ -99,10 +93,4 @@ const UnmuteMessage = styled.div`
     margin: 0;
     text-align: center;
   }
-`
-const Footer = styled.footer`
-  bottom: 30px;
-  left: 0;
-  position: fixed;
-  right: 0;
 `
