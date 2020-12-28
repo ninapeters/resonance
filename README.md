@@ -16,11 +16,16 @@ The saved songs are shown in an overview. There the user can listen to the song 
 
 ![resonance-mock](assets/resonance_mock_1200x800.jpg)
 
+## Demo
+
+You can test the app in [this demo](https://resonance-app.herokuapp.com). It is optimized for **mobile screens**.
+
 ---
 
 </br>
 
 ![GitHub top language](https://img.shields.io/github/languages/top/ninapeters/capstone-project?color=%23679FBE)
+![GitHub last commit](https://img.shields.io/github/last-commit/ninapeters/resonance?color=%23679FBE)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ninapeters/capstone-project?color=%23B261A0)
 
 ## Tech Stack
@@ -69,23 +74,17 @@ Builds the app for production to the `build` folder.
 
 `$ npm run dev`
 
-Runs the app and server in the development mode.
+Runs the app and server in the development mode. Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
 
 `$ mv .env.example .env`
 
 You need a Client ID, Client Secret and Redirect URI from the Spotify Web API.
 
-### **Client**
-
-`$ npm start`
-
-Open [http://localhost:3000](http://localhost:3000) to view the app in the browser.
-
 ---
 
 ## License
 
-[MIT](https://en.wikipedia.org/wiki/MIT_License#License_terms)
+[MIT](https://en.wikipedia.org/wiki/MIT_License#License_terms) © Nina Peters
 
 ---
 
