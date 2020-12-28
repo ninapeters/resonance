@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import SavedSong from './SavedSong'
-import Header from '../Header'
+import Header from '../components/Header'
 
-SavedSongList.propTypes = {
+SavedSongListPage.propTypes = {
   stopPlayingSongById: PropTypes.func.isRequired,
   deleteSavedSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array.isRequired,
@@ -12,7 +12,7 @@ SavedSongList.propTypes = {
   currentSongId: PropTypes.string,
 }
 
-export default function SavedSongList({
+export default function SavedSongListPage({
   stopPlayingSongById,
   deleteSavedSong,
   savedSongs,

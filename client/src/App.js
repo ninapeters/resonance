@@ -7,7 +7,7 @@ import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
 import Login from './components/Login/Login'
 import ArtistPage from './artist/ArtistPage'
-import SavedSongList from './components/SavedSongs/SavedSongList'
+import SavedSongPage from './saved/SavedSongPage'
 import Navigation from './components/Navigation/Navigation'
 
 export default function App() {
@@ -59,7 +59,7 @@ export default function App() {
             </Footer>
           </Route>
           <Route path="/favorites">
-            <SavedSongList
+            <SavedSongPage
               stopPlayingSongById={stopPlayingSongById}
               deleteSavedSong={deleteSavedSong}
               savedSongs={savedSongs}
