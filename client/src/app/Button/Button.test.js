@@ -1,13 +1,13 @@
 import { render } from '@testing-library/react'
 import user from '@testing-library/user-event'
 import Button from './Button'
-import { ReactComponent as DeleteIcon } from '../../assets/x.svg'
+import { SaveIcon } from '../Icons/Icons'
 
 describe('Button', () => {
   it('renders correctly', () => {
     const { container } = render(
       <Button onClick={() => {}}>
-        <DeleteIcon />
+        <SaveIcon />
       </Button>
     )
     expect(container.firstChild).toMatchSnapshot()
@@ -16,7 +16,7 @@ describe('Button', () => {
     const onClickMock = jest.fn()
     const { getByRole } = render(
       <Button onClick={() => onClickMock('a')}>
-        <DeleteIcon />
+        <SaveIcon />
       </Button>
     )
     const button = getByRole('button')

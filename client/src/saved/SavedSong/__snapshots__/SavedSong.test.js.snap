@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SavedSong renders correctly 1`] = `
+.c7 {
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  box-shadow: none;
+  fill: var(--primary-regular);
+  height: 48px;
+  padding: 14px;
+  width: 48px;
+}
+
+.c7:focus {
+  outline: 0;
+}
+
+.c1 {
+  background: var(--white-transparent-min);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--cta-red);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c1:disabled {
+  fill: var(--spotify-green);
+}
+
+.c1:focus {
+  outline: 0;
+}
+
+.c0 {
+  display: grid;
+  -webkit-column-gap: 8px;
+  column-gap: 8px;
+  grid-template-columns: 48px auto;
+  grid-template-rows: auto;
+  padding: 0 22px;
+}
+
+.c2 {
+  grid-row: 1/3;
+  grid-column-start: 1;
+  border-radius: 34px 10px 10px 34px;
+  height: 100%;
+  width: 48px;
+}
+
+.c3 {
+  box-shadow: var(--shadow-light);
+  border-radius: 10px 34px 34px 10px;
+  display: grid;
+  grid-template-columns: 80% auto;
+  grid-template-rows: auto;
+  padding: 2px 4px 2px 12px;
+}
+
+.c4 {
+  -webkit-align-self: end;
+  -ms-flex-item-align: end;
+  align-self: end;
+  color: var(--primary-regular);
+  font-size: 0.9em;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.c5 {
+  -webkit-align-self: start;
+  -ms-flex-item-align: start;
+  align-self: start;
+  color: var(--primary-regular);
+  grid-row-start: 2;
+  font-size: 0.9em;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.c6 {
+  grid-column-start: 3;
+  grid-row: 1/3;
+  justify-self: end;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+<li
+  class="c0"
+>
+  <button
+    class="c1 c2"
+    data-testid="prepare-delete-button"
+    id="a"
+  >
+    <svg>
+      x.svg
+    </svg>
+  </button>
+  <section
+    class="c3"
+  >
+    <span
+      class="c4"
+    >
+      Unprocessed
+    </span>
+    <span
+      class="c5"
+    >
+      Real
+    </span>
+    <div
+      class="c6"
+    >
+      <button
+        class="c7"
+        data-testid="audio-button"
+      >
+        <svg
+          title="play"
+        >
+          play.svg
+        </svg>
+      </button>
+    </div>
+  </section>
+</li>
+`;

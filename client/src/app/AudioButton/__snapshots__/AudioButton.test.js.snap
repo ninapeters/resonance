@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AudioButton renders correctly 1`] = `
+.c0 {
+  background: var(--white-transparent-min);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  fill: var(--primary-regular);
+  height: 60px;
+  padding: 14px;
+  width: 60px;
+}
+
+.c0:focus {
+  outline: 0;
+}
+
+<button
+  class="c0"
+  data-testid="audio-button"
+>
+  <svg
+    title="play"
+  >
+    play.svg
+  </svg>
+</button>
+`;
