@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
-import { HomeIcon, SaveIcon } from '../Icons'
+import { HomeIcon, SaveIcon } from '../Icons/Icons'
 
 export default function Navigation({ onClick }) {
   return (

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import AudioButton from '../../app/AudioButton'
 import Button from '../../app/Button'
-import { CrossIcon, ResetIcon, BinIcon } from '../../app/Icons'
+import { CrossIcon, ResetIcon, BinIcon } from '../../app/Icons/Icons'
 
 SavedSong.propTypes = {
   stopPlayingSongById: PropTypes.func,
