@@ -5,10 +5,9 @@ import { useState, useEffect } from 'react'
 import useSpotify from './hooks/useSpotify'
 import useAudio from './hooks/useAudio'
 import useArtist from './hooks/useArtist'
-import Login from './components/Login/Login'
-import ArtistList from './components/Artists/ArtistList'
-import SavedSongList from './components/SavedSongs/SavedSongList'
-import Navigation from './components/Navigation/Navigation'
+import LoginPage from './login/LoginPage'
+import ArtistPage from './artist/ArtistPage'
+import SavedSongPage from './saved/SavedSongPage'
 
 export default function App() {
   const { track, token, updateTrack } = useSpotify()
@@ -38,13 +37,12 @@ export default function App() {
 
   return (
     <Main>
-      {token ? (
+      {!token ? (
+        <LoginPage />
+      ) : (
         <Switch>
           <Route exact path="/">
-            <UnmuteMessage>
-              <p>Please unmute your device.</p>
-            </UnmuteMessage>
-            <ArtistList
+            <ArtistPage
               artists={artistData}
               updateTrack={updateTrack}
               stopPlayingSong={stopPlayingSong}
@@ -54,26 +52,19 @@ export default function App() {
               saveSong={saveSong}
               savedSongs={savedSongs}
             />
-            <Footer>
-              <Navigation onClick={stopPlayingSong} />
-            </Footer>
           </Route>
           <Route path="/favorites">
-            <SavedSongList
+            <SavedSongPage
               stopPlayingSongById={stopPlayingSongById}
               deleteSavedSong={deleteSavedSong}
               savedSongs={savedSongs}
               toggleCurrentSongId={toggleCurrentSongId}
               isSongPlaying={isSongPlaying}
               currentSongId={currentSongId}
+              stopPlayingSong={stopPlayingSong}
             />
-            <Footer>
-              <Navigation onClick={stopPlayingSong} />
-            </Footer>
           </Route>
         </Switch>
-      ) : (
-        <Login />
       )}
     </Main>
   )
@@ -84,25 +75,4 @@ const Main = styled.main`
   &::-webkit-scrollbar {
     display: none;
   }
-`
-const UnmuteMessage = styled.div`
-  background: var(--white-transparent-max);
-  padding: 8px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  p {
-    color: var(--primary-regular);
-    font-size: 0.7em;
-    font-weight: 700;
-    margin: 0;
-    text-align: center;
-  }
-`
-const Footer = styled.footer`
-  bottom: 30px;
-  left: 0;
-  position: fixed;
-  right: 0;
 `
