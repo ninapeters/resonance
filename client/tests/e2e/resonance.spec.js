@@ -50,11 +50,17 @@ describe('resonance login page', () => {
     cy.get('[data-testid=login-button]')
   })
 
-  it('should open the homepage by login', () => {
+  it('makes authenticated request', () => {
     cy.postToken()
     cy.saveLocalStorage()
-    cy.getLocalStorage('token').should('exist')
+    cy.getLocalStorage('token').then((token) => {
+      const accessToken = token
 
-    cy.visit('/')
+      cy.visit('/', {
+        onBeforeLoad(win) {
+          win.localStorage.setItem('accessToken', JSON.stringify(accessToken))
+        },
+      })
+    })
   })
 })
