@@ -1,8 +1,47 @@
 /// <reference types="cypress" />
+import 'cypress-localstorage-commands'
 
 const testId = (id) => `[data-testid="${id}"]`
 
-describe('resonance', () => {
+Cypress.Commands.add('postToken', () => {
+  const authHeader = Cypress.env('authHeader')
+
+  const options = {
+    method: 'POST',
+    url: 'https://accounts.spotify.com/api/token',
+    form: true,
+    body: {
+      grant_type: 'client_credentials',
+    },
+    headers: {
+      Authorization: authHeader,
+    },
+  }
+
+  cy.request(options).then((resp) => {
+    cy.setLocalStorage('token', resp.body.access_token)
+  })
+})
+
+describe('postToken', () => {
+  before(() => {
+    cy.postToken()
+    cy.saveLocalStorage()
+  })
+
+  beforeEach(() => {
+    cy.restoreLocalStorage()
+  })
+
+  it('should exist token in localStorage', () => {
+    cy.getLocalStorage('token').should('exist')
+    cy.getLocalStorage('token').then((token) => {
+      console.log('token', token)
+    })
+  })
+})
+
+describe('resonance login page', () => {
   it('should open the login page by first load', () => {
     cy.visit('/')
   })
@@ -11,26 +50,11 @@ describe('resonance', () => {
     cy.get('[data-testid=login-button]')
   })
 
-  it('should lead to homepage by login', () => {
-    const authHeader =
-      'Basic NWY3ZmEzMjRlYzEyNGM1ZGE1NjcyZGQ1ZDZmYTliMmY6NjhhYmRmZThiNGU5NDk5NmI4ZmNiNzJjNzM3NDk4MTM='
+  it('should open the homepage by login', () => {
+    cy.postToken()
+    cy.saveLocalStorage()
+    cy.getLocalStorage('token').should('exist')
 
-    const options = {
-      method: 'POST',
-      url: 'https://accounts.spotify.com/api/token',
-      form: true,
-      body: {
-        grant_type: 'client_credentials',
-      },
-      headers: {
-        Authorization: authHeader,
-      },
-    }
-
-    cy.request(options).then((resp) => {
-      localStorage.setItem('token', resp.body.access_token)
-    })
-
-    cy.visit('/#')
+    cy.visit('/')
   })
 })
