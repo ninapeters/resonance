@@ -26,6 +26,7 @@ export default function ArtistPreview({
   songUrl,
   updateTrack,
   stopPlayingSong,
+  togglePlayingSong,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
@@ -36,6 +37,7 @@ export default function ArtistPreview({
     if (songUrl === null) {
       updateTrack()
     }
+    toggleCurrentSongId(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [songUrl])
 
@@ -59,7 +61,7 @@ export default function ArtistPreview({
             <SkipIcon />
           </Button>
           <AudioButton
-            onClick={() => toggleCurrentSongId(id)}
+            onClick={togglePlayingSong}
             isSongPlaying={isSongPlaying && currentSongId === id}
             currentSongId={currentSongId}
             data-testid="audio-button"

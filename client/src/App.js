@@ -29,6 +29,7 @@ export default function App() {
     currentSongId,
     stopPlayingSongById,
     stopPlayingSong,
+    togglePlayingSong,
   } = useAudio({
     artistData,
     savedSongs,
@@ -46,6 +47,7 @@ export default function App() {
               artists={artistData}
               updateTrack={updateTrack}
               stopPlayingSong={stopPlayingSong}
+              togglePlayingSong={togglePlayingSong}
               toggleCurrentSongId={toggleCurrentSongId}
               isSongPlaying={isSongPlaying}
               currentSongId={currentSongId}

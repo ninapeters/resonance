@@ -18,6 +18,7 @@ export default function ArtistPage({
   artists,
   updateTrack,
   stopPlayingSong,
+  togglePlayingSong,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
@@ -38,6 +39,7 @@ export default function ArtistPage({
             id={id}
             updateTrack={updateTrack}
             stopPlayingSong={stopPlayingSong}
+            togglePlayingSong={togglePlayingSong}
             toggleCurrentSongId={toggleCurrentSongId}
             isSongPlaying={isSongPlaying}
             currentSongId={currentSongId}
