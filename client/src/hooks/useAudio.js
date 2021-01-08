@@ -29,7 +29,7 @@ export default function useAudio({ artistData, savedSongs }) {
   useEffect(() => {
     if (isSongPlaying) {
       songRef.current.play()
-      songRef.current.fade(0, 0.2, 500)
+      songRef.current.fade(0, 0.5, 1000)
     } else {
       songRef.current.pause()
     }
