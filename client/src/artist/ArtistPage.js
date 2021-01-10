@@ -21,7 +21,6 @@ const mainVariants = {
   visible: {
     opacity: 1,
     transition: {
-      type: 'spring',
       ease: 'easeInOut',
       duration: '0.15',
     },
@@ -29,7 +28,6 @@ const mainVariants = {
   exit: {
     x: '-100vw',
     transition: {
-      type: 'spring',
       ease: 'easeInOut',
       duration: '0.15',
     },

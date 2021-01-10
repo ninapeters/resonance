@@ -12,6 +12,8 @@ import SavedSongPage from './saved/SavedSongPage'
 import Navigation from './app/Navigation'
 
 export default function App() {
+  const location = useLocation()
+
   const { track, token, updateTrack } = useSpotify()
 
   const [artistData, setArtistData] = useState([])
@@ -37,8 +39,6 @@ export default function App() {
     savedSongs,
     updateTrack,
   })
-
-  const location = useLocation()
 
   return (
     <Main>

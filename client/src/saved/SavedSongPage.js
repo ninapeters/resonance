@@ -16,26 +16,18 @@ SavedSongPage.propTypes = {
 const mainVariants = {
   initial: {
     opacity: 0,
-    x: '100vw',
   },
   visible: {
     opacity: 1,
-    x: 0,
     transition: {
-      type: 'spring',
       ease: 'easeInOut',
-      stiffness: 250,
-      damping: 20,
       duration: '0.15',
     },
   },
   exit: {
     x: '-100vw',
     transition: {
-      type: 'spring',
       ease: 'easeInOut',
-      stiffness: 250,
-      damping: 20,
       duration: '0.15',
     },
   },
