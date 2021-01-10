@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
+import { clickAnimation } from '../../services/animationVariants'
 import { PlayIcon, PauseIcon } from '../Icons/Icons'
 
 AudioButton.propTypes = {
@@ -10,11 +11,6 @@ AudioButton.propTypes = {
 }
 
 export default function AudioButton({ onClick, isSongPlaying, isSmall }) {
-  const clickAnimation = {
-    rest: { scale: 1 },
-    pressed: { scale: 0.9 },
-  }
-
   return (
     <motion.div variants={clickAnimation} initial="rest" whileTap="pressed">
       <Button onClick={onClick} data-testid="audio-button" isSmall={isSmall}>

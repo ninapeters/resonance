@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 import SavedSong from './SavedSong'
 import Header from '../app/Header'
+import { pageTransition } from '../services/animationVariants'
 
 SavedSongPage.propTypes = {
   stopPlayingSongById: PropTypes.func.isRequired,
@@ -13,26 +14,6 @@ SavedSongPage.propTypes = {
   currentSongId: PropTypes.string,
 }
 
-const mainVariants = {
-  initial: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      ease: 'easeInOut',
-      duration: '0.15',
-    },
-  },
-  exit: {
-    x: '-100vw',
-    transition: {
-      ease: 'easeInOut',
-      duration: '0.15',
-    },
-  },
-}
-
 export default function SavedSongPage({
   stopPlayingSongById,
   deleteSavedSong,
@@ -40,11 +21,10 @@ export default function SavedSongPage({
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
-  stopPlayingSong,
 }) {
   return (
     <motion.main
-      variants={mainVariants}
+      variants={pageTransition}
       initial="initial"
       animate="visible"
       exit="exit"

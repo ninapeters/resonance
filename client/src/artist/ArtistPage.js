@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 import ArtistPreview from './ArtistPreview'
 import UnmuteMessage from '../app/UnmuteMessage'
+import { pageTransition } from '../services/animationVariants'
 
 ArtistPage.propTypes = {
   artists: PropTypes.array,
@@ -12,26 +13,6 @@ ArtistPage.propTypes = {
   currentSongId: PropTypes.string,
   saveSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array,
-}
-
-const mainVariants = {
-  initial: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      ease: 'easeInOut',
-      duration: '0.15',
-    },
-  },
-  exit: {
-    x: '-100vw',
-    transition: {
-      ease: 'easeInOut',
-      duration: '0.15',
-    },
-  },
 }
 
 export default function ArtistPage({
@@ -47,7 +28,7 @@ export default function ArtistPage({
 }) {
   return (
     <motion.main
-      variants={mainVariants}
+      variants={pageTransition}
       initial="initial"
       animate="visible"
       exit="exit"
