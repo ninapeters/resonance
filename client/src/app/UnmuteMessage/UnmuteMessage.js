@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { CrossIcon } from '../Icons/Icons'
 
 UnmuteMessage.propTypes = {
   children: PropTypes.string,
@@ -18,6 +19,7 @@ export default function UnmuteMessage() {
   return (
     <MessageWrapper animate={isShown ? 'open' : 'closed'} variants={variants}>
       <p onClick={() => setIsShown(false)}>Please unmute your device.</p>
+      <IconToHideMessage />
     </MessageWrapper>
   )
 }
@@ -25,7 +27,9 @@ export default function UnmuteMessage() {
 const MessageWrapper = styled(motion.section)`
   background: var(--white-transparent-min);
   border-radius: 20px;
-  box-shadow: var(--shadow-dark);
+  box-shadow: var(--shadow-light);
+  display: flex;
+  justify-content: space-evenly;
   padding: 8px;
   margin: 20px auto;
   width: 80%;
@@ -36,4 +40,8 @@ const MessageWrapper = styled(motion.section)`
     margin: 0;
     text-align: center;
   }
+`
+const IconToHideMessage = styled(CrossIcon)`
+  width: 10px;
+  fill: var(--primary-regular);
 `
