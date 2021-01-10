@@ -90,6 +90,7 @@ const ListItemStyled = styled.li`
   flex: 1 0 100%;
   grid-template-columns: 100%;
   grid-template-rows: 54vh auto;
+  height: 100vh;
   position: relative;
   row-gap: 46px;
   scroll-snap-align: start;

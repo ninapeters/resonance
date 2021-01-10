@@ -26,8 +26,10 @@ export default function ArtistPage({
   savedSongs,
 }) {
   return (
-    <PreviewWrapper>
-      <UnmuteMessage className="fixed-message" />
+    <>
+      <MessagePosition>
+        <UnmuteMessage />
+      </MessagePosition>
       <ListStyled>
         {artists?.map(({ artist, songTitle, image, songUrl, id }) => (
           <ArtistPreview
@@ -51,26 +53,22 @@ export default function ArtistPage({
       <Footer>
         <Navigation onClick={stopPlayingSong} />
       </Footer>
-    </PreviewWrapper>
+    </>
   )
 }
 
-const PreviewWrapper = styled.section`
-  &.fixed-message {
-    position: fixed;
-    top: 0;
-    z-index: 10;
-  }
+const MessagePosition = styled.div`
+  top: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 10;
 `
-
 const ListStyled = styled.ul`
-  display: flex;
-  flex-wrap: nowrap;
   height: 100vh;
   margin: 0;
-  overflow-x: scroll;
   padding: 0;
-  scroll-snap-type: x mandatory;
+  position: relative;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
