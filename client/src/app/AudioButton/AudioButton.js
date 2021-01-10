@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { motion } from 'framer-motion'
 import { PlayIcon, PauseIcon } from '../Icons/Icons'
 
 AudioButton.propTypes = {
@@ -9,14 +10,25 @@ AudioButton.propTypes = {
 }
 
 export default function AudioButton({ onClick, isSongPlaying, isSmall }) {
+  const clickAnimation = {
+    rest: { scale: 1 },
+    pressed: { scale: 0.7 },
+  }
+
   return (
-    <Button onClick={onClick} data-testid="audio-button" isSmall={isSmall}>
-      {isSongPlaying ? <PauseIcon title="pause" /> : <PlayIcon title="play" />}
-    </Button>
+    <motion.div variants={clickAnimation} initial="rest" whileTap="pressed">
+      <Button onClick={onClick} data-testid="audio-button" isSmall={isSmall}>
+        {isSongPlaying ? (
+          <PauseIcon title="pause" />
+        ) : (
+          <PlayIcon title="play" />
+        )}
+      </Button>
+    </motion.div>
   )
 }
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   background: ${(props) =>
     props.isSmall ? 'transparent' : 'var(--white-transparent-min)'};
   border: none;
