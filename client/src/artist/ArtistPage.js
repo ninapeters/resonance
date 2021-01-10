@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { motion } from 'framer-motion'
 import ArtistPreview from './ArtistPreview'
 import UnmuteMessage from '../app/UnmuteMessage'
-import Navigation from '../app/Navigation'
 
 ArtistPage.propTypes = {
   artists: PropTypes.array,
@@ -12,6 +12,28 @@ ArtistPage.propTypes = {
   currentSongId: PropTypes.string,
   saveSong: PropTypes.func.isRequired,
   savedSongs: PropTypes.array,
+}
+
+const mainVariants = {
+  initial: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      ease: 'easeInOut',
+      duration: '0.15',
+    },
+  },
+  exit: {
+    x: '-100vw',
+    transition: {
+      type: 'spring',
+      ease: 'easeInOut',
+      duration: '0.15',
+    },
+  },
 }
 
 export default function ArtistPage({
@@ -26,7 +48,12 @@ export default function ArtistPage({
   savedSongs,
 }) {
   return (
-    <>
+    <motion.main
+      variants={mainVariants}
+      initial="initial"
+      animate="visible"
+      exit="exit"
+    >
       <MessagePosition>
         <UnmuteMessage />
       </MessagePosition>
@@ -50,10 +77,7 @@ export default function ArtistPage({
           />
         ))}
       </ListStyled>
-      <Footer>
-        <Navigation onClick={stopPlayingSong} />
-      </Footer>
-    </>
+    </motion.main>
   )
 }
 
@@ -73,10 +97,4 @@ const ListStyled = styled.ul`
   &::-webkit-scrollbar {
     display: none;
   }
-`
-const Footer = styled.footer`
-  bottom: 30px;
-  left: 0;
-  position: fixed;
-  right: 0;
 `

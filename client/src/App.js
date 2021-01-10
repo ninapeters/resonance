@@ -1,4 +1,5 @@
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import styled from 'styled-components/macro'
 import normalizeArtists from './services/normalizeArtists'
 import { useState, useEffect } from 'react'
@@ -8,6 +9,7 @@ import useArtist from './hooks/useArtist'
 import LoginPage from './login/LoginPage'
 import ArtistPage from './artist/ArtistPage'
 import SavedSongPage from './saved/SavedSongPage'
+import Navigation from './app/Navigation'
 
 export default function App() {
   const { track, token, updateTrack } = useSpotify()
@@ -36,37 +38,46 @@ export default function App() {
     updateTrack,
   })
 
+  const location = useLocation()
+
   return (
     <Main>
       {!token ? (
         <LoginPage />
       ) : (
-        <Switch>
-          <Route exact path="/">
-            <ArtistPage
-              artists={artistData}
-              updateTrack={updateTrack}
-              stopPlayingSong={stopPlayingSong}
-              togglePlayingSong={togglePlayingSong}
-              toggleCurrentSongId={toggleCurrentSongId}
-              isSongPlaying={isSongPlaying}
-              currentSongId={currentSongId}
-              saveSong={saveSong}
-              savedSongs={savedSongs}
-            />
-          </Route>
-          <Route path="/favorites">
-            <SavedSongPage
-              stopPlayingSongById={stopPlayingSongById}
-              deleteSavedSong={deleteSavedSong}
-              savedSongs={savedSongs}
-              toggleCurrentSongId={toggleCurrentSongId}
-              isSongPlaying={isSongPlaying}
-              currentSongId={currentSongId}
-              stopPlayingSong={stopPlayingSong}
-            />
-          </Route>
-        </Switch>
+        <>
+          <AnimatePresence exitBeforeEnter>
+            <Switch location={location} key={location.pathname}>
+              <Route exact path="/">
+                <ArtistPage
+                  artists={artistData}
+                  updateTrack={updateTrack}
+                  stopPlayingSong={stopPlayingSong}
+                  togglePlayingSong={togglePlayingSong}
+                  toggleCurrentSongId={toggleCurrentSongId}
+                  isSongPlaying={isSongPlaying}
+                  currentSongId={currentSongId}
+                  saveSong={saveSong}
+                  savedSongs={savedSongs}
+                />
+              </Route>
+              <Route path="/favorites">
+                <SavedSongPage
+                  stopPlayingSongById={stopPlayingSongById}
+                  deleteSavedSong={deleteSavedSong}
+                  savedSongs={savedSongs}
+                  toggleCurrentSongId={toggleCurrentSongId}
+                  isSongPlaying={isSongPlaying}
+                  currentSongId={currentSongId}
+                  stopPlayingSong={stopPlayingSong}
+                />
+              </Route>
+            </Switch>
+          </AnimatePresence>
+          <Footer>
+            <Navigation onClick={stopPlayingSong} />
+          </Footer>
+        </>
       )}
     </Main>
   )
@@ -77,4 +88,10 @@ const Main = styled.main`
   &::-webkit-scrollbar {
     display: none;
   }
+`
+const Footer = styled.footer`
+  bottom: 30px;
+  left: 0;
+  position: fixed;
+  right: 0;
 `
