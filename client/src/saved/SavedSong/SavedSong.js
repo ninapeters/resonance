@@ -32,14 +32,18 @@ export default function SavedSong({
     <>
       {toBeDeleted || (
         <ListItem>
-          <ButtonPrepareToDelete
-            isRedIcon
-            id={id}
-            onClick={() => prepareToDelete(id)}
-            data-testid="prepare-delete-button"
-          >
-            <CrossIcon />
-          </ButtonPrepareToDelete>
+          <PrepareToDeleteContainer>
+            <Button
+              isNoCircle
+              isSmall
+              isRedIcon
+              id={id}
+              onClick={() => prepareToDelete(id)}
+              data-testid="prepare-delete-button"
+            >
+              <CrossIcon />
+            </Button>
+          </PrepareToDeleteContainer>
           <Content>
             <Artist>{artist}</Artist>
             <Song>{songTitle}</Song>
@@ -59,20 +63,23 @@ export default function SavedSong({
           <ConfirmationWrapper>
             <p>Do you want to delete {songTitle}?</p>
             <ConfirmationButtonWrapper>
-              <DeleteButton
+              <Button
+                isSmall
+                isRedIcon
                 id={id}
                 onClick={() => deleteSavedSong(id)}
                 data-testid="delete-button"
               >
                 <BinIcon />
-              </DeleteButton>
-              <ResetButton
+              </Button>
+              <Button
+                isSmall
                 id={id}
                 onClick={() => setToBeDeleted(false)}
                 data-testid="reset-button"
               >
                 <ResetIcon />
-              </ResetButton>
+              </Button>
             </ConfirmationButtonWrapper>
           </ConfirmationWrapper>
         </Container>
@@ -93,12 +100,13 @@ const ListItem = styled.li`
   grid-template-rows: auto;
   padding: 0 22px;
 `
-const ButtonPrepareToDelete = styled(Button)`
-  grid-row: 1/3;
-  grid-column-start: 1;
+const PrepareToDeleteContainer = styled.section`
+  box-shadow: var(--shadow-light);
   border-radius: 34px 10px 10px 34px;
-  height: 100%;
-  width: 48px;
+  display: grid;
+  grid-template-rows: auto;
+  padding: 4px 2px;
+  place-items: center;
 `
 const Content = styled.section`
   box-shadow: var(--shadow-light);
@@ -106,7 +114,7 @@ const Content = styled.section`
   display: grid;
   grid-template-columns: 80% auto;
   grid-template-rows: auto;
-  padding: 2px 4px 2px 12px;
+  padding: 4px 4px 4px 12px;
 `
 const Artist = styled.span`
   align-self: end;
@@ -146,14 +154,4 @@ const ConfirmationWrapper = styled.div`
 const ConfirmationButtonWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
-`
-const DeleteButton = styled(Button)`
-  height: 48px;
-  width: 48px;
-  fill: var(--cta-red);
-`
-const ResetButton = styled(Button)`
-  height: 48px;
-  width: 48px;
-  fill: var(--spotify-green);
 `

@@ -12,7 +12,7 @@ AudioButton.propTypes = {
 export default function AudioButton({ onClick, isSongPlaying, isSmall }) {
   const clickAnimation = {
     rest: { scale: 1 },
-    pressed: { scale: 0.7 },
+    pressed: { scale: 0.9 },
   }
 
   return (
@@ -35,9 +35,9 @@ const Button = styled(motion.button)`
   border-radius: 50%;
   box-shadow: ${(props) => (props.isSmall ? 'none' : 'var(--shadow-light)')};
   fill: var(--primary-regular);
-  height: ${(props) => (props.isSmall ? '48px' : '60px')};
-  padding: 14px;
-  width: ${(props) => (props.isSmall ? '48px' : '60px')};
+  height: ${(props) => (props.isSmall ? '52px' : '60px')};
+  padding: 16px;
+  width: ${(props) => (props.isSmall ? '52px' : '60px')};
   &:focus {
     outline: 0;
   }
