@@ -6,6 +6,7 @@ import { ReactComponent as SkipIcon } from './assets/skip.svg'
 import { ReactComponent as CrossIcon } from './assets/x.svg'
 import { ReactComponent as ResetIcon } from './assets/reset.svg'
 import { ReactComponent as BinIcon } from './assets/bin.svg'
+import { ReactComponent as ArrowIcon } from './assets/arrow.svg'
 
 export {
   PlayIcon,
@@ -16,4 +17,5 @@ export {
   CrossIcon,
   ResetIcon,
   BinIcon,
+  ArrowIcon,
 }
