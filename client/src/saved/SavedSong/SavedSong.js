@@ -96,7 +96,7 @@ export default function SavedSong({
 const ListItem = styled.li`
   display: grid;
   column-gap: 8px;
-  grid-template-columns: 48px auto;
+  grid-template-columns: 52px auto;
   grid-template-rows: auto;
   padding: 0 22px;
 `
