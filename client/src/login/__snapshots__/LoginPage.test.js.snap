@@ -38,7 +38,7 @@ exports[`LoginPage renders correctly 1`] = `
   box-shadow: var(--shadow-dark);
   color: var(--spotify-green);
   font-weight: 700;
-  padding: 6px 80px 8px;
+  padding: 6px 36px 8px;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -70,6 +70,7 @@ exports[`LoginPage renders correctly 1`] = `
         class="c4"
         data-testid="login-button"
         href="http://localhost:3001/login"
+        style="transform: none;"
       >
         Login with 
         <svg

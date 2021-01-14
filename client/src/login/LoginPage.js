@@ -1,4 +1,6 @@
 import styled from 'styled-components/macro'
+import { motion } from 'framer-motion'
+import { clickAnimation } from '../services/animationVariants'
 import { Logo, Spotify } from '../app/Logos/Logos'
 
 export default function LoginPage() {
@@ -11,7 +13,13 @@ export default function LoginPage() {
           <Logo />
         </LogoWrapper>
         <Content>
-          <LoginLink href={`${loginUrl}/login`} data-testid="login-button">
+          <LoginLink
+            variants={clickAnimation}
+            initial="rest"
+            whileTap="pressed"
+            href={`${loginUrl}/login`}
+            data-testid="login-button"
+          >
             Login with <SpotifyLogo />
           </LoginLink>
           <p>
@@ -49,13 +57,13 @@ const Content = styled.div`
     margin-top: 24px;
   }
 `
-const LoginLink = styled.a`
+const LoginLink = styled(motion.a)`
   background: var(--white);
   border-radius: 28px;
   box-shadow: var(--shadow-dark);
   color: var(--spotify-green);
   font-weight: 700;
-  padding: 6px 80px 8px;
+  padding: 6px 36px 8px;
   text-decoration: none;
 `
 const SpotifyLogo = styled(Spotify)`
