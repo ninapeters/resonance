@@ -32,7 +32,7 @@ export default function SavedSong({
     <>
       {toBeDeleted || (
         <ListItem>
-          <PrepareToDeleteContainer>
+          <PrepareToDeleteWrapper>
             <Button
               isNoCircle
               isSmall
@@ -43,7 +43,7 @@ export default function SavedSong({
             >
               <CrossIcon />
             </Button>
-          </PrepareToDeleteContainer>
+          </PrepareToDeleteWrapper>
           <Content>
             <Artist>{artist}</Artist>
             <Song>{songTitle}</Song>
@@ -100,7 +100,7 @@ const ListItem = styled.li`
   grid-template-rows: auto;
   padding: 0 22px;
 `
-const PrepareToDeleteContainer = styled.section`
+const PrepareToDeleteWrapper = styled.section`
   box-shadow: var(--shadow-light);
   border-radius: 34px 10px 10px 34px;
   display: grid;

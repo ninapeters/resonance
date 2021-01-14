@@ -125,20 +125,17 @@ exports[`SavedSong renders correctly 1`] = `
     <div
       class="c6"
     >
-      <div
+      <button
+        class="c7"
+        data-testid="audio-button"
         style="transform: none;"
       >
-        <button
-          class="c7"
-          data-testid="audio-button"
+        <svg
+          title="play"
         >
-          <svg
-            title="play"
-          >
-            play.svg
-          </svg>
-        </button>
-      </div>
+          play.svg
+        </svg>
+      </button>
     </div>
   </section>
 </li>
