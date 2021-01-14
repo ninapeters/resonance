@@ -18,7 +18,7 @@ describe('AudioButton', () => {
     expect(getByTitle('play')).toBeInTheDocument()
   })
 
-  it('calls handleClick with the correct id', () => {
+  it('calls onClick with the correct id', () => {
     const onClickMock = jest.fn()
     const { getByTestId } = render(
       <AudioButton onClick={() => onClickMock('a')} isSongPlaying={false} />

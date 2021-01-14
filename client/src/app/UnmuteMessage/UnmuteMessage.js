@@ -5,7 +5,8 @@ import { motion } from 'framer-motion'
 import { ArrowIcon } from '../Icons/Icons'
 
 UnmuteMessage.propTypes = {
-  children: PropTypes.string,
+  isShown: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 
 const variants = {
@@ -17,14 +18,19 @@ export default function UnmuteMessage() {
   const [isShown, setIsShown] = useState(true)
 
   return (
-    <MessageWrapper animate={isShown ? 'open' : 'closed'} variants={variants}>
-      <p onClick={() => setIsShown(false)}>Please unmute your device.</p>
+    <Message
+      onClick={() => setIsShown(false)}
+      data-testid="message"
+      animate={isShown ? 'open' : 'closed'}
+      variants={variants}
+    >
+      <p>Please unmute your device.</p>
       <Arrow />
-    </MessageWrapper>
+    </Message>
   )
 }
 
-const MessageWrapper = styled(motion.section)`
+const Message = styled(motion.section)`
   background: var(--white-transparent-min);
   border-radius: 20px;
   box-shadow: var(--shadow-light);
