@@ -142,6 +142,7 @@ exports[`ArtistPreview renders correctly 1`] = `
   >
     <button
       class="c6"
+      data-testid="skip-button"
       style="transform: none;"
     >
       <svg>
@@ -161,6 +162,7 @@ exports[`ArtistPreview renders correctly 1`] = `
     </button>
     <button
       class="c8"
+      data-testid="save-button"
       style="transform: none;"
     >
       <svg>

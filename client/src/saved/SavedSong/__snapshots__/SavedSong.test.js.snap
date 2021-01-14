@@ -102,6 +102,7 @@ exports[`SavedSong renders correctly 1`] = `
   >
     <button
       class="c2"
+      data-testid="prepare-delete-button"
       style="transform: none;"
     >
       <svg>

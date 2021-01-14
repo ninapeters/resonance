@@ -18,6 +18,7 @@ export default function Button({
   isRedIcon,
   isNoCircle,
   isSmall,
+  testId,
   children,
 }) {
   return (
@@ -30,6 +31,7 @@ export default function Button({
       isRedIcon={isRedIcon}
       isNoCircle={isNoCircle}
       isSmall={isSmall}
+      data-testid={`${testId}-button`}
     >
       {children}
     </ButtonStyled>

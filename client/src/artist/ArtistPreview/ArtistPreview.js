@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 import AudioButton from '../../app/AudioButton'
 import Button from '../../app/Button'
 import { SaveIcon, SkipIcon } from '../../app/Icons/Icons'
-import { useEffect } from 'react'
 
 ArtistPreview.propTypes = {
   artist: PropTypes.string.isRequired,
@@ -55,25 +55,19 @@ export default function ArtistPreview({
           <Song>{songTitle}</Song>
         </Content>
         <ButtonWrapper>
-          <Button
-            isRedIcon
-            id={id}
-            onClick={skipSong}
-            data-testid="skip-button"
-          >
+          <Button isRedIcon id={id} onClick={skipSong} testId="skip">
             <SkipIcon />
           </Button>
           <AudioButton
             onClick={togglePlayingSong}
             isSongPlaying={isSongPlaying && currentSongId === id}
             currentSongId={currentSongId}
-            data-testid="audio-button"
           />
           <Button
             id={id}
             onClick={() => saveSong(id)}
             disabled={savedSongs?.some((song) => song.id === id)}
-            data-testid="save-button"
+            testId="save"
           >
             <SaveIcon />
           </Button>

@@ -23,6 +23,7 @@ exports[`Button renders correctly 1`] = `
 
 <button
   class="c0"
+  data-testid="undefined-button"
   style="transform: none;"
 >
   <svg>

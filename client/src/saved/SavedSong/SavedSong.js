@@ -39,7 +39,7 @@ export default function SavedSong({
               isRedIcon
               id={id}
               onClick={() => prepareToDelete(id)}
-              data-testid="prepare-delete-button"
+              testId="prepare-delete"
             >
               <CrossIcon />
             </Button>
@@ -68,7 +68,7 @@ export default function SavedSong({
                 isRedIcon
                 id={id}
                 onClick={() => deleteSavedSong(id)}
-                data-testid="delete-button"
+                testId="delete"
               >
                 <BinIcon />
               </Button>
@@ -76,7 +76,7 @@ export default function SavedSong({
                 isSmall
                 id={id}
                 onClick={() => setToBeDeleted(false)}
-                data-testid="reset-button"
+                testId="reset"
               >
                 <ResetIcon />
               </Button>

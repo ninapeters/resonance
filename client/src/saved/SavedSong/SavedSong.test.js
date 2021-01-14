@@ -19,7 +19,7 @@ describe('SavedSong', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  xit('calls stopPlayingSongById with the correct id', () => {
+  it('calls stopPlayingSongById with the correct id', () => {
     const stopPlayingSongByIdMock = jest.fn()
     const { getByTestId } = render(
       <SavedSong
@@ -57,7 +57,7 @@ describe('SavedSong', () => {
     expect(toggleCurrentSongIdMock).toHaveBeenCalledWith('a')
   })
 
-  xit('has delete button', () => {
+  it('has delete button', () => {
     const { getByTestId } = render(
       <SavedSong
         stopPlayingSongById={() => {}}
@@ -74,7 +74,7 @@ describe('SavedSong', () => {
     expect(Button).toBeInTheDocument()
   })
 
-  xit('renders delete field', () => {
+  it('renders delete field', () => {
     const { getByTestId } = render(
       <SavedSong
         stopPlayingSongById={() => {}}
@@ -93,7 +93,7 @@ describe('SavedSong', () => {
     expect(getByTestId('delete-button')).toBeInTheDocument()
   })
 
-  xit("stops playing the current song, if it's the one to be deleted", () => {
+  it("stops playing the current song, if it's the one to be deleted", () => {
     const stopPlayingSongByIdMock = jest.fn()
     const { getByTestId } = render(
       <SavedSong

@@ -24,7 +24,7 @@ describe('ArtistPreview', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  xit('calls updateTrack correctly', () => {
+  it('calls updateTrack correctly', () => {
     const updateTrackMock = jest.fn()
     const { getByTestId } = render(
       <ArtistPreview
@@ -48,7 +48,7 @@ describe('ArtistPreview', () => {
     expect(updateTrackMock).toHaveBeenCalled()
   })
 
-  xit('calls stopPlayingSong correctly', () => {
+  it('calls stopPlayingSong correctly', () => {
     const stopPlayingSongMock = jest.fn()
     const { getByTestId } = render(
       <ArtistPreview
@@ -157,7 +157,7 @@ describe('ArtistPreview', () => {
     expect(getByTitle('pause')).toBeInTheDocument()
   })
 
-  xit('calls saveSong correctly', () => {
+  it('calls saveSong correctly', () => {
     const saveSongMock = jest.fn()
     const { getByTestId } = render(
       <ArtistPreview
