@@ -5,7 +5,7 @@ import { clickAnimation } from '../../services/animationVariants'
 import { PlayIcon, PauseIcon } from '../Icons/Icons'
 
 AudioButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   isSongPlaying: PropTypes.bool.isRequired,
   isSmall: PropTypes.bool,
 }

@@ -148,20 +148,17 @@ exports[`ArtistPreview renders correctly 1`] = `
         skip.svg
       </svg>
     </button>
-    <div
+    <button
+      class="c7"
+      data-testid="audio-button"
       style="transform: none;"
     >
-      <button
-        class="c7"
-        data-testid="audio-button"
+      <svg
+        title="play"
       >
-        <svg
-          title="play"
-        >
-          play.svg
-        </svg>
-      </button>
-    </div>
+        play.svg
+      </svg>
+    </button>
     <button
       class="c8"
       style="transform: none;"
