@@ -26,7 +26,6 @@ You can test the app in [this demo](https://resonance-app.herokuapp.com). It is 
 
 ![GitHub top language](https://img.shields.io/github/languages/top/ninapeters/capstone-project?color=%23679FBE)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ninapeters/resonance?color=%23679FBE)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ninapeters/capstone-project?color=%23B261A0)
 
 ## Tech Stack
 
@@ -34,14 +33,13 @@ You can test the app in [this demo](https://resonance-app.herokuapp.com). It is 
 - React Router
 - React Hooks
 - Howler.js
+- Framer Motion
 - Styled Components
-- PropTypes
 - Styleguidist
 - React Testing Library
 - JEST
 - Cypress
 - Node.js
-- Express
 
 **API Reference**
 

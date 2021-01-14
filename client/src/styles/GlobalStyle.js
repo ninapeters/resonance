@@ -24,7 +24,7 @@ body {
     --spotify-green: #08DA73;
     --spotify-green-transparent: #08DA73F2;
     --cta-red: #FF6262;
-    --shadow-light: 0 0 4px #1019334D;
+    --shadow-light: 0 0 4px #1019331F;
     --shadow-dark: 0 0 6px #23364399;
     --gradient-regular: linear-gradient(200deg, #A7669D 0%, #739EBB 40%);
     --gradient-light: linear-gradient(200deg, #907FAA  0%, #739EBB 60%);
