@@ -7,31 +7,32 @@ exports[`SavedSong renders correctly 1`] = `
   border-radius: 50%;
   box-shadow: none;
   fill: var(--primary-regular);
-  height: 48px;
-  padding: 14px;
-  width: 48px;
+  height: 52px;
+  padding: 16px;
+  width: 52px;
 }
 
 .c7:focus {
   outline: 0;
 }
 
-.c1 {
-  background: var(--white-transparent-min);
+.c2 {
+  background: transparent;
   border: none;
-  border-radius: 50%;
-  box-shadow: var(--shadow-light);
+  border-radius: 34px 10px 10px 34px;
+  box-shadow: none;
   fill: var(--cta-red);
-  height: 60px;
-  padding: 14px;
-  width: 60px;
+  height: 50px;
+  padding: 16px;
+  width: 50px;
 }
 
-.c1:disabled {
-  fill: var(--spotify-green);
+.c2:disabled {
+  background: var(--spotify-green-transparent);
+  fill: var(--white);
 }
 
-.c1:focus {
+.c2:focus {
   outline: 0;
 }
 
@@ -39,17 +40,18 @@ exports[`SavedSong renders correctly 1`] = `
   display: grid;
   -webkit-column-gap: 8px;
   column-gap: 8px;
-  grid-template-columns: 48px auto;
+  grid-template-columns: 52px auto;
   grid-template-rows: auto;
   padding: 0 22px;
 }
 
-.c2 {
-  grid-row: 1/3;
-  grid-column-start: 1;
+.c1 {
+  box-shadow: var(--shadow-light);
   border-radius: 34px 10px 10px 34px;
-  height: 100%;
-  width: 48px;
+  display: grid;
+  grid-template-rows: auto;
+  padding: 4px 2px;
+  place-items: center;
 }
 
 .c3 {
@@ -58,7 +60,7 @@ exports[`SavedSong renders correctly 1`] = `
   display: grid;
   grid-template-columns: 80% auto;
   grid-template-rows: auto;
-  padding: 2px 4px 2px 12px;
+  padding: 4px 4px 4px 12px;
 }
 
 .c4 {
@@ -95,15 +97,18 @@ exports[`SavedSong renders correctly 1`] = `
 <li
   class="c0"
 >
-  <button
-    class="c1 c2"
-    data-testid="prepare-delete-button"
-    id="a"
+  <section
+    class="c1"
   >
-    <svg>
-      x.svg
-    </svg>
-  </button>
+    <button
+      class="c2"
+      style="transform: none;"
+    >
+      <svg>
+        x.svg
+      </svg>
+    </button>
+  </section>
   <section
     class="c3"
   >
@@ -120,16 +125,20 @@ exports[`SavedSong renders correctly 1`] = `
     <div
       class="c6"
     >
-      <button
-        class="c7"
-        data-testid="audio-button"
+      <div
+        style="transform: none;"
       >
-        <svg
-          title="play"
+        <button
+          class="c7"
+          data-testid="audio-button"
         >
-          play.svg
-        </svg>
-      </button>
+          <svg
+            title="play"
+          >
+            play.svg
+          </svg>
+        </button>
+      </div>
     </div>
   </section>
 </li>

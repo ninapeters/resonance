@@ -5,22 +5,23 @@ import { clickAnimation } from '../../services/animationVariants'
 import { PlayIcon, PauseIcon } from '../Icons/Icons'
 
 AudioButton.propTypes = {
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   isSmall: PropTypes.bool,
 }
 
 export default function AudioButton({ onClick, isSongPlaying, isSmall }) {
   return (
-    <motion.div variants={clickAnimation} initial="rest" whileTap="pressed">
-      <Button onClick={onClick} data-testid="audio-button" isSmall={isSmall}>
-        {isSongPlaying ? (
-          <PauseIcon title="pause" />
-        ) : (
-          <PlayIcon title="play" />
-        )}
-      </Button>
-    </motion.div>
+    <Button
+      variants={clickAnimation}
+      initial="rest"
+      whileTap="pressed"
+      onClick={onClick}
+      isSmall={isSmall}
+      data-testid="audio-button"
+    >
+      {isSongPlaying ? <PauseIcon title="pause" /> : <PlayIcon title="play" />}
+    </Button>
   )
 }
 

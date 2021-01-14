@@ -5,35 +5,38 @@ import { clickAnimation } from '../../services/animationVariants'
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
-  isRedIcon: PropTypes.bool,
   disabled: PropTypes.bool,
+  isRedIcon: PropTypes.bool,
+  isNoCircle: PropTypes.bool,
+  isSmall: PropTypes.bool,
   children: PropTypes.element.isRequired,
 }
 
 export default function Button({
-  children,
-  isRedIcon,
-  disabled,
   onClick,
+  disabled,
+  isRedIcon,
   isNoCircle,
   isSmall,
+  children,
 }) {
   return (
-    <motion.div variants={clickAnimation} initial="rest" whileTap="pressed">
-      <ButtonStyled
-        onClick={onClick}
-        disabled={disabled}
-        isRedIcon={isRedIcon}
-        isNoCircle={isNoCircle}
-        isSmall={isSmall}
-      >
-        {children}
-      </ButtonStyled>
-    </motion.div>
+    <ButtonStyled
+      variants={clickAnimation}
+      initial="rest"
+      whileTap="pressed"
+      onClick={onClick}
+      disabled={disabled}
+      isRedIcon={isRedIcon}
+      isNoCircle={isNoCircle}
+      isSmall={isSmall}
+    >
+      {children}
+    </ButtonStyled>
   )
 }
 
-const ButtonStyled = styled.button`
+const ButtonStyled = styled(motion.button)`
   background: ${(props) =>
     props.isNoCircle ? 'transparent' : 'var(--white-transparent-min)'};
   border: none;

@@ -16,11 +16,38 @@ import { SaveIcon } from '../Icons/Icons'
 </Button>
 ```
 
-Delete button
+Skip button
+
+```jsx
+import { SkipIcon } from '../Icons/Icons'
+;<Button isRedIcon onClick={() => {}}>
+  <SkipIcon />
+</Button>
+```
+
+Prepare to delete button
 
 ```jsx
 import { CrossIcon } from '../Icons/Icons'
-;<Button isRedIcon onClick={() => {}}>
+;<Button isRedIcon isNoCircle onClick={() => {}}>
   <CrossIcon />
+</Button>
+```
+
+Delete button
+
+```jsx
+import { BinIcon } from '../Icons/Icons'
+;<Button isRedIcon onClick={() => {}}>
+  <BinIcon />
+</Button>
+```
+
+Reset button
+
+```jsx
+import { ResetIcon } from '../Icons/Icons'
+;<Button onClick={() => {}}>
+  <ResetIcon />
 </Button>
 ```

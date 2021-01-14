@@ -8,7 +8,7 @@ exports[`AudioButton renders correctly 1`] = `
   box-shadow: var(--shadow-light);
   fill: var(--primary-regular);
   height: 60px;
-  padding: 14px;
+  padding: 16px;
   width: 60px;
 }
 
@@ -19,6 +19,7 @@ exports[`AudioButton renders correctly 1`] = `
 <button
   class="c0"
   data-testid="audio-button"
+  style="transform: none;"
 >
   <svg
     title="play"
