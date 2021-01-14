@@ -19,6 +19,25 @@ describe('SavedSong', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
+  it('calls stopPlayingSongById with the correct id', () => {
+    const stopPlayingSongByIdMock = jest.fn()
+    const { getByTestId } = render(
+      <SavedSong
+        stopPlayingSongById={() => stopPlayingSongByIdMock('a')}
+        artist="Unprocessed"
+        songTitle="Real"
+        id="a"
+        deleteSavedSong={() => {}}
+        toggleCurrentSongId={() => {}}
+        isSongPlaying={false}
+        currentSongId="a"
+      />
+    )
+    const button = getByTestId('prepare-delete-button')
+    user.click(button)
+    expect(stopPlayingSongByIdMock).toHaveBeenCalledWith('a')
+  })
+
   it('calls toggleCurrentSongId with the correct id', () => {
     const toggleCurrentSongIdMock = jest.fn()
     const { getByTestId } = render(

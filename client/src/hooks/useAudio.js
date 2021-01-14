@@ -17,7 +17,7 @@ export default function useAudio({ artistData, savedSongs }) {
       format: ['mp3'],
       preload: true,
       autoplay: true,
-      volume: 0.2,
+      volume: 0.5,
       onend: function () {
         setIsSongPlaying(false)
       },
@@ -29,7 +29,7 @@ export default function useAudio({ artistData, savedSongs }) {
   useEffect(() => {
     if (isSongPlaying) {
       songRef.current.play()
-      songRef.current.fade(0, 0.2, 500)
+      songRef.current.fade(0, 0.5, 1000)
     } else {
       songRef.current.pause()
     }
@@ -55,11 +55,17 @@ export default function useAudio({ artistData, savedSongs }) {
     setIsSongPlaying(false)
   }
 
+  function togglePlayingSong() {
+    songRef.current.pause()
+    setIsSongPlaying(!isSongPlaying)
+  }
+
   return {
     toggleCurrentSongId,
     isSongPlaying,
     currentSongId,
     stopPlayingSongById,
     stopPlayingSong,
+    togglePlayingSong,
   }
 }

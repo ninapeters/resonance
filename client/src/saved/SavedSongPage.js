@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { motion } from 'framer-motion'
 import SavedSong from './SavedSong'
 import Header from '../app/Header'
-import Navigation from '../app/Navigation'
+import { pageTransition } from '../services/animationVariants'
 
 SavedSongPage.propTypes = {
   stopPlayingSongById: PropTypes.func.isRequired,
@@ -20,10 +21,14 @@ export default function SavedSongPage({
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
-  stopPlayingSong,
 }) {
   return (
-    <>
+    <motion.main
+      variants={pageTransition}
+      initial="initial"
+      animate="visible"
+      exit="exit"
+    >
       <HeaderFixed>Favorites</HeaderFixed>
       <List>
         {savedSongs?.map(({ artist, songTitle, id }) => (
@@ -40,10 +45,7 @@ export default function SavedSongPage({
           />
         ))}
       </List>
-      <Footer>
-        <Navigation onClick={stopPlayingSong} />
-      </Footer>
-    </>
+    </motion.main>
   )
 }
 
@@ -75,10 +77,4 @@ const List = styled.ul`
   &::-webkit-scrollbar {
     display: none;
   }
-`
-const Footer = styled.footer`
-  bottom: 30px;
-  left: 0;
-  position: fixed;
-  right: 0;
 `

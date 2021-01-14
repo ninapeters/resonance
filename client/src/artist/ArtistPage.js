@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { motion } from 'framer-motion'
 import ArtistPreview from './ArtistPreview'
 import UnmuteMessage from '../app/UnmuteMessage'
-import Navigation from '../app/Navigation'
+import { pageTransition } from '../services/animationVariants'
 
 ArtistPage.propTypes = {
   artists: PropTypes.array,
@@ -18,6 +19,7 @@ export default function ArtistPage({
   artists,
   updateTrack,
   stopPlayingSong,
+  togglePlayingSong,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
@@ -25,8 +27,15 @@ export default function ArtistPage({
   savedSongs,
 }) {
   return (
-    <PreviewWrapper>
-      <UnmuteMessage className="fixed-message" />
+    <motion.main
+      variants={pageTransition}
+      initial="initial"
+      animate="visible"
+      exit="exit"
+    >
+      <MessagePosition>
+        <UnmuteMessage />
+      </MessagePosition>
       <ListStyled>
         {artists?.map(({ artist, songTitle, image, songUrl, id }) => (
           <ArtistPreview
@@ -38,6 +47,7 @@ export default function ArtistPage({
             id={id}
             updateTrack={updateTrack}
             stopPlayingSong={stopPlayingSong}
+            togglePlayingSong={togglePlayingSong}
             toggleCurrentSongId={toggleCurrentSongId}
             isSongPlaying={isSongPlaying}
             currentSongId={currentSongId}
@@ -46,37 +56,24 @@ export default function ArtistPage({
           />
         ))}
       </ListStyled>
-      <Footer>
-        <Navigation onClick={stopPlayingSong} />
-      </Footer>
-    </PreviewWrapper>
+    </motion.main>
   )
 }
 
-const PreviewWrapper = styled.section`
-  &.fixed-message {
-    position: fixed;
-    top: 0;
-    z-index: 10;
-  }
+const MessagePosition = styled.div`
+  top: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 10;
 `
-
 const ListStyled = styled.ul`
-  display: flex;
-  flex-wrap: nowrap;
   height: 100vh;
   margin: 0;
-  overflow-x: scroll;
   padding: 0;
-  scroll-snap-type: x mandatory;
+  position: relative;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
   }
-`
-const Footer = styled.footer`
-  bottom: 30px;
-  left: 0;
-  position: fixed;
-  right: 0;
 `

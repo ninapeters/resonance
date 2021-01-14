@@ -1,16 +1,19 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 import AudioButton from '../../app/AudioButton'
 import Button from '../../app/Button'
 import { SaveIcon, SkipIcon } from '../../app/Icons/Icons'
-import { useEffect } from 'react'
 
 ArtistPreview.propTypes = {
   artist: PropTypes.string.isRequired,
   songTitle: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   image: PropTypes.string,
+  songUrl: PropTypes.string,
   updateTrack: PropTypes.func.isRequired,
+  stopPlayingSong: PropTypes.func,
+  togglePlayingSong: PropTypes.func,
   toggleCurrentSongId: PropTypes.func.isRequired,
   isSongPlaying: PropTypes.bool.isRequired,
   currentSongId: PropTypes.string,
@@ -26,6 +29,7 @@ export default function ArtistPreview({
   songUrl,
   updateTrack,
   stopPlayingSong,
+  togglePlayingSong,
   toggleCurrentSongId,
   isSongPlaying,
   currentSongId,
@@ -36,6 +40,7 @@ export default function ArtistPreview({
     if (songUrl === null) {
       updateTrack()
     }
+    toggleCurrentSongId(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [songUrl])
 
@@ -43,37 +48,31 @@ export default function ArtistPreview({
 
   return (
     <>
-      <ListItemStyled key={id}>
+      <Preview key={id}>
         <Cover src={image} alt="" />
         <Content>
           <ArtistName>{artist}</ArtistName>
           <Song>{songTitle}</Song>
         </Content>
         <ButtonWrapper>
-          <Button
-            isRedIcon
-            id={id}
-            onClick={skipSong}
-            data-testid="skip-button"
-          >
+          <Button isRedIcon id={id} onClick={skipSong} testId="skip">
             <SkipIcon />
           </Button>
           <AudioButton
-            onClick={() => toggleCurrentSongId(id)}
+            onClick={togglePlayingSong}
             isSongPlaying={isSongPlaying && currentSongId === id}
             currentSongId={currentSongId}
-            data-testid="audio-button"
           />
           <Button
             id={id}
             onClick={() => saveSong(id)}
             disabled={savedSongs?.some((song) => song.id === id)}
-            data-testid="save-button"
+            testId="save"
           >
             <SaveIcon />
           </Button>
         </ButtonWrapper>
-      </ListItemStyled>
+      </Preview>
     </>
   )
 
@@ -83,11 +82,12 @@ export default function ArtistPreview({
   }
 }
 
-const ListItemStyled = styled.li`
+const Preview = styled.li`
   display: grid;
   flex: 1 0 100%;
   grid-template-columns: 100%;
   grid-template-rows: 54vh auto;
+  height: 100vh;
   position: relative;
   row-gap: 46px;
   scroll-snap-align: start;

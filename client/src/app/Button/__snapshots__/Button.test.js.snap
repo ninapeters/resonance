@@ -6,14 +6,15 @@ exports[`Button renders correctly 1`] = `
   border: none;
   border-radius: 50%;
   box-shadow: var(--shadow-light);
-  fill: var(--spotify-green-transparent);
+  fill: var(--spotify-green);
   height: 60px;
-  padding: 14px;
+  padding: 16px;
   width: 60px;
 }
 
 .c0:disabled {
-  fill: var(--spotify-green);
+  background: var(--spotify-green-transparent);
+  fill: var(--white);
 }
 
 .c0:focus {
@@ -22,6 +23,8 @@ exports[`Button renders correctly 1`] = `
 
 <button
   class="c0"
+  data-testid="undefined-button"
+  style="transform: none;"
 >
   <svg>
     save.svg

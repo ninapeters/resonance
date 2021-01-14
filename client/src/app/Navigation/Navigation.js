@@ -6,16 +6,16 @@ export default function Navigation({ onClick }) {
   return (
     <NavWrapper>
       <NavBar>
-        <NavLinkStyled exact to="/" onClick={onClick} data-testid="link-home">
+        <NavigationLink exact to="/" onClick={onClick} data-testid="link-home">
           <HomeIcon />
-        </NavLinkStyled>
-        <NavLinkStyled
+        </NavigationLink>
+        <NavigationLink
           to="/favorites"
           onClick={onClick}
           data-testid="link-favorites"
         >
           <SaveIcon />
-        </NavLinkStyled>
+        </NavigationLink>
       </NavBar>
     </NavWrapper>
   )
@@ -36,7 +36,7 @@ const NavBar = styled.nav`
   justify-content: space-evenly;
   padding: 10px 50px 8px;
 `
-const NavLinkStyled = styled(NavLink)`
+const NavigationLink = styled(NavLink)`
   fill: var(--white-transparent-max);
   width: 28px;
   &.active {

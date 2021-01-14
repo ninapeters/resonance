@@ -1,5 +1,5 @@
 Unmute message:
 
 ```jsx
-<UnmuteMessage />
+<UnmuteMessage onClick={() => {}} isShown={true} />
 ```
