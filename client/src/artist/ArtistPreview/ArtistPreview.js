@@ -48,7 +48,7 @@ export default function ArtistPreview({
 
   return (
     <>
-      <ListItemStyled key={id}>
+      <Preview key={id}>
         <Cover src={image} alt="" />
         <Content>
           <ArtistName>{artist}</ArtistName>
@@ -78,7 +78,7 @@ export default function ArtistPreview({
             <SaveIcon />
           </Button>
         </ButtonWrapper>
-      </ListItemStyled>
+      </Preview>
     </>
   )
 
@@ -88,7 +88,7 @@ export default function ArtistPreview({
   }
 }
 
-const ListItemStyled = styled.li`
+const Preview = styled.li`
   display: grid;
   flex: 1 0 100%;
   grid-template-columns: 100%;
